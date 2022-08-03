@@ -1,0 +1,21 @@
+# This file tells git which files and folders should never be commited
+
+
+# NodeJS/npm files and folders
+node_modules
+package-lock.json
+yarn.lock
+
+# build output folders
+.parcel-cache
+.nyc_output
+coverage
+dist
+
+# system files
+.DS_Store
+*.log*
+
+# not used by this project
+cypress/fixtures
+cypress/videos

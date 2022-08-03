@@ -1,8 +1,10 @@
 # KKDZ Games
 
 ![Build & Test](https://github.com/se310-Team4/KKDZ/workflows/build_test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/se310-Team4/KKDZ/badge.svg?branch=main)](https://coveralls.io/github/se310-Team4/KKDZ?branch=main)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=coverage)](https://sonarcloud.io/summary/new_code?id=kkdz)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=kkdz)
 
 ## Project Overview
 

@@ -1,5 +1,9 @@
 # KKDZ Games
 
+![Build & Test](https://github.com/se310-Team4/KKDZ/workflows/build_test/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/se310-Team4/KKDZ/badge.svg?branch=main)](https://coveralls.io/github/se310-Team4/KKDZ?branch=main)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=kkdz)
+
 ## Project Overview
 
 KKDZ is a growing collection of for-fun mini-games. Each game takes around 5 - 30 minutes to play, making it the perfect option during study breaks, recreational time, or just to de-stress and take your mind off things.
@@ -47,8 +51,6 @@ However, you get a much better development experience by following these steps:
 
 - All code lives in the folder called [src](src). Tests are written using [cypress](https://docs.cypress.io), and are located in the folder called [cypress/e2e](cypress/e2e).
 <!-- TODO: document further -->
-
-Instructions to run this project locally coming soon …
 
 ## License
 

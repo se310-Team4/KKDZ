@@ -17,6 +17,7 @@ jobs:
       - name: 🛎️ Checkout
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
           persist-credentials: false
 
       - name: 🔢 Use Node.js ${{ matrix.node-version }}
@@ -33,13 +34,17 @@ jobs:
       - name: 🧪 Test
         run: |
           npm run test:ci
+          cat ./coverage/lcov.info
         env:
           CI: true
 
-      - name: 📈 Coverage
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔊 SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        # only run SonarCloud in the context of the main repo, not in forks
+        if: ${{ github.repository == 'se310-Team4/KKDZ' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: 🔧 Build
         run: |
@@ -47,12 +52,11 @@ jobs:
         env:
           CI: true
 
-      # if tests pass and we're on the mainline brand, deploy the client to the website
+      # if tests pass and we're on the mainline branch (and not in a forked repo), then deploy the client to the website
       - name: 🚀 Deploy
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        if: ${{ github.repository == 'se310-Team4/KKDZ' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          repository-name: se310-Team4.github.io
-          folder: dist
-          branch: main
+          folder: src
+          branch: gh-pages

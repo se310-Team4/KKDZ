@@ -83,4 +83,45 @@ describe('backspace', () => {
 		cy.get(`[data-col-index=0][data-row-index=0].tile`).first()
 			.should('have.text', '')
 	})
+
+	it('test backspace after enter', () => {
+		cy.get('body').type(word).type('{enter}').type('{backspace}')
+
+		cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`).first()
+			.should('have.text', 'E')
+		cy.get(`[data-col-index=0][data-row-index=1].tile`).first()
+			.should('have.text', '')
+	})
+})
+
+describe('enter', () => {
+	beforeEach(() => {
+		cy.visit("http://localhost:1234/liedle/index.html");
+	})
+
+	it('test enter valid word and type', () => {
+		cy.get('body').type(word).type('{enter}').type('S')
+
+		cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`).first()
+			.should('have.text', 'E')
+		cy.get(`[data-col-index=0][data-row-index=1].tile`).first()
+			.should('have.text', 'S')
+	})
+
+	it('test enter short word and type', () => {
+		cy.get('body').type('CAT').type('{enter}').type('S')
+
+		cy.get(`[data-col-index=3][data-row-index=0].tile`).first()
+			.should('have.text', 'S')
+	})
+
+	it('test enter word not in dictionary and type', () => {
+		cy.get('body').type('AAAAA').type('{enter}').type('S')
+
+		cy.get(`[data-col-index=0][data-row-index=1].tile`).first()
+			.should('have.text', '')
+		cy.get('body').type('{backspace}').type('{backspace}').type('S')
+		cy.get(`[data-col-index=3][data-row-index=0].tile`).first()
+			.should('have.text', 'S')
+	})
 })

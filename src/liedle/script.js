@@ -1,3 +1,4 @@
+const dictionary = ["stare", "doing", "lucky", "frame", "ratio", "ouija", "ready", "touch"]
 const NUM_ROWS = 8
 const NUM_COLS = 5
 let rowIndex = 0
@@ -46,7 +47,7 @@ function handleInput() {
 		if (key.length === 1 && e.key.match(/^[a-z]/i)) {
 			handleLetter(key)
 		} else if (e.key === "Enter") {
-			// TODO: handleEnter()
+			handleEnter()
 		} else if (e.key === "Backspace") {
 			handleBackspace()
 		}
@@ -71,6 +72,29 @@ function handleBackspace() {
 
 	colIndex--
 	updateTile("", colIndex, rowIndex, "empty")
+}
+
+// submit a valid word
+function handleEnter() {
+	const word = getWord()
+	if (isValidWord(word)) {
+		// reset cursor
+		colIndex = 0
+		rowIndex++
+	}
+}
+
+function getWord() {
+	const tiles = document.querySelectorAll(`[data-type="full"][data-row-index="${rowIndex}"].tile`)
+	let word = ""
+	for (const tile of tiles) {
+		word += tile.innerHTML
+	}
+	return word.toLowerCase()
+}
+
+function isValidWord(word) {
+	return (word.length == 5 && dictionary.includes(word));
 }
 
 start()

@@ -4,8 +4,12 @@ const NUM_COLS = 5
 let rowIndex = 0
 let colIndex = 0
 
+// global variable requried so the secret word can be changed from the tests
+window.secretWord = ''
+
 function start() {
 	createGrid()
+	pickSecretWord()
 	handleInput()
 }
 
@@ -37,6 +41,11 @@ function updateTile(letter, i, j, type) {
 	const tile = document.querySelector(`[data-col-index="${i}"][data-row-index="${j}"].tile`)
 	tile.innerHTML = letter
 	tile.dataset.type = type
+}
+
+// pick a random word from the dictionary
+function pickSecretWord() {
+	window.secretWord = dictionary[Math.floor(Math.random() * dictionary.length)]
 }
 
 // handles key presses from the user
@@ -78,6 +87,8 @@ function handleBackspace() {
 function handleEnter() {
 	const word = getWord()
 	if (isValidWord(word)) {
+		colourWord()
+
 		// reset cursor
 		colIndex = 0
 		rowIndex++
@@ -95,6 +106,28 @@ function getWord() {
 
 function isValidWord(word) {
 	return (word.length == 5 && dictionary.includes(word));
+}
+
+function colourWord() {
+	for (let i = 0; i < NUM_COLS; i++) {
+		const tile = document.querySelector(`[data-row-index="${rowIndex}"][data-col-index="${i}"].tile`)
+		colourLetter(tile)
+	}
+}
+
+function colourLetter(tile) {
+	let index = window.secretWord.indexOf(tile.innerHTML.toLowerCase())
+	switch (index) {
+		case -1:
+			tile.dataset.type = "wrong"
+			break
+		case parseInt(tile.dataset.colIndex):
+			tile.dataset.type = "right"
+			break
+		default:
+			tile.dataset.type = "right-letter"
+			break
+	}
 }
 
 start()

@@ -67,6 +67,8 @@ h1{
    line-height:1.5;
 }
 
+
+/*Game board display the grid and tiles */
  .game-board{
    margin-top:30px;
    border-radius: 10px;
@@ -74,7 +76,7 @@ h1{
    height:600px;
    display:flex;
    flex-wrap: wrap;
-   
+
    background-color:#bbada0;
 
  }

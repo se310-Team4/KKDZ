@@ -1,0 +1,10 @@
+/* basic CSS reset */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system,
+    BlinkMacSystemFont /** TODO: other fonts go here */, sans-serif;
+}

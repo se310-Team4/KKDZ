@@ -16,4 +16,11 @@ describe("the homepage", () => {
     cy.get('a[id="liedle-btn"]').click()
     cy.url().should('eq', 'http://localhost:1234/liedle/index.html')
   });
+
+  it("2048 Expert link redirects to its web page", () => {
+    cy.get('a[id="2048expert-btn"]').should("contain.text", "2048 Expert");
+    cy.get('a[id="2048expert-btn"]').click()
+    cy.url().should('eq', 'http://localhost:1234/2048-expert/index.html')
+  });
+
 });

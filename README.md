@@ -1,4 +1,4 @@
-# KKDZ Games
+# BrainGain
 
 ![Build & Test](https://github.com/se310-Team4/KKDZ/actions/workflows/build_test.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kkdz)
@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-KKDZ is a growing collection of for-fun mini-games. Each game takes around 5 - 30 minutes to play, making it the perfect option during study breaks, recreational time, or just to de-stress and take your mind off things.
+BrainGain is a growing collection of for-fun mini-games. Each game takes around 5 - 30 minutes to play, making it the perfect option during study breaks, recreational time, or just to de-stress and take your mind off things.
 
 This project is associated with the University of Auckland SOFTENG 310.
 

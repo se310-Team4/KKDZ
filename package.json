@@ -1,5 +1,5 @@
 {
-  "name": "kkdz",
+  "name": "braingain",
   "private": true,
   "scripts": {
     "prestart": "rimraf .parcel-cache .nyc_output coverage dist",

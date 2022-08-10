@@ -13,3 +13,14 @@ describe('initialise grid', () => {
       .should('have.attr', 'data-type', 'empty')
   })
 })
+
+describe('end game components', () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:1234/liedle/index.html");
+  })
+
+  it('end game messages hidden', () => {
+    cy.get('[id=end]')
+      .should('have.css', 'visibility', 'hidden')
+  })
+})

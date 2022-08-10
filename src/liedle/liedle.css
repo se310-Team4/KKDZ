@@ -69,3 +69,23 @@ body {
     color: white;
     border: none;
 }
+
+/* end game components */
+#end-message {
+    font-size: 32px;
+    margin: 4px;
+    text-align: center;
+}
+
+#end-message[data-result="win"] {
+    color: #6aaa64;
+}
+
+#end-message[data-result="lose"] {
+    color: #787c7e;
+}
+
+#word-reveal {
+    font-size: 16px;
+    margin: 4px;
+}

@@ -5,13 +5,14 @@
     "prestart": "rimraf .parcel-cache .nyc_output coverage dist",
     "start": "parcel src/index.html",
     "test": "cypress open",
-    "test:ci": "start-server-and-test start 1234 'cypress run && nyc report --reporter=lcov --reporter=text-summary --x'",
+    "test:ci": "start-server-and-test 'cross-env NODE_ENV=test npm start' 1234 'cypress run && nyc report --reporter=lcov --reporter=text-summary --x'",
     "build": "npm run prestart && parcel build src/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@cypress/code-coverage": "^3.10.0",
     "babel-plugin-istanbul": "^6.1.1",
+    "cross-env": "^7.0.3",
     "cypress": "^10.4.0",
     "nyc": "^15.1.0",
     "parcel": "^2.6.2",

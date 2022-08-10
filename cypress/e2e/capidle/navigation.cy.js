@@ -6,7 +6,7 @@ describe("capidle navigation", () => {
   });
 
   it("has a working back button", () => {
-    cy.get("nav > div:first-child() > a").click();
+    cy.get("core-navbar > div:first-child() > a").click();
 
     cy.url().should("eq", "http://localhost:1234/index.html");
   });

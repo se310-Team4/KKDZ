@@ -1,10 +1,18 @@
 # BrainGain
 
-![Build & Test](https://github.com/se310-Team4/KKDZ/actions/workflows/build_test.yml/badge.svg)
+![Build](https://github.com/se310-Team4/KKDZ/actions/workflows/build.yml/badge.svg)
+![Sonarcloud](https://github.com/se310-Team4/KKDZ/actions/workflows/sonarcloud.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=bugs)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=kkdz)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=coverage)](https://sonarcloud.io/summary/new_code?id=kkdz)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=kkdz)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=kkdz)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=kkdz&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=kkdz)
 
 ## Project Overview
 

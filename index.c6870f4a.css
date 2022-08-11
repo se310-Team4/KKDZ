@@ -1,0 +1,2 @@
+:root{--theme:#009688}*{margin:0;padding:0}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif}core-navbar{background:var(--theme);color:#fff;justify-content:space-between;font-size:x-large;display:flex}core-navbar a{color:#fff;text-decoration:none;transition:all .2s;display:inline-block}core-navbar a:hover,core-navbar a:active{transform:scale(1.4)}core-navbar>div{padding:8px}
+/*# sourceMappingURL=index.c6870f4a.css.map */

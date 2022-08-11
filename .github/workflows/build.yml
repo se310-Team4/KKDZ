@@ -42,7 +42,7 @@ jobs:
 
       - name: 🔧 Build
         run: |
-          npm run build
+          NODE_ENV=production npm run build
         env:
           CI: true
 
@@ -52,7 +52,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          folder: src
+          folder: dist
           branch: gh-pages
 
       - name: 🔊 Save PR number (for SonarCloud)

@@ -3,7 +3,7 @@ import { $ } from "./util";
 
 /* game state */
 window.guesses = [];
-window.answer = [];
+window.answer = null;
 
 /* register event listeners */
 

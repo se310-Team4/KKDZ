@@ -7,7 +7,7 @@ import { $, NUMBER_OF_GUESSES } from "./util";
  */
 export function render() {
   // if this is the first render, there won't be answer yet so we generate one
-  if (!window.answer) window.answer = generatePuzzle();
+  if (!window.answer) window.answer = generatePuzzle("nzCities");
 
   // this was the user's last guess
   const isGameOver = window.guesses.length === NUMBER_OF_GUESSES;

@@ -3,15 +3,24 @@ const NUM_ROWS = 8
 const NUM_COLS = 5
 let rowIndex = 0
 let colIndex = 0
+let isEndGame
 
 // global variables so they can be changed from the tests
 window.secretWord = ''
 window.lieRate = 0.08
 
 function start() {
+	isEndGame = false
 	createGrid()
+	hideEndSection()
 	pickSecretWord()
 	handleInput()
+}
+
+// hide end section containing win/lose UI components
+function hideEndSection() {
+	const endSection = document.getElementById('end')
+	endSection.style.visibility = "hidden"
 }
 
 // fill the grid with empty tiles
@@ -52,6 +61,10 @@ function pickSecretWord() {
 // handles key presses from the user
 function handleInput() {
 	document.addEventListener("keydown", function onEvent(e) {
+		if (isEndGame) {
+			return
+		}
+
 		const key = e.key
 		// regex matches any lowercase or uppercase english letter
 		if (key.length === 1 && e.key.match(/^[a-z]/i)) {
@@ -89,10 +102,6 @@ function handleEnter() {
 	const word = getWord()
 	if (isValidWord(word)) {
 		colourWord(word)
-
-		// reset cursor
-		colIndex = 0
-		rowIndex++
 	}
 }
 
@@ -118,6 +127,7 @@ function colourWord(word) {
 			colourLetter(tile)
 		}
 	}
+	checkEndGame(word)
 }
 
 function colourLetter(tile) {
@@ -152,5 +162,34 @@ function colourLetterFalsely(tile) {
 	}
 	tile.dataset.type = type
 }
+
+function checkEndGame(word) {
+	if (word === secretWord) {
+		handleEndGame(/*isWin =*/ true)
+	} else if (rowIndex >= NUM_ROWS - 1) {
+		handleEndGame(/*isWin =*/ false)
+	} else {
+		// reset cursor
+		colIndex = 0
+		rowIndex++
+	}
+}
+
+function handleEndGame(isWin) {
+	const endSection = document.getElementById('end')
+	const endMsg = document.getElementById('end-message')
+	const wordReveal = document.getElementById('word-reveal')
+	if (isWin) {
+		endMsg.innerHTML = "YOU WIN!"
+		endMsg.dataset.result = "win"
+	} else {
+		endMsg.innerHTML = "YOU LOSE"
+		endMsg.dataset.result = "lose"
+	}
+	wordReveal.innerHTML = `The secret word was ${secretWord.toUpperCase()}`
+	endSection.style.visibility = "visible"
+	isEndGame = true
+}
+
 
 start()

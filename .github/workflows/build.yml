@@ -54,3 +54,14 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           folder: src
           branch: gh-pages
+
+      - name: 🔊 Save PR number (for SonarCloud)
+        if: github.event_name == 'pull_request'
+        run: echo ${{ github.event.number }} > PR_NUMBER.txt
+
+      - name: 🔊 Upload PR number to GitHub Artifacts (for SonarCloud)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v3
+        with:
+          name: PR_NUMBER
+          path: PR_NUMBER.txt

@@ -2,6 +2,9 @@
 <html lang="en-NZ">
   <head>
     <title>BrainGain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" >
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
@@ -11,9 +14,63 @@
       <div><!-- future highscore button? --></div>
     </core-navbar>
 
-    <a id="capidle-btn" href="./capidle/index.html">Click here to visit Capidle </a>
-    <a id="liedle-btn" href="./liedle/index.html">Click here to visit Liedle </a>
-    <a id="2048expert-btn" href="./2048-expert/index.html">Click here to visit 2048 Expert </a>
+    <div id="center-info">
+      <img id="title-img" src="./images/placeholder.png" alt="example" class="title-img">
+      <div id="capidle-details" class="game-details">
+        <p>Capidle</p>
+      </div>
+      <div id="liedle-details" class="game-details">
+        <p>Liedle</p>
+      </div>
+      <div id="a2048expert-details" class="game-details">    
+        <p>2048 Expert</p>
+      </div>
+    </div>
+  
+
+    
+
+    <a id="capidle-btn" href="./capidle/index.html" class="games-button" onmouseenter="capidleDetails()" onmouseleave="titleShow()">
+      <img src="./images/placeholder.png" alt="example" class="game-button-img">
+      <p id="capidle-btn-text">Capidle</p>
+  
+    </a>
+    <a id="liedle-btn" href="./liedle/index.html" class="games-button" onmouseenter="liedleDetails()" onmouseleave="titleShow()">
+      <img src="./images/placeholder.png" alt="example" class="game-button-img">
+      <p id="liedle-btn-text">Liedle</p>
+  
+    </a>
+    <a id="a2048expert-btn" href="./2048-expert/index.html" class="games-button" onmouseenter="a2048ExpertDetails()" onmouseleave="titleShow()">
+      <img src="./images/placeholder.png" alt="example" class="game-button-img">
+      <p id="a2048expert-btn-text">2048 Expert</p>
+  
+    </a>
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
+<!-- TO MOVE -->
+<script>
+
+  function capidleDetails() {
+  document.getElementById("title-img").style.opacity = "0%";
+  document.getElementById("capidle-details").style.opacity = "100%";
+  }
+
+  function liedleDetails() {
+  document.getElementById("title-img").style.opacity = "0%";
+  document.getElementById("liedle-details").style.opacity = "100%";
+  }
+
+  function a2048ExpertDetails() {
+  document.getElementById("title-img").style.opacity = "0%";
+  document.getElementById("a2048expert-details").style.opacity = "100%";
+  }
+
+  function titleShow() {
+  document.getElementById("title-img").style.opacity = "100%";
+  document.getElementById("capidle-details").style.opacity = "0%";
+  document.getElementById("liedle-details").style.opacity = "0%";
+  document.getElementById("a2048expert-details").style.opacity = "0%";
+}
+</script>

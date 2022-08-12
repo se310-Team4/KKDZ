@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', ()=> {
-    console.log("this works properly")
     const gameBoard = document.querySelector('.game-board')
     const width = 6
     let cells = []
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     // generate number 2 or 4 randomlly
     function randomIntFromInterval() {
-        var rand = Math.floor(Math.random())
+        var rand = Math.random()
         return (rand > 0.5) ? 4 : 2
     }
 

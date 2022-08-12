@@ -25,11 +25,20 @@ body {
     display: grid;
 }
 
+/* 5 x 8 grid of tiles */
 #grid {
     grid-template-rows: repeat(8, 64px);
     grid-template-columns: repeat(5, 64px);
     margin: 24px;
 }
+
+/* 5 x 1 grid of tiles representing a word */
+#word-grid {
+    grid-template-rows: repeat(1, 48px);
+    grid-template-columns: repeat(5, 48px);
+    margin: 16px;
+}
+
 
 /* tiles and tile variations */
 .tile {
@@ -68,6 +77,12 @@ body {
     background-color: #787c7e;
     color: white;
     border: none;
+}
+
+.tile[data-size="small"] {
+    font-size: 24px;
+    border-radius: 4px;
+    margin: 2px;
 }
 
 /* end game components */

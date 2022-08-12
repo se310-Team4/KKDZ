@@ -7,7 +7,43 @@
 		<link rel="stylesheet" href="liedle.css">
 	</head>
 	<body>
+
+	<!-- Navigation bar with back and help links -->
     <core-navbar>Liedle</core-navbar>
+
+	<!-- Modal window with instructions on how to play -->
+	<core-modal>
+		<div class="modal-header">HOW TO PLAY LIEDLE</div>
+		<p class="modal-text">Guess the secret word in 8 guesses. 
+			<br> Type in a word and press the enter key to submit. 
+			<br> Each guess must be a 5-letter word. </p>
+		<div id="word-grid" class="grid">
+			<div data-size="small" data-type="wrong" class="tile">w</div>
+			<div data-size="small" data-type="right" class="tile">a</div>
+			<div data-size="small" data-type="right-letter" class="tile">t</div>
+			<div data-size="small" data-type="wrong" class="tile">e</div>
+			<div data-size="small" data-type="wrong" class="tile">r</div>
+		</div>
+		<p class="modal-text">The green tile shows that the letter A is in the right place. 
+			<br> The yellow tile shows that the letter T is in the word, but not in the right place.</p>
+		<div id="word-grid" class="grid">
+			<div data-size="small" data-type="right" class="tile">m</div>
+			<div data-size="small" data-type="right" class="tile">a</div>
+			<div data-size="small" data-type="wrong" class="tile">n</div>
+			<div data-size="small" data-type="right-letter" class="tile">g</div>
+			<div data-size="small" data-type="wrong" class="tile">o</div>
+		</div>
+		<div id="word-grid" class="grid">
+			<div data-size="small" data-type="right" class="tile">m</div>
+			<div data-size="small" data-type="right" class="tile">a</div>
+			<div data-size="small" data-type="wrong" class="tile">n</div>
+			<div data-size="small" data-type="wrong" class="tile">g</div>
+			<div data-size="small" data-type="wrong" class="tile">o</div>
+		</div>
+		<p class="modal-text">Is the letter G in the word? <br> Sometimes the game will lie about the tile colour! </p>
+	</core-modal>
+
+		<!-- Website content starts here -->
 		<div class="content">
 			<div class="header">Liedle</div>
 			<div id="grid" class="grid"></div>
@@ -16,7 +52,9 @@
 				<div data-result id="end-message">placeholder</div>
 				<div id="word-reveal">placeholder</div>
 		</div>
+		
     <script type="module" src="../main.js"></script>
-		<script type="module" src="script.js"></script>
+    <script type="module" src="../modal-script.js"></script>
+	<script type="module" src="script.js"></script>
 	</body>
 </html>

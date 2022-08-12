@@ -3,6 +3,7 @@ const word = "stare"
 describe('colour each letter based on if it matches the secret word', () => {
     beforeEach(() => {
         cy.visit("http://localhost:1234/liedle/index.html")
+        cy.get('[id=close-btn]').click()
         // override global variables for testing purposes
         cy.window().then((win) => {
             win.secretWord = word
@@ -30,6 +31,7 @@ describe('colour each letter based on if it matches the secret word', () => {
 describe('game has a chance of incorrectly colouring each letter', () => {
     beforeEach(() => {
         cy.visit("http://localhost:1234/liedle/index.html")
+        cy.get('[id=close-btn]').click()
         // override global variables for testing purposes
         cy.window().then((win) => {
             win.secretWord = word

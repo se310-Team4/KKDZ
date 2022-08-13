@@ -13,7 +13,7 @@ describe('initialise game board', () => {
   it('test number generated correctly', () => {
     cy.get('.game-board')
       .children('div')
-      .contains(/2|4/g)
+      .contains(/[2|4]/g)
   })
 
   

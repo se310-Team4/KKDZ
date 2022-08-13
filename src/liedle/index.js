@@ -1,9 +1,14 @@
 const dictionary = ["stare", "doing", "lucky", "frame", "ratio", "ouija", "ready", "touch"]
+const replayBtn = document.getElementById("replay")
 const NUM_ROWS = 8
 const NUM_COLS = 5
-let rowIndex = 0
-let colIndex = 0
+let rowIndex
+let colIndex
 let isEndGame
+
+replayBtn.onclick = function () {
+	resetGame()
+}
 
 // global variables so they can be changed from the tests
 window.secretWord = ''
@@ -12,9 +17,17 @@ window.lieRate = 0.08
 function start() {
 	isEndGame = false
 	createGrid()
+	resetGame()
+	handleInput()
+}
+
+function resetGame() {
+	isEndGame = false
+	rowIndex = 0
+	colIndex = 0
+	resetGrid()
 	hideEndSection()
 	pickSecretWord()
-	handleInput()
 }
 
 // hide end section containing win/lose UI components
@@ -29,6 +42,17 @@ function createGrid() {
 	for (let i = 0; i < NUM_ROWS; i++) {
 		for (let j = 0; j < NUM_COLS; j++) {
 			grid.appendChild(getTile(i, j))
+		}
+	}
+}
+
+// resets the text and colour of each tile
+function resetGrid() {
+	for (let i = 0; i < NUM_ROWS; i++) {
+		for (let j = 0; j < NUM_COLS; j++) {
+			const tile = document.querySelector(`[data-row-index="${i}"][data-col-index="${j}"].tile`)
+			tile.innerHTML = ""
+			tile.dataset.type = "empty"
 		}
 	}
 }

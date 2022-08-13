@@ -11,10 +11,15 @@
 
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="./capidle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      crossorigin
+    />
   </head>
   <body>
     <core-navbar>Capidle</core-navbar>
-    <div id="map">This will be the map</div>
+    <div id="map"></div>
     <main>
       <div id="guess-rows"></div>
       <div>
@@ -27,6 +32,10 @@
       </div>
     </main>
     <script type="module" src="../main.js"></script>
-    <script type="module" src="./script/core.js"></script>
+    <script type="module" src="./script/index.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      crossorigin
+    ></script>
   </body>
 </html>

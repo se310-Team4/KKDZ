@@ -5,6 +5,7 @@ const NUM_COLS = 5
 describe('end game', () => {
     beforeEach(() => {
         cy.visit('http://localhost:1234/liedle/index.html')
+        cy.get('[id=close-btn]').click()
         // override global variables for testing purposes
         cy.window().then((win) => {
             win.secretWord = word

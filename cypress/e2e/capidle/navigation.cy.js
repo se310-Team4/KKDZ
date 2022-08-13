@@ -2,7 +2,7 @@
 
 describe("capidle navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:1234/capidle");
+    cy.visit("http://localhost:1234/capidle?test");
   });
 
   it("has a working back button", () => {
@@ -11,7 +11,7 @@ describe("capidle navigation", () => {
     cy.url().should("eq", "http://localhost:1234/index.html");
   });
 
-  it("can navigate through a game", () => {
+  it("can navigate through a game and get to the game-failed page", () => {
     // currently there are 6 placeholder rows and 0 hint rows
     cy.get(".empty-guess").should("have.length", 6);
     cy.get(".guess").should("have.length", 0);
@@ -48,5 +48,18 @@ describe("capidle navigation", () => {
     // the game UI has been replaced by the results page
     cy.get("#guess-rows").should("not.exist");
     cy.get("main").should("have.text", "game over");
+  });
+
+  it("can make a correct guess and get to the game-succeeded page", () => {
+    // currently there are 6 placeholder rows
+    cy.get(".empty-guess").should("have.length", 6);
+
+    // type in the correct answer
+    cy.get("input[type=text]").type(" dUnediN    ");
+    cy.get("input[type=submit]").click();
+
+    // the game UI has been replaced by the results page
+    cy.get("#guess-rows").should("not.exist");
+    cy.get("main").should("have.text", "u win");
   });
 });

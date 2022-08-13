@@ -1,9 +1,5 @@
-import { render } from "./render";
+import { guesses, render } from "./render";
 import { $ } from "./util";
-
-/* game state */
-window.guesses = [];
-window.answer = null;
 
 /* register event listeners */
 
@@ -12,7 +8,7 @@ $("input[type=submit]").addEventListener("click", () => {
   const guess = $("input[type=text]").value.trim();
   if (!guess) return; // input field is blank, abort
 
-  window.guesses.push(guess);
+  guesses.push(guess);
   $("input[type=text]").value = "";
   render();
 });

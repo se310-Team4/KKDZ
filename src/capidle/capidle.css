@@ -29,7 +29,6 @@ body {
 /* the content used while the game is in progress */
 #map {
   grid-area: map;
-  background-color: #bae;
 }
 
 main {

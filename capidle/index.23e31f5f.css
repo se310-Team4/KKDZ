@@ -1,2 +1,0 @@
-html,body{height:100%}body{grid-template:"nav nav nav nav""map.main."1fr/50% 1fr auto 1fr;display:grid}@media only screen and (max-width:700px){body{grid-template:"nav""map"45vh"main"1fr/1fr}main{place-self:center}}#map{background-color:#bae;grid-area:map}main{max-width:300px;background-color:#0f0;grid-area:main;margin:16px}#guess-rows>div{justify-content:space-between;display:flex}.empty-guess,.guess{height:20px;background:#aaa;border-radius:4px;margin:4px}core-navbar{grid-area:nav}
-/*# sourceMappingURL=index.23e31f5f.css.map */

@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
     function generateNewTile() {
         let rand = Math.floor(Math.random() * cells.length)
         if (cells[rand].innerHTML == 0) {
-            cells[rand].innerHTML = randomIntFromInterval()
-        } else {// if a cell is already have a number then fine a new tile
+            cells[rand].innerHTML = randomNumTwoOrFour()
+        } else {// if a cell is already have a number then find a new tile
             generateNewTile()
         }
     }
 
     // generate number 2 or 4 randomlly
-    function randomIntFromInterval() {
+    function randomNumTwoOrFour() {
         let rand = Math.random()
         return (rand > 0.5) ? 4 : 2
     }

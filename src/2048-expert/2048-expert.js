@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', ()=> {
     const gameBoard = document.querySelector('.game-board')
-    const width = 6
+    const WIDTH = 6
     let cells = []
 
     // create the game board
     function createBoard() {
-        let totalCell = width * width
+        let totalCell = WIDTH * WIDTH
         for (let i = 0; i < totalCell; i++) {
             let cell = document.createElement('div')
             cells.innerHTML = 0
@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         return (rand > 0.5) ? 4 : 2
     }
 
+    //User actions
+    //Move up
 
 
 

@@ -5,14 +5,14 @@ describe('initialise game board', () => {
 
   it('test cells show successfully', () => {
     cy.get('.game-board')
-      .children('div')
+      .children('.cell')
       .should('have.length', 36)
   })
 
 
   it('test number generated correctly', () => {
     cy.get('.game-board')
-      .children('div')
+      .children('.cell')
       .contains(/[2|4]/g)
   })
 

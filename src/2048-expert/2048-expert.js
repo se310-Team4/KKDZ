@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         let totalCell = WIDTH * WIDTH
         for (let i = 0; i < totalCell; i++) {
             let cell = document.createElement('div')
+            cell.classList.add("cell")
             cells.innerHTML = 0
             gameBoard.appendChild(cell)
             cells.push(cell)

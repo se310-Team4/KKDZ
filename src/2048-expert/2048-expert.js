@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     // create the game board
     function createBoard() {
-        for (i = 0; i < width * width; i++) {
-            cell = document.createElement('div')
+        let totalCell = width * width
+        for (let i = 0; i < totalCell; i++) {
+            let cell = document.createElement('div')
             cells.innerHTML = 0
             gameBoard.appendChild(cell)
             cells.push(cell)
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     // generate number 2 or 4 randomlly
     function randomIntFromInterval() {
-        var rand = Math.random()
+        let rand = Math.random()
         return (rand > 0.5) ? 4 : 2
     }
 

@@ -60,13 +60,22 @@ core-navbar > div {
 
 .modal-window {
   padding: 24px;
-  margin-top: 80px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 80px auto 0;
   background-color: white;
+  max-width: 50%;
+  width: fit-content;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* on small screens, the modal can be wider than normal */
+@media only screen and (max-width: 700px) {
+  .modal-window {
+    max-width: 75%;
+  }
 }
 
 .modal-header {
@@ -84,9 +93,8 @@ core-navbar > div {
 
 #close-btn {
   color: #787c7e;
-  position: fixed;
-  top: 16px;
-  right: 24px;
+  float: right;
+  margin-top: -16px;
   font-size: 32px;
 }
 

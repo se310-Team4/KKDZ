@@ -79,3 +79,6 @@ Liedle is inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html)
 Capidle is inspired by [Flagle](https://flagle.io), [GeoGuessr](https://geoguessr.com) and [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 Replay button icon from [Font Awesome Icons](https://fontawesomeicons.com/svg/icons/arrow-clockwise)
+
+In Capidle, the aerial imagery is sourced from [Toitū Te Whenua Land Information New Zealand](https://linz.govt.nz/data/licensing-and-using-data/attributing-elevation-or-aerial-imagery-data), and licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0).
+The location of cities is sourced from [Wikidata](https://wikidata.org), licensed under [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0).

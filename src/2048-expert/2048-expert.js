@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < totalCell; i++) {
             let cell = document.createElement('div')
             cell.classList.add("cell")
+            cell.setAttribute('data-index',i)
             cells.innerHTML = 0
             gameBoard.appendChild(cell)
             cells.push(cell)
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return (rand > 0.5) ? 4 : 2
     }
 
-    
+
 
     //User actions
     //Move vertical

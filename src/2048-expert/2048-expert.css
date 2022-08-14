@@ -62,6 +62,14 @@ h1 {
    line-height: 1.5;
 }
 
+#new-btn{
+   height: 30px;
+   border-radius: 1px;
+   background-color: #bbada0;
+   color: #f5f5f5;
+   float: right;
+}
+
 
 /* Game board display the grid and tiles */
  .game-board {

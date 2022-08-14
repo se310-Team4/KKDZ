@@ -19,7 +19,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.gt', parseInt($before) - 1)
+                    .should('be.gt', -1)
             })
     })
 
@@ -34,7 +34,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.lt', parseInt($before) + 1)
+                    .should('be.lt', -1)
             })
     })
 
@@ -49,7 +49,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.lt', parseInt($before) + 1)
+                    .should('be.lt', -1)
             })
     })
 
@@ -64,7 +64,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.gt', parseInt($before) - 1)
+                    .should('be.gt', -1)
             })
     })
 

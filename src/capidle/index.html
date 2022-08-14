@@ -19,9 +19,35 @@
   </head>
   <body>
     <core-navbar>Capidle</core-navbar>
+
+    <!-- Modal window with instructions on how to play -->
+    <core-modal>
+      <div class="modal-header">HOW TO PLAY CAPIDLE</div>
+      <p class="modal-text">
+        The aim is to figure out which city (or town) is shown on the map.
+        <br />
+
+        If your guess is wrong, you will be given a hint:
+      </p>
+      <div class="modal-text">
+        <div class="guess-rows" style="max-width: 300px">
+          <div class="guess">
+            <span>Berlin</span>
+            <span>1,200km</span>
+            <span>↙️</span>
+          </div>
+        </div>
+      </div>
+      <p class="modal-text">
+        The hint tells you the how far away you are from<br />
+        the correct location, and in which compass direction.
+      </p>
+    </core-modal>
+
     <div id="map"></div>
+
     <main>
-      <div id="guess-rows"></div>
+      <div id="guess-rows" class="guess-rows"></div>
       <div>
         <input
           type="text"
@@ -31,6 +57,7 @@
         <input type="submit" value="Guess" />
       </div>
     </main>
+
     <script type="module" src="../main.js"></script>
     <script type="module" src="./script/index.js"></script>
     <script

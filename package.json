@@ -6,11 +6,12 @@
     "start": "parcel src/index.html",
     "test": "cypress open",
     "test:ci": "start-server-and-test 'cross-env NODE_ENV=test npm start' 1234 'cypress run && nyc report --reporter=lcov --reporter=text-summary --x'",
-    "build": "npm run prestart && parcel build src/index.html"
+    "build": "npm run prestart && parcel build src/index.html --public-url /KKDZ/"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@cypress/code-coverage": "^3.10.0",
+    "@types/leaflet": "^1.7.11",
     "babel-plugin-istanbul": "^6.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^10.4.0",

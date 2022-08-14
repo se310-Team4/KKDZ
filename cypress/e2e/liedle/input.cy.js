@@ -5,6 +5,7 @@ const NUM_COLS = 5
 describe('characters', () => {
 	beforeEach(() => {
 		cy.visit("http://localhost:1234/liedle/index.html");
+		cy.get('[id=close-btn]').click()
 	})
 
 	it('test letter', () => {
@@ -49,6 +50,7 @@ describe('characters', () => {
 describe('backspace', () => {
 	beforeEach(() => {
 		cy.visit("http://localhost:1234/liedle/index.html");
+		cy.get('[id=close-btn]').click()
 	})
 
 	it('test backspace after letter', () => {
@@ -97,6 +99,7 @@ describe('backspace', () => {
 describe('enter', () => {
 	beforeEach(() => {
 		cy.visit("http://localhost:1234/liedle/index.html");
+		cy.get('[id=close-btn]').click()
 	})
 
 	it('test enter valid word and type', () => {

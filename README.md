@@ -79,3 +79,5 @@ Liedle is inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html)
 Capidle is inspired by [Flagle](https://flagle.io), [GeoGuessr](https://geoguessr.com) and [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 Replay button icon from [Font Awesome Icons](https://fontawesomeicons.com/svg/icons/arrow-clockwise)
+
+Liedle word list [The Stanford GraphBase](https://www-cs-faculty.stanford.edu/~knuth/sgb.html)

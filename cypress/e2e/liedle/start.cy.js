@@ -50,3 +50,15 @@ describe('help window', () => {
       .should('have.css', 'display', 'block')
   })
 })
+
+describe('end game components', () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:1234/liedle/index.html");
+    cy.get('[id=close-btn]').click()
+  })
+
+  it('end game messages hidden', () => {
+    cy.get('[id=end]')
+      .should('have.css', 'visibility', 'hidden')
+  })
+})

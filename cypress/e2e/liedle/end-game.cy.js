@@ -55,9 +55,6 @@ describe('end game', () => {
 
 
         it('test lose messages', () => {
-            cy.window().then((win) => {
-                win.lieRate = 0.0
-            })
             for (let i = 0; i < NUM_ROWS; i++) {
                 cy.get('body').type('frame').type('{enter}')
             }
@@ -68,6 +65,40 @@ describe('end game', () => {
                 .should('have.text', 'The secret word was ' + word.toUpperCase())
         })
     })
+
+    describe('replay', () => {
+        it('test resets game', () => {
+            cy.get('body').type(word).type('{enter}').type('S')
+            cy.get('[id=replay]').click()
+
+            cy.get('[data-type=empty].tile').not(`[data-size=small]`)
+                .should('have.length', 40)
+
+            cy.get('[data-type=empty].tile').not(`[data-size=small]`).first()
+                .should('have.text', '')
+                .should('have.attr', 'data-type', 'empty')
+
+            cy.get('[data-type=empty].tile').not(`[data-size=small]`).last()
+                .should('have.text', '')
+                .should('have.attr', 'data-type', 'empty')
+
+            cy.get('[id=end]')
+                .should('have.css', 'visibility', 'hidden')
+
+            cy.get('[id=modal]')
+                .should('have.css', 'display', 'none')
+        })
+
+        it('test play game after reset', () => {
+            cy.get('body').type(word).type('{enter}')
+            cy.get('[id=replay]').click()
+            cy.get('body').type(word).type('{enter}')
+            cy.get('body').type('X')
+
+            cy.get(`[data-col-index=0][data-row-index=0].tile`).first()
+                .should('have.text', 'S')
+            cy.get(`[data-col-index=0][data-row-index=1].tile`).first()
+                .should('have.text', 'X')
+        })
+    })
 })
-
-

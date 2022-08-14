@@ -104,3 +104,17 @@ body {
     font-size: 16px;
     margin: 4px;
 }
+
+/* icons */
+
+.icon-group {
+    display: flex;
+    justify-content: center;
+}
+.icon {
+    fill: #787c7e;
+}
+
+.icon:hover {
+    fill: black;
+}

@@ -77,3 +77,5 @@ Liedle is inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html)
 2048 Expert is inspired by [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29)
 
 Capidle is inspired by [Flagle](https://flagle.io), [GeoGuessr](https://geoguessr.com) and [Wordle](https://www.nytimes.com/games/wordle/index.html)
+
+Replay button icon from [Font Awesome Icons](https://fontawesomeicons.com/svg/icons/arrow-clockwise)

@@ -9,7 +9,7 @@ class Navbar extends HTMLElement {
     this.innerHTML = `
       <div><a href="../index.html">⬅️</a></div>
       <div>${this.innerHTML}</div>
-      <div><a href="#">❔</a></div>
+      <div id="help-btn"><a href="#">❔</a></div>
     `;
   }
 }

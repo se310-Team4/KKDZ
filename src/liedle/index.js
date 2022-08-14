@@ -1,4 +1,5 @@
-const dictionary = ["stare", "doing", "lucky", "frame", "ratio", "ouija", "ready", "touch"]
+import { dictionary } from './dictionary.js'
+
 const replayBtn = document.getElementById("replay")
 const NUM_ROWS = 8
 const NUM_COLS = 5

@@ -6,7 +6,7 @@
     "start": "parcel src/index.html",
     "test": "cypress open",
     "test:ci": "start-server-and-test 'cross-env NODE_ENV=test npm start' 1234 'cypress run && nyc report --reporter=lcov --reporter=text-summary --x'",
-    "build": "npm run prestart && parcel build src/index.html"
+    "build": "npm run prestart && parcel build src/index.html --public-url /KKDZ/"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

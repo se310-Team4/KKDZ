@@ -29,6 +29,7 @@ body {
 /* the content used while the game is in progress */
 #map {
   grid-area: map;
+  z-index: 0;
 }
 
 main {
@@ -38,7 +39,7 @@ main {
   margin: 16px;
 }
 
-#guess-rows > div {
+.guess-rows > div {
   justify-content: space-between;
   display: flex;
 }

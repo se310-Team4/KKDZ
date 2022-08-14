@@ -27,30 +27,6 @@ describe('end game components', () => {
   })
 })
 
-describe('help window', () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:1234/liedle/index.html");
-  })
-
-  it('test help window shows', () => {
-    cy.get('[id=modal]')
-      .should('have.css', 'display', 'block')
-  })
-
-  it('test help window closes', () => {
-    cy.get('[id=close-btn]').click()
-    cy.get('[id=modal]')
-      .should('have.css', 'display', 'none')
-  })
-
-  it('test help window opens', () => {
-    cy.get('[id=close-btn]').click()
-    cy.get('[id=help-btn]').click()
-    cy.get('[id=modal]')
-      .should('have.css', 'display', 'block')
-  })
-})
-
 describe('end game components', () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/liedle/index.html");

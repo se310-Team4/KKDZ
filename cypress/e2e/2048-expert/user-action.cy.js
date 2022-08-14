@@ -34,7 +34,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.lt', -1)
+                    .should('be.lt', totalCell)
             })
     })
 
@@ -49,7 +49,7 @@ describe('test user actions', () => {
                 cy.get('.cell')
                     .contains(/[2|4]/g)
                     .invoke('data', 'index')
-                    .should('be.lt', -1)
+                    .should('be.lt', totalCell)
             })
     })
 

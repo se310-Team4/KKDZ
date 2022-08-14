@@ -92,11 +92,11 @@ describe('end game', () => {
         it('test play game after reset', () => {
             cy.get('body').type(word).type('{enter}')
             cy.get('[id=replay]').click()
-            cy.get('body').type(word).type('{enter}')
+            cy.get('body').type('frame').type('{enter}')
             cy.get('body').type('X')
 
             cy.get(`[data-col-index=0][data-row-index=0].tile`).first()
-                .should('have.text', 'S')
+                .should('have.text', 'F')
             cy.get(`[data-col-index=0][data-row-index=1].tile`).first()
                 .should('have.text', 'X')
         })

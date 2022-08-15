@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.querySelector('.game-board')
+    const current_score_Display = document.getElementById('current-score')
+    const best_score_Display = document.getElementById('best-score')
     const WIDTH = 6
     let cells = []
     let totalCell = WIDTH * WIDTH
+    let current_score = 0
+    let best_score = (getBestScore() === null) ? 0 : getBestScore()
 
     // create the game board
     function createBoard() {
@@ -17,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // intial 2 tiles at random place
         generateNewTile()
         generateNewTile()
+        best_score_Display.innerHTML = best_score
     }
-
 
 
     // generate number 2 or 4 at a random cell
@@ -146,6 +150,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //Merge Cells
+    //merge cells when user acts in right or left direction 
+    function mergeHorizontal() {
+        for (let i = 0; i < WIDTH; i++) {
+            for (let j = 0; j < (WIDTH - 1); j++){
+                let index = (WIDTH * i) + j
+                if (cells[index].innerHTML === cells[index + 1].innerHTML) {
+                    let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + 1].innerHTML)
+                    cells[index].innerHTML = merge
+                    cells[index + 1].innerHTML = 0
+                    updateScore(merge)
+                }
+            }
+        }
+    }
+
+    //merge cells when user acts in up and down direction
+    function mergeVertical() {
+        for ( let i = 0; i < WIDTH ; i++) {
+            for ( let j = 0; j < WIDTH - 1; j++) {
+                let index = (j * WIDTH) + i
+                if (cells[index].innerHTML === cells[index + WIDTH].innerHTML) {
+                    let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + WIDTH].innerHTML)
+                    cells[index].innerHTML = merge
+                    cells[index + WIDTH].innerHTML = 0
+                    updateScore(merge)
+                }
+            }
+        }
+    }
+
+
+    function updateScore(bonus){
+        current_score += bonus
+        current_score_Display.innerHTML = current_score
+        if (current_score > parseInt(best_score)) {
+            setBestScore(current_score)
+            best_score_Display.innerHTML = current_score
+        }
+    }
+
+    //Update Best Score 
+
     function control(e) {
         if (e.keyCode === 37) {
             keyUpLeft()
@@ -164,11 +211,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function keyUpLeft() {
         moveLeft()
+        mergeHorizontal()
+        moveLeft()
         generateNewTile()
         generateNewTile()
+
     }
 
     function keyUpRight() {
+        moveRight()
+        mergeHorizontal()
         moveRight()
         generateNewTile()
         generateNewTile()
@@ -176,11 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function keyUpUp() {
         moveUp()
+        mergeVertical()
+        moveUp()
         generateNewTile()
         generateNewTile()
     }
 
     function keyUpDown() {
+        moveDown()
+        mergeVertical()
         moveDown()
         generateNewTile()
         generateNewTile()
@@ -195,7 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //function clear Board
     function clearBoard() {
-        cells.forEach(cell => cell.innerHTML = "") 
+        cells.forEach(cell => cell.innerHTML = "")
+        current_score = 0
+        current_score_Display.innerHTML = 0
     }
     
     //clear board and start a new game when onclick new game button

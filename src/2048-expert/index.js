@@ -166,28 +166,24 @@ document.addEventListener('DOMContentLoaded', () => {
         moveLeft()
         generateNewTile()
         generateNewTile()
-        moveLeft()
     }
 
     function keyUpRight() {
         moveRight()
         generateNewTile()
         generateNewTile()
-        moveRight()
     }
 
     function keyUpUp() {
         moveUp()
         generateNewTile()
         generateNewTile()
-        moveUp()
     }
 
     function keyUpDown() {
         moveDown()
         generateNewTile()
         generateNewTile()
-        moveDown()
     }
 
     //function start new game

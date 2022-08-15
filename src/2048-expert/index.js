@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    //User actions
-    //Move vertical
+    // User actions
+    // Move vertical
     function moveDown() {
         // get cells of each row and update their value
         for (let i = 0; i < 6; i++) {
@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //Merge Cells
-    //merge cells when user acts in right or left direction 
+    // Merge Cells
+    // merge cells when user acts in right or left direction 
     function mergeHorizontal() {
         for (let i = 0; i < WIDTH; i++) {
             for (let j = 0; j < (WIDTH - 1); j++){
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //merge cells when user acts in up and down direction
+    // merge cells when user acts in up and down direction
     function mergeVertical() {
         for ( let i = 0; i < WIDTH ; i++) {
             for ( let j = 0; j < WIDTH - 1; j++) {
@@ -182,17 +182,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // update the current score
     function updateScore(bonus){
         current_score += bonus
         current_score_Display.innerHTML = current_score
-        if (current_score > parseInt(best_score)) {
+        if (current_score > parseInt(best_score)) {// if current score is greater then update best score
             setBestScore(current_score)
             best_score_Display.innerHTML = current_score
         }
     }
 
-    //Update Best Score 
-
+    // bind user action with key
     function control(e) {
         if (e.keyCode === 37) {
             keyUpLeft()
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             keyUpRight()
         } else if (e.keyCode === 40) {
             keyUpDown()
-        } else if (e.keyCode === 16) {//when enter key is up start a new game
+        } else if (e.keyCode === 16) {// when enter key is up start a new game
             newGame()
         }
     }

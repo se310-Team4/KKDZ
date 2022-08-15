@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",(()=>{const e=document.querySelector(".game-board");let n=[];function t(){let e=Math.floor(Math.random()*n.length);0==n[e].innerHTML?n[e].innerHTML=Math.random()>.5?4:2:t()}!function(){for(let t=0;t<36;t++){let t=document.createElement("div");t.classList.add("cell"),n.innerHTML=0,e.appendChild(t),n.push(t)}t(),t()}()}));
-//# sourceMappingURL=index.25f9035a.js.map

@@ -1,8 +1,6 @@
 const GAME_BOARD = document.querySelector('.game-board')
 const CURRENT_SCORE_DISPLAY = document.getElementById('current-score')
 const BEST_SCORE_DISPLAY = document.getElementById('best-score')
-// clear board and start a new game when onclick new game button
-const NEW_BTN = document.getElementById('new-btn')
 const WIDTH = 6
 let cells = []
 let totalCell = WIDTH * WIDTH
@@ -260,6 +258,9 @@ function clearBoard() {
 //intialize board
 createBoard()
 
+
+// clear board and start a new game when onclick new game button
+const NEW_BTN = document.getElementById('new-btn')
 NEW_BTN.onclick = function () {
     newGame()
 }

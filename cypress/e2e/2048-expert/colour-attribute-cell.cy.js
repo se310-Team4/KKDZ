@@ -9,7 +9,7 @@ describe('test colours attributes correctly', () => {
         cy.get('.cell').eq(1).invoke('text', 2)
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
-        cy.get('.cell').contains("4").should('have.attr', 'data-colour', '1')
+        cy.get('.cell').contains("4").should('have.attr', 'data-digits', '1')
     })
 
     it('test tile with number 8', () => {
@@ -18,7 +18,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("8").should('have.attr', 'data-colour', '1')
+        cy.get('.cell').contains("8").should('have.attr', 'data-digits', '1')
     })
 
     it('test tile with number 16', () => {
@@ -27,7 +27,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("16").should('have.attr', 'data-colour', '2')
+        cy.get('.cell').contains("16").should('have.attr', 'data-digits', '2')
     })
 
     it('test tile with number 32', () => {
@@ -36,7 +36,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("32").should('have.attr', 'data-colour', '2')
+        cy.get('.cell').contains("32").should('have.attr', 'data-digits', '2')
     })
 
     it('test tile with number 64', () => {
@@ -45,7 +45,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("64").should('have.attr', 'data-colour', '2')
+        cy.get('.cell').contains("64").should('have.attr', 'data-digits', '2')
     })
 
     it('test tile with number 128', () => {
@@ -54,7 +54,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("128").should('have.attr', 'data-colour', '3')
+        cy.get('.cell').contains("128").should('have.attr', 'data-digits', '3')
     })
 
     it('test tile with number 256', () => {
@@ -63,7 +63,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("256").should('have.attr', 'data-colour', '3')
+        cy.get('.cell').contains("256").should('have.attr', 'data-digits', '3')
     })
 
     it('test tile with number 512', () => {
@@ -72,7 +72,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("512").should('have.attr', 'data-colour', '3')
+        cy.get('.cell').contains("512").should('have.attr', 'data-digits', '3')
     })
     it('test tile with number 1024', () => {
         cy.get('.cell').eq(0).invoke('text', 512)
@@ -80,15 +80,7 @@ describe('test colours attributes correctly', () => {
 
         cy.get('body').trigger('keyup', { keyCode: 37 })
 
-        cy.get('.cell').contains("1024").should('have.attr', 'data-colour', '4')
+        cy.get('.cell').contains("1024").should('have.attr', 'data-digits', '4')
     })
 
-    it('test tile with number 2048', () => {
-        cy.get('.cell').eq(0).invoke('text', 1024)
-        cy.get('.cell').eq(1).invoke('text', 1024)
-
-        cy.get('body').trigger('keyup', { keyCode: 37 })
-
-        cy.get('.cell').contains("2048").should('have.attr', 'data-colour', '4')
-    })
 })

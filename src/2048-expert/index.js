@@ -13,7 +13,7 @@ function createBoard() {
         let cell = document.createElement('div')
         cell.classList.add("cell")
         cell.setAttribute('data-index', i)
-        cell.setAttribute('data-colour', 0)
+        cell.setAttribute('data-digits', 0)
         cells.innerHTML = 0
         gameBoard.appendChild(cell)
         cells.push(cell)
@@ -35,6 +35,12 @@ function generateNewTile() {
 function randomNumTwoOrFour() {
     let rand = Math.random()
     return (rand > 0.5) ? 4 : 2
+}
+
+// generate two new tile at once
+function generateTwoNewTile() {
+    generateNewTile()
+    generateNewTile()
 }
 
 
@@ -211,8 +217,7 @@ function keyUpLeft() {
     moveLeft()
     mergeHorizontal()
     moveLeft()
-    generateNewTile()
-    generateNewTile()
+    generateTwoNewTile()
     addColours()
 
 }
@@ -221,8 +226,7 @@ function keyUpRight() {
     moveRight()
     mergeHorizontal()
     moveRight()
-    generateNewTile()
-    generateNewTile()
+    generateTwoNewTile()
     addColours()
 }
 
@@ -230,8 +234,7 @@ function keyUpUp() {
     moveUp()
     mergeVertical()
     moveUp()
-    generateNewTile()
-    generateNewTile()
+    generateTwoNewTile()
     addColours()
 }
 
@@ -239,8 +242,7 @@ function keyUpDown() {
     moveDown()
     mergeVertical()
     moveDown()
-    generateNewTile()
-    generateNewTile()
+    generateTwoNewTile()
     addColours()
 }
 
@@ -271,18 +273,17 @@ function checkLost() {
 
 // function start new game
 function newGame() {
-    clearBoard()
-    generateNewTile()
-    generateNewTile()
+    resetGame()
+    generateTwoNewTile()
     addColours()
 }
 
 
-// function clear Board
-function clearBoard() {
+// Reset the cells and scores
+function resetGame() {
     cells.forEach(cell => {
-    cell.innerHTML = ""
-    cell.setAttribute('data-colour', 0)
+        cell.innerHTML = ""
+        cell.setAttribute('data-digits', 0)
     })
     currentScore = 0
     currentScoreDisplay.innerHTML = 0
@@ -291,53 +292,57 @@ function clearBoard() {
 // Add colour 
 function addColours() {
     for (let i = 0; i < totalCell; i++) {
-        if (cells[i].innerHTML == 0) {
-            cells[i].style.backgroundColor = '#afa184'
-            cells[i].setAttribute('data-colour', 0)
-        }
-        else if (cells[i].innerHTML == 2) {
-            cells[i].style.backgroundColor = '#eee4ea'
-            cells[i].setAttribute('data-colour', 1)
-        }
-        else if (cells[i].innerHTML == 4) {
-            cells[i].style.backgroundColor = '#ede2c8'
-            cells[i].setAttribute('data-colour', 1)
-        }
-        else if (cells[i].innerHTML == 8) {
-            cells[i].style.backgroundColor = '#f2b179'
-            cells[i].setAttribute('data-colour', 1)
-        }
-        else if (cells[i].innerHTML == 16) {
-            cells[i].style.backgroundColor = '#ffceaa'
-            cells[i].setAttribute('data-colour', 2)
-        }
-        else if (cells[i].innerHTML == 32) {
-            cells[i].style.backgroundColor = '#e8c083'
-            cells[i].setAttribute('data-colour', 2)
-        }
-        else if (cells[i].innerHTML == 64) {
-            cells[i].style.backgroundColor = '#ffab6e'
-            cells[i].setAttribute('data-colour', 2)
-        }
-        else if (cells[i].innerHTML == 128) {
-            cells[i].style.backgroundColor = '#fd9787'
-            cells[i].setAttribute('data-colour', 3)
-        }
-        else if (cells[i].innerHTML == 256) {
-            cells[i].style.backgroundColor = '#eah89c'
-            cells[i].setAttribute('data-colour', 3)
-        }
-        else if (cells[i].innerHTML == 512) {
-            cells[i].style.backgroundColor = '#76daff'
-            cells[i].setAttribute('data-colour', 3)
-        }
-        else if (cells[i].innerHTML == 1024) {
-            cells[i].style.backgroundColor = '#beeaab'
-            cells[i].setAttribute('data-colour', 4)
-        }
-        else if (cells[i].innerHTML == 2048) {
-            cells[i].style.backgroundColor = '#d7d0f0'
-            cells[i].setAttribute('data-colour', 4)
+        let number = cells[i].innerHTML
+        switch (number) {
+            case "":
+            case "0":
+                cells[i].style.backgroundColor = '#afa184'
+                cells[i].setAttribute('data-digits', 1)
+                break;
+            case "2":
+                cells[i].style.backgroundColor = '#eee4ea'
+                cells[i].setAttribute('data-digits', 1)
+                break;
+            case "4":
+                cells[i].style.backgroundColor = '#ede2c8'
+                cells[i].setAttribute('data-digits', 1)
+                break;
+            case "8":
+                cells[i].style.backgroundColor = '#f2b179'
+                cells[i].setAttribute('data-digits', 1)
+                break;
+            case "16":
+                cells[i].style.backgroundColor = '#ffceaa'
+                cells[i].setAttribute('data-digits', 2)
+                break;
+            case "32":
+                cells[i].style.backgroundColor = '#e8c083'
+                cells[i].setAttribute('data-digits', 2)
+                break;
+            case "64":
+                cells[i].style.backgroundColor = '#ffab6e'
+                cells[i].setAttribute('data-digits', 2)
+                break;
+            case "128":
+                cells[i].style.backgroundColor = '#fd9787'
+                cells[i].setAttribute('data-digits', 3)
+                break;
+            case "256":
+                cells[i].style.backgroundColor = '#eah89c'
+                cells[i].setAttribute('data-digits', 3)
+                break;
+            case "512":
+                cells[i].style.backgroundColor = '#76daff'
+                cells[i].setAttribute('data-digits', 3)
+                break
+            case "1024":
+                cells[i].style.backgroundColor = '#beeaab'
+                cells[i].setAttribute('data-digits', 4)
+                break;
+            case "2048":
+                cells[i].style.backgroundColor = '#d7d0f0'
+                cells[i].setAttribute('data-digits', 4)
+                break;
         }
     }
 }
@@ -346,8 +351,7 @@ function addColours() {
 
 // Start game with intialize board and generate 2 tiles at random place
 createBoard()
-generateNewTile()
-generateNewTile()
+generateTwoNewTile()
 addColours()
 bestScoreDisplay.innerHTML = bestScore
 

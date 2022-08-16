@@ -98,20 +98,16 @@ h1 {
  }
 
  /* add colour to cells */
- [data-colour="0"] {
+ [data-digits="1"] {
    font-size: 60px;
  }
 
- [data-colour="1"] {
-   font-size: 60px;
- }
-
- [data-colour="2"] {
+ [data-digits="2"] {
    font-size: 48px;
  }
- [data-colour="3"] {
+ [data-digits="3"] {
    font-size: 36px;
  }
- [data-colour="4"] {
+ [data-digits="4"] {
    font-size: 32px;
  }

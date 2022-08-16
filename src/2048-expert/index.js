@@ -1,5 +1,5 @@
 const gameBoard = document.querySelector('.game-board')
-const ccurrentScoreDisplay  = document.getElementById('current-score')
+const currentScoreDisplay = document.getElementById('current-score')
 const bestScoreDisplay = document.getElementById('best-score')
 const WIDTH = 6
 let cells = []
@@ -17,10 +17,6 @@ function createBoard() {
         gameBoard.appendChild(cell)
         cells.push(cell)
     }
-    // intial 2 tiles at random place
-    generateNewTile()
-    generateNewTile()
-    bestScoreDisplay.innerHTML = bestScore
 }
 
 
@@ -30,6 +26,7 @@ function generateNewTile() {
     if (cells[rand].innerHTML == 0) {
         cells[rand].innerHTML = randomNumTwoOrFour()
     } else {// if a cell is already have a number then find a new tile
+        checkLost()
         generateNewTile()
     }
 }
@@ -149,7 +146,7 @@ function moveLeft() {
     }
 }
 
-// Merge Cells
+// Merge Cells and check Win state when merge are all set
 // merge cells when user acts in right or left direction 
 function mergeHorizontal() {
     for (let i = 0; i < WIDTH; i++) {
@@ -159,10 +156,11 @@ function mergeHorizontal() {
                 let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + 1].innerHTML)
                 cells[index].innerHTML = merge
                 cells[index + 1].innerHTML = 0
-                updateScore(merge)
+                updateScores(merge)
             }
         }
     }
+    checkWin()
 }
 
 // merge cells when user acts in up and down direction
@@ -174,17 +172,18 @@ function mergeVertical() {
                 let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + WIDTH].innerHTML)
                 cells[index].innerHTML = merge
                 cells[index + WIDTH].innerHTML = 0
-                updateScore(merge)
+                updateScores(merge)
             }
         }
     }
+    checkWin()
 }
 
 
-// update the current score
-function updateScore(bonus) {
+// update the current and best score
+function updateScores(bonus) {
     currentScore += bonus
-    ccurrentScoreDisplay .innerHTML = currentScore
+    currentScoreDisplay.innerHTML = currentScore
     if (currentScore > parseInt(bestScore)) {// if current score is greater then update best score
         setBestScore(currentScore)
         bestScoreDisplay.innerHTML = currentScore
@@ -241,22 +240,50 @@ function keyUpDown() {
     generateNewTile()
 }
 
-//function start new game
+// check Win condition when 2048 is generated
+function checkWin() {
+    for (let i = 0; i < totalCell; i++) {
+        if (cells[i].innerHTML == 2048) {
+            alert("\t\t You win! \n Your score is " + currentScore)
+            newGame()
+        }
+    }
+}
+
+// check lost if all cells are not empty
+function checkLost() {
+    let numEmptyCells = 0
+    for (let i = 0; i < totalCell; i++) {
+        if (cells[i].innerHTML == 0) {
+            numEmptyCells++
+        }
+    }
+    if (numEmptyCells == 0) {
+        alert("\t\t You Lost\n Your score is " + currentScore)
+        newGame()
+    }
+}
+
+// function start new game
 function newGame() {
     clearBoard()
     generateNewTile()
     generateNewTile()
 }
 
-//function clear Board
+// Reset Current Score and reset all values to 0
 function clearBoard() {
     cells.forEach(cell => cell.innerHTML = "")
     currentScore = 0
-    ccurrentScoreDisplay .innerHTML = 0
+    currentScoreDisplay.innerHTML = 0
 }
 
-//intialize board
+
+// Start game with intialize board and generate 2 tiles at random place
 createBoard()
+generateNewTile()
+generateNewTile()
+bestScoreDisplay.innerHTML = bestScore
 
 
 // clear board and start a new game when onclick new game button

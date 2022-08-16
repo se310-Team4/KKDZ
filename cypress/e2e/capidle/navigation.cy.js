@@ -31,8 +31,8 @@ describe("capidle navigation", () => {
 
     // prettier-ignore
     cy.get("main .guess > span:first-child()").should("have.text", "Lower Hutt");
-    cy.get("main .guess > span:nth-child(2)").should("have.text", "1,200km");
-    cy.get("main .guess > span:last-child()").should("have.text", "↗️");
+    cy.get("main .guess > span:nth-child(2)").should("have.text", "628 km");
+    cy.get("main .guess > span:last-child()").should("have.text", "↙️");
 
     // make 4 more guesses, so we only have 1 guess remaining
     for (let i = 0; i < 4; i += 1) {
@@ -50,7 +50,7 @@ describe("capidle navigation", () => {
 
     // the game UI has been replaced by the results page
     cy.get("#guess-rows").should("not.exist");
-    cy.get("main").should("have.text", "game over");
+    cy.get("main").should("contain.text", "❌");
   });
 
   it("can make a correct guess and get to the game-succeeded page", () => {
@@ -63,6 +63,11 @@ describe("capidle navigation", () => {
 
     // the game UI has been replaced by the results page
     cy.get("#guess-rows").should("not.exist");
-    cy.get("main").should("have.text", "u win");
+    cy.get("main").should("contain.text", "✅");
+
+    // click the "play again" button
+    cy.get("main button").click();
+    cy.get(".answer").should("not.exist");
+    cy.get("#guess-rows").should("exist");
   });
 });

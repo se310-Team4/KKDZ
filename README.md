@@ -60,7 +60,6 @@ However, you get a much better development experience by following these steps:
 ## Architecture
 
 - All code lives in the folder called [src](src). Tests are written using [cypress](https://docs.cypress.io), and are located in the folder called [cypress/e2e](cypress/e2e).
-<!-- TODO: document further -->
 
 ## License
 

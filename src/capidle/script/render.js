@@ -1,5 +1,11 @@
 import { gameModes, generatePuzzle } from "./puzzle";
-import { $, GAME_MODE, NUMBER_OF_GUESSES } from "./util";
+import {
+  $,
+  GAME_MODE,
+  NUMBER_OF_GUESSES,
+  distanceBetween,
+  directionBetween,
+} from "./util";
 
 /** @type {L.Map} */
 let map;
@@ -38,20 +44,28 @@ function renderGameUi() {
       // for each row, either render the guess, or an empty slot
       const guess = guesses[i];
 
-      // TODO: these would be calculated dynamically
-      const [hintDistance, hintDirection] = ["1,200km", "↗️"];
+      if (!guess) return `<div class="empty-guess"></div>`;
 
-      return guess
-        ? `
+      const hintDistance = distanceBetween(
+        guess.lat,
+        guess.lng,
+        answer.lat,
+        answer.lng
+      );
+      const hintDirection = directionBetween(
+        guess.lat,
+        guess.lng,
+        answer.lat,
+        answer.lng
+      );
+
+      return `
             <div class="guess">
               <span>${guess.names.en}</span>
-              <span>${hintDistance}</span>
+              <span>${Math.round(hintDistance)} km</span>
               <span>${hintDirection}</span>
             </div>
-          `
-        : `
-            <div class="empty-guess"></div>
-          `;
+      `;
     })
     .join("");
 
@@ -87,6 +101,16 @@ function renderGameUi() {
 
 /** @param {boolean} successful - whether the user solved the puzzle */
 function renderResultsUi(successful) {
-  // TODO: properly design this page
-  $("main").innerHTML = successful ? "u win" : "game over";
+  const link = `https://google.com/maps?q=${answer.names.en},+NZ`;
+
+  $("main").innerHTML = `
+    <div class="answer">
+      <span>${successful ? "✅" : "❌"}</span>
+      <div>${successful ? "Correct!" : "Game Over!<br />The Answer was:"}</div>
+      <a href="${link}" target="_blank" rel="noopener noreferrer">
+        ${answer.names.en}
+      </a>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+  `;
 }

@@ -1,5 +1,5 @@
 const gameBoard = document.querySelector('.game-board')
-const ccurrentScoreDisplay  = document.getElementById('current-score')
+const ccurrentScoreDisplay = document.getElementById('current-score')
 const bestScoreDisplay = document.getElementById('best-score')
 const WIDTH = 6
 let cells = []
@@ -13,6 +13,7 @@ function createBoard() {
         let cell = document.createElement('div')
         cell.classList.add("cell")
         cell.setAttribute('data-index', i)
+        cell.setAttribute('data-colour', 0)
         cells.innerHTML = 0
         gameBoard.appendChild(cell)
         cells.push(cell)
@@ -184,7 +185,7 @@ function mergeVertical() {
 // update the current score
 function updateScore(bonus) {
     currentScore += bonus
-    ccurrentScoreDisplay .innerHTML = currentScore
+    ccurrentScoreDisplay.innerHTML = currentScore
     if (currentScore > parseInt(bestScore)) {// if current score is greater then update best score
         setBestScore(currentScore)
         bestScoreDisplay.innerHTML = currentScore
@@ -214,6 +215,7 @@ function keyUpLeft() {
     moveLeft()
     generateNewTile()
     generateNewTile()
+    addColours()
 
 }
 
@@ -223,6 +225,7 @@ function keyUpRight() {
     moveRight()
     generateNewTile()
     generateNewTile()
+    addColours()
 }
 
 function keyUpUp() {
@@ -231,6 +234,7 @@ function keyUpUp() {
     moveUp()
     generateNewTile()
     generateNewTile()
+    addColours()
 }
 
 function keyUpDown() {
@@ -239,24 +243,80 @@ function keyUpDown() {
     moveDown()
     generateNewTile()
     generateNewTile()
+    addColours()
 }
 
-//function start new game
+// function start new game
 function newGame() {
     clearBoard()
     generateNewTile()
     generateNewTile()
 }
 
-//function clear Board
+// function clear Board
 function clearBoard() {
     cells.forEach(cell => cell.innerHTML = "")
     currentScore = 0
-    ccurrentScoreDisplay .innerHTML = 0
+    ccurrentScoreDisplay.innerHTML = 0
 }
 
-//intialize board
+// Add colour 
+function addColours() {
+    for (let i = 0; i < totalCell; i++) {
+        if (cells[i].innerHTML == 0) {
+            cells[i].style.backgroundColor = '#afa184'
+            cells[i].setAttribute('data-colour', 0)
+        }
+        else if (cells[i].innerHTML == 2) {
+            cells[i].style.backgroundColor = '#eee4ea'
+            cells[i].setAttribute('data-colour', 1)
+        }
+        else if (cells[i].innerHTML == 4) {
+            cells[i].style.backgroundColor = '#ede2c8'
+            cells[i].setAttribute('data-colour', 1)
+        }
+        else if (cells[i].innerHTML == 8) {
+            cells[i].style.backgroundColor = '#f2129'
+            cells[i].setAttribute('data-colour', 1)
+        }
+        else if (cells[i].innerHTML == 16) {
+            cells[i].style.backgroundColor = '#ffceaa'
+            cells[i].setAttribute('data-colour', 2)
+        }
+        else if (cells[i].innerHTML == 32) {
+            cells[i].style.backgroundColor = '#e8c083'
+            cells[i].setAttribute('data-colour', 2)
+        }
+        else if (cells[i].innerHTML == 64) {
+            cells[i].style.backgroundColor = '#ffab6e'
+            cells[i].setAttribute('data-colour', 2)
+        }
+        else if (cells[i].innerHTML == 128) {
+            cells[i].style.backgroundColor = '#fd9787'
+            cells[i].setAttribute('data-colour', 3)
+        }
+        else if (cells[i].innerHTML == 256) {
+            cells[i].style.backgroundColor = '#eah89c'
+            cells[i].setAttribute('data-colour', 3)
+        }
+        else if (cells[i].innerHTML == 512) {
+            cells[i].style.backgroundColor = '#76daff'
+            cells[i].setAttribute('data-colour', 3)
+        }
+        else if (cells[i].innerHTML == 1024) {
+            cells[i].style.backgroundColor = '#beeaab'
+            cells[i].setAttribute('data-colour', 4)
+        }
+        else if (cells[i].innerHTML == 2048) {
+            cells[i].style.backgroundColor = '#d7d0f0'
+            cells[i].setAttribute('data-colour', 4)
+        }
+    }
+}
+
+// intialize board
 createBoard()
+addColours()
 
 
 // clear board and start a new game when onclick new game button

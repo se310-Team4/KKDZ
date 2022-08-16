@@ -1,6 +1,6 @@
 const gameBoard = document.querySelector('.game-board')
-const currentScore_display = document.getElementById('current-score')
-const bestScore_display = document.getElementById('best-score')
+const ccurrentScoreDisplay  = document.getElementById('current-score')
+const bestScoreDisplay = document.getElementById('best-score')
 const WIDTH = 6
 let cells = []
 let totalCell = WIDTH * WIDTH
@@ -20,7 +20,7 @@ function createBoard() {
     // intial 2 tiles at random place
     generateNewTile()
     generateNewTile()
-    bestScore_display.innerHTML = bestScore
+    bestScoreDisplay.innerHTML = bestScore
 }
 
 
@@ -184,10 +184,10 @@ function mergeVertical() {
 // update the current score
 function updateScore(bonus) {
     currentScore += bonus
-    currentScore_display.innerHTML = currentScore
+    ccurrentScoreDisplay .innerHTML = currentScore
     if (currentScore > parseInt(bestScore)) {// if current score is greater then update best score
         setBestScore(currentScore)
-        bestScore_display.innerHTML = currentScore
+        bestScoreDisplay.innerHTML = currentScore
     }
 }
 
@@ -252,7 +252,7 @@ function newGame() {
 function clearBoard() {
     cells.forEach(cell => cell.innerHTML = "")
     currentScore = 0
-    currentScore_display.innerHTML = 0
+    ccurrentScoreDisplay .innerHTML = 0
 }
 
 //intialize board

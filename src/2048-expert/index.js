@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.querySelector('.game-board')
-    const current_score_Display = document.getElementById('current-score')
-    const best_score_Display = document.getElementById('best-score')
+    const current_score_display = document.getElementById('current-score')
+    const best_score_display = document.getElementById('best-score')
     const WIDTH = 6
     let cells = []
     let totalCell = WIDTH * WIDTH
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // intial 2 tiles at random place
         generateNewTile()
         generateNewTile()
-        best_score_Display.innerHTML = best_score
+        best_score_display.innerHTML = best_score
     }
 
 
@@ -185,10 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // update the current score
     function updateScore(bonus){
         current_score += bonus
-        current_score_Display.innerHTML = current_score
+        current_score_display.innerHTML = current_score
         if (current_score > parseInt(best_score)) {// if current score is greater then update best score
             setBestScore(current_score)
-            best_score_Display.innerHTML = current_score
+            best_score_display.innerHTML = current_score
         }
     }
 
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearBoard() {
         cells.forEach(cell => cell.innerHTML = "")
         current_score = 0
-        current_score_Display.innerHTML = 0
+        current_score_display.innerHTML = 0
     }
     
     //clear board and start a new game when onclick new game button

@@ -4,40 +4,15 @@ describe('test score intially display correctly', () => {
     })
 
     it('test lost', () => {
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
-        cy.get('body').trigger('keyup', { keyCode: 40 })
+        const TOTALCELL = 36
+        for (let i = 0; i < TOTALCELL; i++){
+            if (i % 2) {
+               cy.get('.cell').eq(i).invoke('text',2) 
+            } else cy.get('.cell').eq(i).invoke('text',4) 
+            
+        }
+
+        cy.get('body').trigger('keyup', { keyCode: 37 })
 
         cy.on('window:alert', (t) => {
             //assertions

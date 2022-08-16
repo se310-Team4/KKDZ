@@ -1,11 +1,11 @@
-const GAME_BOARD = document.querySelector('.game-board')
-const CURRENT_SCORE_DISPLAY = document.getElementById('current-score')
-const BEST_SCORE_DISPLAY = document.getElementById('best-score')
+const gameBoard = document.querySelector('.game-board')
+const currentScore_display = document.getElementById('current-score')
+const bestScore_display = document.getElementById('best-score')
 const WIDTH = 6
 let cells = []
 let totalCell = WIDTH * WIDTH
-let current_score = 0
-let best_score = (getBestScore() === null) ? 0 : getBestScore()
+let currentScore = 0
+let bestScore = (getBestScore() === null) ? 0 : getBestScore()
 
 // create the game board
 function createBoard() {
@@ -14,13 +14,13 @@ function createBoard() {
         cell.classList.add("cell")
         cell.setAttribute('data-index', i)
         cells.innerHTML = 0
-        GAME_BOARD.appendChild(cell)
+        gameBoard.appendChild(cell)
         cells.push(cell)
     }
     // intial 2 tiles at random place
     generateNewTile()
     generateNewTile()
-    BEST_SCORE_DISPLAY.innerHTML = best_score
+    bestScore_display.innerHTML = bestScore
 }
 
 
@@ -183,11 +183,11 @@ function mergeVertical() {
 
 // update the current score
 function updateScore(bonus) {
-    current_score += bonus
-    CURRENT_SCORE_DISPLAY.innerHTML = current_score
-    if (current_score > parseInt(best_score)) {// if current score is greater then update best score
-        setBestScore(current_score)
-        BEST_SCORE_DISPLAY.innerHTML = current_score
+    currentScore += bonus
+    currentScore_display.innerHTML = currentScore
+    if (currentScore > parseInt(bestScore)) {// if current score is greater then update best score
+        setBestScore(currentScore)
+        bestScore_display.innerHTML = currentScore
     }
 }
 
@@ -251,8 +251,8 @@ function newGame() {
 //function clear Board
 function clearBoard() {
     cells.forEach(cell => cell.innerHTML = "")
-    current_score = 0
-    CURRENT_SCORE_DISPLAY.innerHTML = 0
+    currentScore = 0
+    currentScore_display.innerHTML = 0
 }
 
 //intialize board
@@ -260,7 +260,7 @@ createBoard()
 
 
 // clear board and start a new game when onclick new game button
-const NEW_BTN = document.getElementById('new-btn')
-NEW_BTN.onclick = function () {
+const newBtn = document.getElementById('new-btn')
+newBtn.onclick = function () {
     newGame()
 }

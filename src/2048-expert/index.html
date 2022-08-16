@@ -8,13 +8,10 @@
     <title>2048 Expert</title>
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="2048-expert.css">
-    <script type="text/javascript" src="localStorageManager.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="index.js" charset="UTF-8"></script>
-    <script type="module" src="../main.js"></script>
 </head>
 
 <body>
-	<core-navbar>2048 Expert</core-navbar>
+    <core-navbar>2048 Expert</core-navbar>
 
     <!--Content Wrapper-->
     <div class="container">
@@ -35,11 +32,15 @@
         </div>
         <!--Short instruction to game-->
         <div class="intro">
-        <strong>Challenge your limits!</strong> <a> Join cells, get to 2048</a>
-            <button id="new-btn" >New Game</button>
+            <strong>Challenge your limits!</strong> <a> Join cells, get to 2048</a>
+            <button id="new-btn">New Game</button>
         </div>
         <div class="game-board"></div>
     </div>
+
+    <script type="text/javascript" src="localStorageManager.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="../main.js"></script>
 </body>
 
 

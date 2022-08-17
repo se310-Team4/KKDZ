@@ -1,10 +1,10 @@
  * {
-    margin: 0;
-    padding: 0;
+   margin: 0;
+   padding: 0;
  }
 
  html {
-    user-select: none;
+   user-select: none;
  }
 
 
@@ -16,9 +16,9 @@
    font-size: 16px;
  }
 
-h1 { 
+ h1 {
    font-size: 64px;
-   color:#776E65;
+   color: #776E65;
  }
 
  /* Content Wrapper*/
@@ -28,17 +28,17 @@ h1 {
  }
 
  /* display scores */
-.title {
+ .title {
    display: flex;
    justify-content: space-between;
    margin-bottom: 20px;
-}
+ }
 
-.display-banner {
+ .display-banner {
    display: flex;
    float: right;
 
-}
+ }
 
  .display-scores {
    text-align: center;
@@ -55,12 +55,12 @@ h1 {
    color: #f5f5f5;
  }
 
-.intro {
+ .intro {
    font-size: 20px;
    line-height: 1.5;
-}
+ }
 
-#new-btn {
+ #new-btn {
    height: 30px;
    border-style: none;
    border-radius: 10px;
@@ -69,15 +69,15 @@ h1 {
    color: #f5f5f5;
    outline: 0;
    float: right;
-}
+ }
 
-#new-btn:hover{
-  border-radius: 10px;
-  background-color:rgb(175, 161, 132);
-}
+ #new-btn:hover {
+   border-radius: 10px;
+   background-color: rgb(175, 161, 132);
+ }
 
 
-/* Game board display the grid and tiles */
+ /* Game board display the grid and tiles */
  .game-board {
    margin-top: 30px;
    padding-top: 20px;
@@ -106,9 +106,10 @@ h1 {
  }
 
  /* add colour to cells */
- [data-digits="0"]{
-  color: rgb(175, 161, 132)!important
+ [data-digits="0"] {
+   color: rgb(175, 161, 132) !important
  }
+
  [data-digits="1"] {
    font-size: 60px;
  }
@@ -116,9 +117,11 @@ h1 {
  [data-digits="2"] {
    font-size: 48px;
  }
+
  [data-digits="3"] {
    font-size: 36px;
  }
+
  [data-digits="4"] {
    font-size: 32px;
  }

@@ -1,13 +1,10 @@
-import { isGuessCorrect } from "./is-guess-correct";
 import { gameModes, generatePuzzle } from "./puzzle";
-import { $, NUMBER_OF_GUESSES } from "./util";
-
-const GAME_MODE = "nzCities";
+import { $, GAME_MODE, NUMBER_OF_GUESSES } from "./util";
 
 /** @type {L.Map} */
 let map;
 
-/** @type {string[]} the list of gusses that the user has made */
+/** @type {import("./puzzle").Answer[]} the list of gusses that the user has made */
 export let guesses = [];
 
 /** @type {import("./puzzle").Answer} the correct answer */
@@ -23,7 +20,7 @@ export function render() {
 
   // check if the user's most recent guess was correct
   const prevGuess = guesses.slice(-1)[0];
-  const prevGuessWasCorrect = isGuessCorrect(answer, prevGuess);
+  const prevGuessWasCorrect = answer.names.en === prevGuess?.names.en;
   if (prevGuessWasCorrect) return renderResultsUi(/* successful */ true);
 
   // check if the user has run out of guesses
@@ -47,7 +44,7 @@ function renderGameUi() {
       return guess
         ? `
             <div class="guess">
-              <span>${guess}</span>
+              <span>${guess.names.en}</span>
               <span>${hintDistance}</span>
               <span>${hintDirection}</span>
             </div>
@@ -75,7 +72,7 @@ function renderGameUi() {
   if (!layer) {
     // there's no tile layer configured, so we add one
     L.tileLayer(gameMode.tileServer, {
-      // minZoom: 12, // TODO: this could be a "hard mode"
+      // minZoom: 12, // this could be a "hard mode"
       maxZoom: 19,
       attribution: gameMode.attribution,
     }).addTo(map);

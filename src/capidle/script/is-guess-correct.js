@@ -3,7 +3,7 @@
  * and removes special characters like macrons.
  * @param {string} guess
  */
-const normalizeString = (guess) =>
+export const normalizeString = (guess) =>
   guess
     .trim()
     .toLowerCase()

@@ -29,8 +29,8 @@
 
         If your guess is wrong, you will be given a hint:
       </p>
-      <div class="modal-text">
-        <div class="guess-rows" style="max-width: 300px">
+      <div class="modal-text" style="display: flex; justify-content: center">
+        <div class="guess-rows" style="width: 300px">
           <div class="guess">
             <span>Berlin</span>
             <span>1,200km</span>
@@ -48,14 +48,12 @@
 
     <main>
       <div id="guess-rows" class="guess-rows"></div>
-      <div>
-        <input
-          type="text"
-          autocomplete="off"
-          placeholder="Enter your guess..."
-        />
-        <input type="submit" value="Guess" />
-      </div>
+      <form>
+        <div class="autofill-wrapper">
+          <input type="text" autofill="off" placeholder="Enter your guess..." />
+        </div>
+        <input type="submit" value="Guess" disabled />
+      </form>
     </main>
 
     <script type="module" src="../main.js"></script>

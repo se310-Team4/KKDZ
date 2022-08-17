@@ -18,7 +18,7 @@ describe("capidle navigation", () => {
     cy.get("main .guess").should("have.length", 0);
 
     // type in a guess
-    cy.get("input[type=text]").type("Adelaide");
+    cy.get("input[type=text]").type("Lower Hutt");
     cy.get("input[type=submit]").click();
 
     // input was cleared
@@ -28,7 +28,9 @@ describe("capidle navigation", () => {
     cy.get("main .guess").should("have.length", 1);
 
     // the only hint row is correctly populated
-    cy.get("main .guess > span:first-child()").should("have.text", "Adelaide");
+
+    // prettier-ignore
+    cy.get("main .guess > span:first-child()").should("have.text", "Lower Hutt");
     cy.get("main .guess > span:nth-child(2)").should("have.text", "1,200km");
     cy.get("main .guess > span:last-child()").should("have.text", "↗️");
 
@@ -43,7 +45,7 @@ describe("capidle navigation", () => {
     cy.get("main .guess").should("have.length", 5);
 
     // make the final guess
-    cy.get("input[type=text]").type("Ouagadougou");
+    cy.get("input[type=text]").type("Upper Hutt");
     cy.get("input[type=submit]").click();
 
     // the game UI has been replaced by the results page

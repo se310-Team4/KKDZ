@@ -56,21 +56,4 @@ describe('test scores display succesfully when score changed', () => {
             expect (text).not.equal("0")
         })
     })
-
-
-    it('test current score displays correctly when new game starts', () => {
-        cy.get('body').trigger('keyup', { keyCode: 16 })
-        cy.get('#current-score').should(($score) => {
-            let text = $score.text()
-            expect (text).equal("0")
-        })
-    })
-
-    it('test best score displays correctly when new game starts', () => {
-        cy.get('body').trigger('keyup', { keyCode: 16 })
-        cy.get('#best-score').should(($score) => {
-            let text = $score.text()
-            expect (text).not.equal("0")
-        })
-    })
 })

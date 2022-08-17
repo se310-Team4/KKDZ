@@ -206,8 +206,6 @@ function control(e) {
         keyUpRight()
     } else if (e.keyCode === 40) {
         keyUpDown()
-    } else if (e.keyCode === 16) {// when enter key is up start a new game
-        newGame()
     }
 }
 
@@ -297,7 +295,8 @@ function addColours() {
             case "":
             case "0":
                 cells[i].style.backgroundColor = '#afa184'
-                cells[i].setAttribute('data-digits', 1)
+                cells[i].style.colour = 'rgb(175, 161, 132)'
+                cells[i].setAttribute('data-digits', 0)
                 break;
             case "2":
                 cells[i].style.backgroundColor = '#eee4ea'

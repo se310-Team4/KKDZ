@@ -107,7 +107,7 @@
 
  /* add colour to cells */
  [data-digits="0"] {
-   color: rgb(175, 161, 132) !important
+   color: rgb(175, 161, 132) !important /* Override the font colour */
  }
 
  [data-digits="1"] {

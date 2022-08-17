@@ -206,8 +206,6 @@ function control(e) {
         keyUpRight()
     } else if (e.keyCode === 40) {
         keyUpDown()
-    } else if (e.keyCode === 16) {// when enter key is up start a new game
-        newGame()
     }
 }
 

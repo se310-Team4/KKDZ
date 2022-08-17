@@ -67,15 +67,4 @@ describe('test user actions', () => {
                     .should('be.gt', -1)
             })
     })
-
-    it('test key enter', () => {
-        cy.get('body').trigger('keyup', { keyCode: 39 })
-        cy.get('body').trigger('keyup', { keyCode: 16 })
-
-        cy.get('.game-board')
-            .children('.cell')
-            .contains(/[2|4]/g)
-
-    })
-
 })

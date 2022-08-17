@@ -297,7 +297,8 @@ function addColours() {
             case "":
             case "0":
                 cells[i].style.backgroundColor = '#afa184'
-                cells[i].setAttribute('data-digits', 1)
+                cells[i].style.colour = 'rgb(175, 161, 132)'
+                cells[i].setAttribute('data-digits', 0)
                 break;
             case "2":
                 cells[i].style.backgroundColor = '#eee4ea'

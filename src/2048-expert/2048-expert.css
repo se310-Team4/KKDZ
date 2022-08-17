@@ -60,12 +60,20 @@ h1 {
    line-height: 1.5;
 }
 
-#new-btn{
+#new-btn {
    height: 30px;
-   border-radius: 1px;
+   border-style: none;
+   border-radius: 10px;
+   padding: 4px;
    background-color: #bbada0;
    color: #f5f5f5;
+   outline: 0;
    float: right;
+}
+
+#new-btn:hover{
+  border-radius: 10px;
+  background-color:rgb(175, 161, 132);
 }
 
 
@@ -98,6 +106,9 @@ h1 {
  }
 
  /* add colour to cells */
+ [data-digits="0"]{
+  color: rgb(175, 161, 132)!important
+ }
  [data-digits="1"] {
    font-size: 60px;
  }

@@ -23,7 +23,7 @@ describe("the homepage", () => {
     cy.url().should('eq', 'http://localhost:1234/2048-expert/index.html')
   });
 
-  it("should display a image in all buttons", () => {
+  it("should display an image in all buttons", () => {
     cy.get('a[id="capidle-btn"]').find("img").should('be.visible');
     cy.get('a[id="liedle-btn"]').find("img").should('be.visible');
     cy.get('a[id="a2048expert-btn"]').find("img").should('be.visible');

@@ -11,6 +11,29 @@
 </head>
 
 <body>
+    <core-navbar>2048 Expert</core-navbar>
+
+    <!-- Modal window with instructions on how to play -->
+    <core-modal>
+        <div class="modal-header">HOW TO PLAY 2048 EXPERT</div>
+        <p class="modal-text">
+            The aim of the game is to get <strong>2048</strong>
+            <br>
+            <br>
+            Use the arrow keys to move the tiles
+            <br>
+            After each move, tiles with the same value will merge
+            <br>
+            <br>
+            After each move two new tiles will appear on the board
+            <br>
+            Tiles will randomly generate as 2 or 4
+            <br>
+            <br>
+            Start a new game and challenge your limits!
+        </p>
+    </core-modal>
+
     <!--Content Wrapper-->
     <div class="container">
         <div class="title">
@@ -26,15 +49,18 @@
                     <span id="best-score">0</span>
                 </div>
             </div>
-
         </div>
         <!--Short instruction to game-->
         <div class="intro">
-        <strong>Challenge your limits!</strong> <a> Join cells, get to 2048</a>
+            <strong>Challenge your limits!</strong> <a> Join cells, get to 2048</a>
+            <button id="new-btn">New Game</button>
         </div>
         <div class="game-board"></div>
     </div>
 
+    <script type="text/javascript" src="local-storage-manager.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="../main.js"></script>
 </body>
 
 

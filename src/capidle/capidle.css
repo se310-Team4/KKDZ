@@ -11,6 +11,7 @@ body {
     "nav nav nav nav" auto
     "map . main ." 1fr /
     50% 1fr auto 1fr;
+  overflow: hidden;
 }
 @media only screen and (max-width: 700px) {
   body {
@@ -29,17 +30,16 @@ body {
 /* the content used while the game is in progress */
 #map {
   grid-area: map;
-  background-color: #bae;
+  z-index: 0;
 }
 
 main {
   grid-area: main;
-  background-color: #0f0;
-  max-width: 300px;
+  max-width: 400px;
   margin: 16px;
 }
 
-#guess-rows > div {
+.guess-rows > div {
   justify-content: space-between;
   display: flex;
 }
@@ -47,11 +47,75 @@ main {
 .empty-guess,
 .guess {
   height: 20px;
-  background: #aaa;
-  margin: 4px;
+  background: #ccc;
+  margin: 4px 0;
   border-radius: 4px;
+  padding: 12px;
 }
 
 core-navbar {
   grid-area: nav;
+}
+
+form {
+  display: flex;
+}
+form input {
+  padding: 12px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+form input[type="text"] {
+  margin-right: 2px;
+}
+
+/* the autofill popup */
+.autofill-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.autofill-popup {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-top: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.autofill-popup div {
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.autofill-popup div:hover {
+  background-color: #eee;
+}
+
+.autofill-popup div.active {
+  background-color: var(--theme) !important;
+  color: white;
+}
+
+/* the game-over screen */
+.answer {
+  text-align: center;
+}
+.answer span {
+  font-size: 64px;
+}
+.answer a {
+  margin: 32px 0;
+  text-decoration: none;
+  font-size: 32px;
+  display: block;
+}
+.answer button {
+  font-size: 24px;
+  padding: 8px;
 }

@@ -11,22 +11,56 @@
 
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="./capidle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      crossorigin
+    />
   </head>
   <body>
     <core-navbar>Capidle</core-navbar>
-    <div id="map">This will be the map</div>
-    <main>
-      <div id="guess-rows"></div>
-      <div>
-        <input
-          type="text"
-          autocomplete="off"
-          placeholder="Enter your guess..."
-        />
-        <input type="submit" value="Guess" />
+
+    <!-- Modal window with instructions on how to play -->
+    <core-modal>
+      <div class="modal-header">HOW TO PLAY CAPIDLE</div>
+      <p class="modal-text">
+        The aim is to figure out which city (or town) is shown on the map.
+        <br />
+
+        If your guess is wrong, you will be given a hint:
+      </p>
+      <div class="modal-text" style="display: flex; justify-content: center">
+        <div class="guess-rows" style="width: 300px">
+          <div class="guess">
+            <span>Berlin</span>
+            <span>1,200km</span>
+            <span>↙️</span>
+          </div>
+        </div>
       </div>
+      <p class="modal-text">
+        The hint tells you the how far away you are from<br />
+        the correct location, and in which compass direction.
+      </p>
+    </core-modal>
+
+    <div id="map"></div>
+
+    <main>
+      <div id="guess-rows" class="guess-rows"></div>
+      <form>
+        <div class="autofill-wrapper">
+          <input type="text" autofill="off" placeholder="Enter your guess..." />
+        </div>
+        <input type="submit" value="Guess" disabled />
+      </form>
     </main>
+
     <script type="module" src="../main.js"></script>
-    <script type="module" src="./script/core.js"></script>
+    <script type="module" src="./script/index.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      crossorigin
+    ></script>
   </body>
 </html>

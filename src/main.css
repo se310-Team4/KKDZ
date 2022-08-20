@@ -1,6 +1,6 @@
 /* definition of theme colours */
 :root {
-  --theme: #009688;
+  --theme: #ea596e;
 }
 
 /* basic CSS reset */
@@ -10,8 +10,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system,
-    BlinkMacSystemFont /** TODO: other fonts go here */, sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 /* the navbar used in all mini games */
@@ -34,4 +33,141 @@ core-navbar a:active {
 }
 core-navbar > div {
   padding: 8px;
+}
+
+/*Colors based on the colors used in the logo*/
+.title-color-brain, .title-color-brain-hover:hover{color:#f4abba} 
+.title-color-brain-outline, .title-color-brain-outline-hover:hover {color:#ea596e}
+.title-color-text-outline, .title-color-text-outline-hover:hover {color:#d82d46}
+
+.games-button { 
+	background-color:#ffffff;
+	border-radius:5px;
+	border:2px solid #707070;
+	display:inline-block;
+	cursor:pointer;
+	color:#595959;
+  justify-content: center;
+  align-items: center;
+	font-size:24px;
+	font-weight:bold;
+	padding:0px 0px;
+  text-align:center;
+	text-decoration:none;
+  z-index:2;
+  width: 20%;
+  height: 30%;
+}
+.games-button:hover{
+	background-color: #ea596e;
+  color:#ffffff;
+  transition:0.3s
+}
+
+.game-button-img {
+  width: 60%;
+}
+
+.title-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:5%;
+  transition: 0.6s;
+  width: 30%;
+}
+
+.game-details {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  opacity: 0%;
+  transition: 0.6ms;
+}
+
+#capidle-btn {
+  position:absolute;
+  left: 10%;
+  bottom: 5%;
+}
+
+#liedle-btn {
+  position:absolute;
+  left: 40%;
+  bottom: 5%;
+}
+
+#a2048expert-btn {
+  position:absolute;
+  left: 70%;
+  bottom: 5%;
+}
+
+/* the modal window used in all mini games */
+#modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fade 1s ease 0s forwards;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-window {
+  padding: 24px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 80px auto 0;
+  background-color: white;
+  max-width: 50%;
+  width: fit-content;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* on small screens, the modal can be wider than normal */
+@media only screen and (max-width: 700px) {
+  .modal-window {
+    max-width: 75%;
+  }
+}
+
+.modal-header {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.modal-text {
+  margin-bottom: 32px;
+  margin-left: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#close-btn {
+  color: #787c7e;
+  float: right;
+  margin-top: -16px;
+  font-size: 32px;
+}
+
+#close-btn:hover,
+#close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

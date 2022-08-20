@@ -60,7 +60,6 @@ However, you get a much better development experience by following these steps:
 ## Architecture
 
 - All code lives in the folder called [src](src). Tests are written using [cypress](https://docs.cypress.io), and are located in the folder called [cypress/e2e](cypress/e2e).
-<!-- TODO: document further -->
 
 ## License
 
@@ -77,3 +76,10 @@ Liedle is inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html)
 2048 Expert is inspired by [2048](https://en.wikipedia.org/wiki/2048_%28video_game%29)
 
 Capidle is inspired by [Flagle](https://flagle.io), [GeoGuessr](https://geoguessr.com) and [Wordle](https://www.nytimes.com/games/wordle/index.html)
+
+Replay button icon from [Font Awesome Icons](https://fontawesomeicons.com/svg/icons/arrow-clockwise)
+
+Liedle word list [The Stanford GraphBase](https://www-cs-faculty.stanford.edu/~knuth/sgb.html)
+
+In Capidle, the aerial imagery is sourced from [Toitū Te Whenua Land Information New Zealand](https://linz.govt.nz/data/licensing-and-using-data/attributing-elevation-or-aerial-imagery-data), and licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0).
+The location of cities is sourced from [Wikidata](https://wikidata.org), licensed under [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0).

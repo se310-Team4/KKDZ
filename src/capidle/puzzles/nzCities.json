@@ -1,0 +1,1618 @@
+[
+  {
+    "names": {
+      "de": "Ahipara",
+      "en": "Ahipara",
+      "mi": "Ahipara"
+    },
+    "lat": -35.171388888,
+    "lng": 173.153333333
+  },
+  {
+    "names": {
+      "de": "Akaroa",
+      "en": "Akaroa",
+      "zh": "阿卡罗阿"
+    },
+    "lat": -43.804141666,
+    "lng": 172.968188888
+  },
+  {
+    "names": {
+      "de": "Aoraki/Mount Cook",
+      "en": "Aoraki / Mount Cook",
+      "mi": "Aoraki/Mount Cook"
+    },
+    "lat": -43.733333333,
+    "lng": 170.094444444
+  },
+  {
+    "names": {
+      "de": "Ashburton",
+      "en": "Ashburton",
+      "mi": "Hakatere",
+      "zh": "艾士伯頓 (紐西蘭)"
+    },
+    "lat": -43.905555555,
+    "lng": 171.745555555
+  },
+  {
+    "names": {
+      "de": "Ashhurst",
+      "en": "Ashhurst"
+    },
+    "lat": -40.3,
+    "lng": 175.75
+  },
+  {
+    "names": {
+      "de": "Auckland",
+      "en": "Auckland",
+      "mi": "Tāmaki-makau-rau",
+      "zh": "奧克蘭都會區"
+    },
+    "lat": -36.85,
+    "lng": 174.783333333
+  },
+  {
+    "names": {
+      "de": "Balclutha",
+      "en": "Balclutha",
+      "mi": "Iwikatea"
+    },
+    "lat": -46.241666666,
+    "lng": 169.733333333
+  },
+  {
+    "names": {
+      "de": "Bell Block",
+      "en": "Bell Block"
+    },
+    "lat": -39.03,
+    "lng": 174.145277777
+  },
+  {
+    "names": {
+      "de": "Blenheim",
+      "en": "Blenheim",
+      "mi": "Waiharakeke",
+      "zh": "布倫亨"
+    },
+    "lat": -41.516666666,
+    "lng": 173.95
+  },
+  {
+    "names": {
+      "de": "Bluff",
+      "en": "Bluff",
+      "zh": "布拉夫"
+    },
+    "lat": -46.6,
+    "lng": 168.333333333
+  },
+  {
+    "names": {
+      "en": "Brighton"
+    },
+    "lat": -45.948583333,
+    "lng": 170.327277777
+  },
+  {
+    "names": {
+      "de": "Cambridge",
+      "en": "Cambridge",
+      "mi": "Kemureti",
+      "zh": "劍橋"
+    },
+    "lat": -37.883333333,
+    "lng": 175.466666666
+  },
+  {
+    "names": {
+      "de": "Carterton",
+      "en": "Carterton",
+      "mi": "Taratahi"
+    },
+    "lat": -41.025,
+    "lng": 175.5275
+  },
+  {
+    "names": {
+      "de": "Charlton",
+      "en": "Charlton",
+      "zh": "查爾斯頓"
+    },
+    "lat": -46.15,
+    "lng": 168.916666666
+  },
+  {
+    "names": {
+      "de": "Chatton",
+      "en": "Chatton",
+      "mi": "Chatton"
+    },
+    "lat": -45.985,
+    "lng": 168.924444444
+  },
+  {
+    "names": {
+      "de": "Christchurch",
+      "en": "Christchurch",
+      "mi": "Ōtautahi",
+      "zh": "基督城"
+    },
+    "lat": -43.530888888,
+    "lng": 172.6365
+  },
+  {
+    "names": {
+      "de": "Clive",
+      "en": "Clive"
+    },
+    "lat": -39.583333333,
+    "lng": 176.916666666
+  },
+  {
+    "names": {
+      "en": "Colac Bay / Ōraka",
+      "mi": "Ōraka"
+    },
+    "lat": -46.362,
+    "lng": 167.876
+  },
+  {
+    "names": {
+      "de": "Coromandel",
+      "en": "Coromandel",
+      "zh": "科羅曼德"
+    },
+    "lat": -36.754,
+    "lng": 175.504
+  },
+  {
+    "names": {
+      "de": "Dannevirke",
+      "en": "Dannevirke",
+      "mi": "Tāmaki-nui-a-Rua",
+      "zh": "丹尼弗克镇"
+    },
+    "lat": -40.206111111,
+    "lng": 176.099444444
+  },
+  {
+    "names": {
+      "de": "Dargaville",
+      "en": "Dargaville",
+      "mi": "Tākiwira",
+      "zh": "達格維爾"
+    },
+    "lat": -35.933333333,
+    "lng": 173.883333333
+  },
+  {
+    "names": {
+      "de": "Dipton",
+      "en": "Dipton",
+      "mi": "Dipton"
+    },
+    "lat": -45.9,
+    "lng": 168.366666666
+  },
+  {
+    "names": {
+      "de": "Dunedin",
+      "en": "Dunedin",
+      "mi": "Ōtepoti",
+      "zh": "但尼丁"
+    },
+    "lat": -45.874166666,
+    "lng": 170.503611111
+  },
+  {
+    "names": {
+      "de": "Eastbourne",
+      "en": "Eastbourne",
+      "mi": "Ōkiwi"
+    },
+    "lat": -41.294,
+    "lng": 174.895
+  },
+  {
+    "names": {
+      "en": "Fairfax",
+      "mi": "Fairfax"
+    },
+    "lat": -46.211,
+    "lng": 168.051
+  },
+  {
+    "names": {
+      "de": "Featherston",
+      "en": "Featherston",
+      "mi": "Kaiwaewae"
+    },
+    "lat": -41.116666666,
+    "lng": 175.316666666
+  },
+  {
+    "names": {
+      "de": "Feilding",
+      "en": "Feilding",
+      "mi": "Aorangi"
+    },
+    "lat": -40.225,
+    "lng": 175.565
+  },
+  {
+    "names": {
+      "en": "Foxton Beach"
+    },
+    "lat": -40.461111111,
+    "lng": 175.224166666
+  },
+  {
+    "names": {
+      "en": "Garston",
+      "mi": "Garston"
+    },
+    "lat": -45.46916667,
+    "lng": 168.68333333
+  },
+  {
+    "names": {
+      "de": "Geraldine",
+      "en": "Geraldine"
+    },
+    "lat": -44.090277777,
+    "lng": 171.243333333
+  },
+  {
+    "names": {
+      "de": "Gisborne",
+      "en": "Gisborne",
+      "mi": "Tūranga-nui-a-Kiwa",
+      "zh": "吉斯伯恩"
+    },
+    "lat": -38.6625,
+    "lng": 178.017777777
+  },
+  {
+    "names": {
+      "de": "Gore",
+      "en": "Gore",
+      "mi": "Maruawai"
+    },
+    "lat": -46.099166666,
+    "lng": 168.946388888
+  },
+  {
+    "names": {
+      "en": "Granity",
+      "mi": "Granity"
+    },
+    "lat": -41.6333,
+    "lng": 171.85
+  },
+  {
+    "names": {
+      "de": "Greymouth",
+      "en": "Greymouth",
+      "mi": "Māwhera",
+      "zh": "格雷茅斯"
+    },
+    "lat": -42.45,
+    "lng": 171.2075
+  },
+  {
+    "names": {
+      "de": "Greytown",
+      "en": "Greytown",
+      "mi": "Te Hūpēnui",
+      "zh": "格雷敦"
+    },
+    "lat": -41.083333333,
+    "lng": 175.45
+  },
+  {
+    "names": {
+      "de": "Haast",
+      "en": "Haast",
+      "mi": "Haast"
+    },
+    "lat": -43.880277777,
+    "lng": 169.04
+  },
+  {
+    "names": {
+      "en": "Haast Beach",
+      "mi": "Haast Beach"
+    },
+    "lat": -43.864,
+    "lng": 168.997
+  },
+  {
+    "names": {
+      "de": "Hamilton",
+      "en": "Hamilton",
+      "mi": "Kirikiriroa",
+      "zh": "哈密尔顿"
+    },
+    "lat": -37.783333333,
+    "lng": 175.283333333
+  },
+  {
+    "names": {
+      "de": "Hanmer Springs",
+      "en": "Hanmer Springs",
+      "mi": "Te Whakatakaka-o-te-ngārahu-o-te-ahi-a-Tamatea"
+    },
+    "lat": -42.516666666,
+    "lng": 172.816666666
+  },
+  {
+    "names": {
+      "de": "Hastings",
+      "en": "Hastings",
+      "mi": "Heretaunga",
+      "zh": "哈斯丁 (紐西蘭)"
+    },
+    "lat": -39.65,
+    "lng": 176.833333333
+  },
+  {
+    "names": {
+      "de": "Haumoana",
+      "en": "Haumoana",
+      "mi": "Haumoana"
+    },
+    "lat": -39.616666666,
+    "lng": 176.95
+  },
+  {
+    "names": {
+      "de": "Havelock North",
+      "en": "Havelock North",
+      "mi": "Te Hemo-a-Te Atonga"
+    },
+    "lat": -39.666666666,
+    "lng": 176.883333333
+  },
+  {
+    "names": {
+      "de": "Hawera",
+      "en": "Hāwera",
+      "mi": "Hāwera"
+    },
+    "lat": -39.583333333,
+    "lng": 174.283333333
+  },
+  {
+    "names": {
+      "de": "Helensville",
+      "en": "Helensville",
+      "mi": "Awaroa"
+    },
+    "lat": -36.679722222,
+    "lng": 174.449444444
+  },
+  {
+    "names": {
+      "en": "Hibiscus Coast",
+      "zh": "芙蓉海岸"
+    },
+    "lat": -36.6058,
+    "lng": 174.6978
+  },
+  {
+    "names": {
+      "en": "Hikurangi",
+      "mi": "Hikurangi"
+    },
+    "lat": -35.598333333,
+    "lng": 174.286666666
+  },
+  {
+    "names": {
+      "de": "Hokitika",
+      "en": "Hokitika",
+      "zh": "霍基蒂卡"
+    },
+    "lat": -42.716666666,
+    "lng": 170.966666666
+  },
+  {
+    "names": {
+      "de": "Howick",
+      "en": "Howick"
+    },
+    "lat": -36.896,
+    "lng": 174.927
+  },
+  {
+    "names": {
+      "de": "Huntly",
+      "en": "Huntly",
+      "mi": "Rāhui Pōkeka"
+    },
+    "lat": -37.558333333,
+    "lng": 175.158333333
+  },
+  {
+    "names": {
+      "en": "Inglewood"
+    },
+    "lat": -39.15,
+    "lng": 174.2
+  },
+  {
+    "names": {
+      "de": "Invercargill",
+      "en": "Invercargill",
+      "mi": "Waihōpai",
+      "zh": "因弗卡吉尔"
+    },
+    "lat": -46.429,
+    "lng": 168.362
+  },
+  {
+    "names": {
+      "de": "Kaiapoi",
+      "en": "Kaiapoi",
+      "zh": "凯阿波伊"
+    },
+    "lat": -43.381666666,
+    "lng": 172.657222222
+  },
+  {
+    "names": {
+      "de": "Kaikohe",
+      "en": "Kaikohe",
+      "mi": "Kaikohe"
+    },
+    "lat": -35.4075,
+    "lng": 173.799722222
+  },
+  {
+    "names": {
+      "de": "Kaikoura",
+      "en": "Kaikōura",
+      "mi": "Kaikōura",
+      "zh": "凱庫拉"
+    },
+    "lat": -42.400011111,
+    "lng": 173.681358333
+  },
+  {
+    "names": {
+      "de": "Kaitaia",
+      "en": "Kaitaia",
+      "zh": "凱塔亞"
+    },
+    "lat": -35.1125,
+    "lng": 173.262777777
+  },
+  {
+    "names": {
+      "de": "Katikati",
+      "en": "Katikati",
+      "mi": "Katikati"
+    },
+    "lat": -37.55,
+    "lng": 175.916666666
+  },
+  {
+    "names": {
+      "de": "Kawakawa",
+      "en": "Kawakawa",
+      "mi": "Kawakawa"
+    },
+    "lat": -35.383055555,
+    "lng": 174.066666666
+  },
+  {
+    "names": {
+      "de": "Kawerau",
+      "en": "Kawerau"
+    },
+    "lat": -38.084683,
+    "lng": 176.699638
+  },
+  {
+    "names": {
+      "de": "Kawhia (Neuseeland)",
+      "en": "Kawhia"
+    },
+    "lat": -38.06667,
+    "lng": 174.81667
+  },
+  {
+    "names": {
+      "de": "Kerikeri",
+      "en": "Kerikeri",
+      "mi": "Kerikeri",
+      "zh": "凯里凯里"
+    },
+    "lat": -35.224444444,
+    "lng": 173.951388888
+  },
+  {
+    "names": {
+      "de": "Kihikihi",
+      "en": "Kihikihi",
+      "mi": "Kihikihi"
+    },
+    "lat": -38.033333333,
+    "lng": 175.35
+  },
+  {
+    "names": {
+      "en": "Koitiata",
+      "mi": "Koitiata"
+    },
+    "lat": -40.07444444,
+    "lng": 175.13972222
+  },
+  {
+    "names": {
+      "de": "Kumeu",
+      "en": "Kumeū",
+      "mi": "Kumeū"
+    },
+    "lat": -36.775833333,
+    "lng": 174.555277777
+  },
+  {
+    "names": {
+      "en": "Kuratau"
+    },
+    "lat": -38.8933,
+    "lng": 175.77
+  },
+  {
+    "names": {
+      "en": "Lake Hayes Estate"
+    },
+    "lat": -45.0005,
+    "lng": 168.784
+  },
+  {
+    "names": {
+      "de": "Levin",
+      "en": "Levin",
+      "mi": "Taitoko"
+    },
+    "lat": -40.625,
+    "lng": 175.283333333
+  },
+  {
+    "names": {
+      "de": "Lincoln",
+      "en": "Lincoln",
+      "zh": "林肯"
+    },
+    "lat": -43.64,
+    "lng": 172.486
+  },
+  {
+    "names": {
+      "de": "Lower Hutt",
+      "en": "Lower Hutt",
+      "mi": "Awakairangi",
+      "zh": "下哈特"
+    },
+    "lat": -41.216666666,
+    "lng": 174.916666666
+  },
+  {
+    "names": {
+      "de": "Lyttelton",
+      "en": "Lyttelton",
+      "mi": "Ōhinehou",
+      "zh": "利特爾頓"
+    },
+    "lat": -43.6,
+    "lng": 172.716666666
+  },
+  {
+    "names": {
+      "en": "Makarewa",
+      "mi": "Makarewa"
+    },
+    "lat": -46.333333333,
+    "lng": 168.35
+  },
+  {
+    "names": {
+      "en": "Mangakino"
+    },
+    "lat": -38.369,
+    "lng": 175.775
+  },
+  {
+    "names": {
+      "de": "Mangawhai",
+      "en": "Mangawhai",
+      "mi": "Mangawhai"
+    },
+    "lat": -36.126388888,
+    "lng": 174.574722222
+  },
+  {
+    "names": {
+      "de": "Mangawhai Heads",
+      "en": "Mangawhai Heads"
+    },
+    "lat": -36.093889,
+    "lng": 174.588056
+  },
+  {
+    "names": {
+      "en": "Maniaiti / Benneydale",
+      "mi": "Maniaiti"
+    },
+    "lat": -38.521,
+    "lng": 175.363
+  },
+  {
+    "names": {
+      "de": "Martinborough",
+      "en": "Martinborough",
+      "mi": "Huangarua"
+    },
+    "lat": -41.218838888,
+    "lng": 175.459069444
+  },
+  {
+    "names": {
+      "de": "Masterton",
+      "en": "Masterton",
+      "mi": "Whakaoriori",
+      "zh": "马斯特顿"
+    },
+    "lat": -40.966666666,
+    "lng": 175.65
+  },
+  {
+    "names": {
+      "de": "Matamata",
+      "en": "Matamata",
+      "mi": "Matamata",
+      "zh": "馬塔馬塔"
+    },
+    "lat": -37.809722222,
+    "lng": 175.773333333
+  },
+  {
+    "names": {
+      "en": "Matatā",
+      "mi": "Matatā"
+    },
+    "lat": -37.89,
+    "lng": 176.758
+  },
+  {
+    "names": {
+      "de": "Methven",
+      "en": "Methven",
+      "zh": "梅思文 (紐西蘭)"
+    },
+    "lat": -43.633333333,
+    "lng": 171.65
+  },
+  {
+    "names": {
+      "de": "Milton",
+      "en": "Milton"
+    },
+    "lat": -46.1167,
+    "lng": 169.967
+  },
+  {
+    "names": {
+      "en": "Minginui",
+      "mi": "Minginui",
+      "zh": "明吉努伊"
+    },
+    "lat": -38.6419,
+    "lng": 176.733
+  },
+  {
+    "names": {
+      "de": "Moerewa",
+      "en": "Moerewa",
+      "mi": "Moerewa"
+    },
+    "lat": -35.3833,
+    "lng": 174.033
+  },
+  {
+    "names": {
+      "de": "Morrinsville",
+      "en": "Morrinsville",
+      "zh": "莫林斯維爾"
+    },
+    "lat": -37.65,
+    "lng": 175.516666666
+  },
+  {
+    "names": {
+      "de": "Mosgiel",
+      "en": "Mosgiel",
+      "mi": "Mosgiel"
+    },
+    "lat": -45.875,
+    "lng": 170.348
+  },
+  {
+    "names": {
+      "de": "Motueka",
+      "en": "Motueka",
+      "zh": "莫圖伊卡"
+    },
+    "lat": -41.123333333,
+    "lng": 173.014722222
+  },
+  {
+    "names": {
+      "en": "Motuoapa",
+      "mi": "Motuoapa"
+    },
+    "lat": -38.933,
+    "lng": 175.874
+  },
+  {
+    "names": {
+      "en": "Mount Albert",
+      "zh": "阿爾伯特山"
+    },
+    "lat": -36.890930555,
+    "lng": 174.720125
+  },
+  {
+    "names": {
+      "de": "Mount Maunganui",
+      "en": "Mount Maunganui",
+      "zh": "芒格努伊山"
+    },
+    "lat": -37.643,
+    "lng": 176.185
+  },
+  {
+    "names": {
+      "en": "Mount Roskill"
+    },
+    "lat": -36.912594,
+    "lng": 174.737259
+  },
+  {
+    "names": {
+      "de": "Murchison",
+      "en": "Murchison"
+    },
+    "lat": -41.8,
+    "lng": 172.333333333
+  },
+  {
+    "names": {
+      "de": "Muriwai Beach",
+      "en": "Muriwai"
+    },
+    "lat": -36.81666667,
+    "lng": 174.41666667
+  },
+  {
+    "names": {
+      "de": "Murupara",
+      "en": "Murupara"
+    },
+    "lat": -38.456,
+    "lng": 176.705
+  },
+  {
+    "names": {
+      "de": "Napier",
+      "en": "Napier",
+      "mi": "Ahuriri",
+      "zh": "內皮爾"
+    },
+    "lat": -39.490277777,
+    "lng": 176.917777777
+  },
+  {
+    "names": {
+      "de": "Nelson",
+      "en": "Nelson",
+      "mi": "Whakatū",
+      "zh": "尼爾遜"
+    },
+    "lat": -41.293056,
+    "lng": 173.238056
+  },
+  {
+    "names": {
+      "de": "New Plymouth",
+      "en": "New Plymouth",
+      "mi": "Ngāmotu",
+      "zh": "新普利茅斯"
+    },
+    "lat": -39.057777777,
+    "lng": 174.074166666
+  },
+  {
+    "names": {
+      "en": "Newmarket",
+      "mi": "Te Ti Tutahi",
+      "zh": "纽马基特"
+    },
+    "lat": -36.8699,
+    "lng": 174.778
+  },
+  {
+    "names": {
+      "de": "Ngāruawāhia",
+      "en": "Ngāruawāhia",
+      "mi": "Ngāruawāhia"
+    },
+    "lat": -37.668,
+    "lng": 175.147
+  },
+  {
+    "names": {
+      "en": "Oakura",
+      "mi": "Ōakura"
+    },
+    "lat": -39.1167,
+    "lng": 173.95
+  },
+  {
+    "names": {
+      "de": "Oamaru",
+      "en": "Oamaru",
+      "mi": "Te Oha-a-Maru",
+      "zh": "奥马鲁"
+    },
+    "lat": -45.089444444,
+    "lng": 170.966111111
+  },
+  {
+    "names": {
+      "de": "Ohakune",
+      "en": "Ohakune",
+      "mi": "Ohakune"
+    },
+    "lat": -39.418611111,
+    "lng": 175.399444444
+  },
+  {
+    "names": {
+      "de": "Opotiki",
+      "en": "Ōpōtiki",
+      "mi": "Ōpōtiki",
+      "zh": "奥波蒂基"
+    },
+    "lat": -38.007,
+    "lng": 177.287
+  },
+  {
+    "names": {
+      "de": "Opua",
+      "en": "Opua",
+      "mi": "Opua"
+    },
+    "lat": -35.31416667,
+    "lng": 174.11861111
+  },
+  {
+    "names": {
+      "de": "Opunake",
+      "en": "Ōpunake",
+      "mi": "Ōpunake"
+    },
+    "lat": -39.4525,
+    "lng": 173.854722222
+  },
+  {
+    "names": {
+      "de": "Otaki",
+      "en": "Ōtaki",
+      "mi": "Ōtaki"
+    },
+    "lat": -40.75833,
+    "lng": 175.15
+  },
+  {
+    "names": {
+      "en": "Ōtaki Beach",
+      "mi": "Ōtaki Beach"
+    },
+    "lat": -40.74,
+    "lng": 175.118
+  },
+  {
+    "names": {
+      "de": "Otematata",
+      "en": "Otematata"
+    },
+    "lat": -44.606944444,
+    "lng": 170.191111111
+  },
+  {
+    "names": {
+      "de": "Otorohanga",
+      "en": "Otorohanga"
+    },
+    "lat": -38.183333333,
+    "lng": 175.2
+  },
+  {
+    "names": {
+      "de": "Paekakariki",
+      "en": "Paekākāriki",
+      "mi": "Paekākāriki",
+      "zh": "派卡卡里基"
+    },
+    "lat": -40.983,
+    "lng": 174.954
+  },
+  {
+    "names": {
+      "de": "Paeroa",
+      "en": "Paeroa"
+    },
+    "lat": -37.3667,
+    "lng": 175.667
+  },
+  {
+    "names": {
+      "de": "Paihia",
+      "en": "Paihia",
+      "zh": "派希亞"
+    },
+    "lat": -35.282222222,
+    "lng": 174.091111111
+  },
+  {
+    "names": {
+      "de": "Palmerston North",
+      "en": "Palmerston North",
+      "mi": "Te Papa-i-oea",
+      "zh": "北帕莫斯顿"
+    },
+    "lat": -40.354911,
+    "lng": 175.609511
+  },
+  {
+    "names": {
+      "de": "Paraparaumu",
+      "en": "Paraparaumu",
+      "zh": "帕拉帕拉乌穆"
+    },
+    "lat": -40.916666666,
+    "lng": 175.016666666
+  },
+  {
+    "names": {
+      "en": "Paraparaumu Beach"
+    },
+    "lat": -40.888,
+    "lng": 174.983
+  },
+  {
+    "names": {
+      "en": "Pegasus",
+      "mi": "Pegasus"
+    },
+    "lat": -43.314388888,
+    "lng": 172.697522222
+  },
+  {
+    "names": {
+      "de": "Picton",
+      "en": "Picton",
+      "mi": "Waitohi",
+      "zh": "皮克頓"
+    },
+    "lat": -41.291666666,
+    "lng": 174.005555555
+  },
+  {
+    "names": {
+      "en": "Pokeno",
+      "mi": "Pōkeno"
+    },
+    "lat": -37.243,
+    "lng": 175.018
+  },
+  {
+    "names": {
+      "de": "Porirua",
+      "en": "Porirua",
+      "mi": "Pari-ā-Rua",
+      "zh": "波里魯阿"
+    },
+    "lat": -41.133333333,
+    "lng": 174.85
+  },
+  {
+    "names": {
+      "de": "Port Chalmers",
+      "en": "Port Chalmers",
+      "mi": "Kōpūtai",
+      "zh": "查尔姆斯港"
+    },
+    "lat": -45.8178,
+    "lng": 170.619
+  },
+  {
+    "names": {
+      "de": "Pukekohe",
+      "en": "Pukekohe",
+      "mi": "Pukekohe",
+      "zh": "普基科希"
+    },
+    "lat": -37.203,
+    "lng": 174.904
+  },
+  {
+    "names": {
+      "de": "Putaruru",
+      "en": "Putāruru",
+      "mi": "Putāruru",
+      "zh": "普塔魯魯"
+    },
+    "lat": -38.053,
+    "lng": 175.78
+  },
+  {
+    "names": {
+      "de": "Queenstown",
+      "en": "Queenstown",
+      "mi": "Tāhuna",
+      "zh": "皇后镇"
+    },
+    "lat": -45.031111111,
+    "lng": 168.6625
+  },
+  {
+    "names": {
+      "de": "Raetihi",
+      "en": "Raetihi"
+    },
+    "lat": -39.4274,
+    "lng": 175.282
+  },
+  {
+    "names": {
+      "de": "Rakaia",
+      "en": "Rakaia",
+      "mi": "Rakaia"
+    },
+    "lat": -43.75,
+    "lng": 172.016666666
+  },
+  {
+    "names": {
+      "de": "Rangiora",
+      "en": "Rangiora"
+    },
+    "lat": -43.304722222,
+    "lng": 172.589166666
+  },
+  {
+    "names": {
+      "en": "Rangitata",
+      "mi": "Rangitata"
+    },
+    "lat": -44.067,
+    "lng": 171.371
+  },
+  {
+    "names": {
+      "de": "Raumati",
+      "en": "Raumati"
+    },
+    "lat": -40.928,
+    "lng": 174.983
+  },
+  {
+    "names": {
+      "de": "Raumati Beach",
+      "en": "Raumati Beach"
+    },
+    "lat": -40.919,
+    "lng": 174.981
+  },
+  {
+    "names": {
+      "de": "Reefton (Neuseeland)",
+      "en": "Reefton",
+      "mi": "Rīwhitana",
+      "zh": "里夫顿"
+    },
+    "lat": -42.1167,
+    "lng": 171.867
+  },
+  {
+    "names": {
+      "de": "Richmond",
+      "en": "Richmond",
+      "zh": "里士满 (新西兰)"
+    },
+    "lat": -41.333333333,
+    "lng": 173.183333333
+  },
+  {
+    "names": {
+      "en": "Riverhead",
+      "mi": "Riverhead"
+    },
+    "lat": -36.758,
+    "lng": 174.592
+  },
+  {
+    "names": {
+      "de": "Riverton/Aparima",
+      "en": "Riverton / Aparima",
+      "mi": "Aparima"
+    },
+    "lat": -46.35,
+    "lng": 168.016666666
+  },
+  {
+    "names": {
+      "de": "Rolleston",
+      "en": "Rolleston"
+    },
+    "lat": -43.596,
+    "lng": 172.383
+  },
+  {
+    "names": {
+      "en": "Rotoehu Forest Village"
+    },
+    "lat": -37.9,
+    "lng": 176.511
+  },
+  {
+    "names": {
+      "de": "Rotorua",
+      "en": "Rotorua",
+      "mi": "Rotorua-nui-a-Kahu",
+      "zh": "罗托路亚"
+    },
+    "lat": -38.137777777,
+    "lng": 176.251388888
+  },
+  {
+    "names": {
+      "de": "Ruatoria",
+      "en": "Ruatoria",
+      "mi": "Ruatoria"
+    },
+    "lat": -37.89,
+    "lng": 178.31
+  },
+  {
+    "names": {
+      "de": "Stoke",
+      "en": "Stoke"
+    },
+    "lat": -41.317,
+    "lng": 173.232
+  },
+  {
+    "names": {
+      "de": "Stratford",
+      "en": "Stratford"
+    },
+    "lat": -39.341,
+    "lng": 174.284
+  },
+  {
+    "names": {
+      "en": "Sumner",
+      "zh": "萨姆纳区"
+    },
+    "lat": -43.571438888,
+    "lng": 172.764469444
+  },
+  {
+    "names": {
+      "de": "Taihape",
+      "en": "Taihape",
+      "mi": "Taihape",
+      "zh": "泰哈皮"
+    },
+    "lat": -39.676666666,
+    "lng": 175.796666666
+  },
+  {
+    "names": {
+      "de": "Taumarunui",
+      "en": "Taumarunui",
+      "zh": "陶马鲁努伊"
+    },
+    "lat": -38.883333333,
+    "lng": 175.261666666
+  },
+  {
+    "names": {
+      "de": "Taupo",
+      "en": "Taupō",
+      "mi": "Taupō-nui-a-Tia",
+      "zh": "陶波"
+    },
+    "lat": -38.69,
+    "lng": 176.08
+  },
+  {
+    "names": {
+      "de": "Tauranga",
+      "en": "Tauranga",
+      "mi": "Tauranga-moana",
+      "zh": "陶朗加"
+    },
+    "lat": -37.685833333,
+    "lng": 176.166666666
+  },
+  {
+    "names": {
+      "de": "Te Anau",
+      "en": "Te Anau",
+      "zh": "蒂阿瑙"
+    },
+    "lat": -45.416666666,
+    "lng": 167.716666666
+  },
+  {
+    "names": {
+      "de": "Te Aroha",
+      "en": "Te Aroha",
+      "mi": "Te Aroha"
+    },
+    "lat": -37.538796,
+    "lng": 175.709143
+  },
+  {
+    "names": {
+      "de": "Te Awamutu",
+      "en": "Te Awamutu"
+    },
+    "lat": -38.008333333,
+    "lng": 175.325
+  },
+  {
+    "names": {
+      "en": "Te Awanga",
+      "mi": "Te Awanga"
+    },
+    "lat": -39.6333,
+    "lng": 176.983
+  },
+  {
+    "names": {
+      "de": "Te Kuiti",
+      "en": "Te Kuiti",
+      "zh": "堤克優堤"
+    },
+    "lat": -38.335,
+    "lng": 175.165
+  },
+  {
+    "names": {
+      "de": "Te Puke",
+      "en": "Te Puke",
+      "zh": "蒂普基"
+    },
+    "lat": -37.783333333,
+    "lng": 176.316666666
+  },
+  {
+    "names": {
+      "en": "Temple View",
+      "zh": "圣殿景"
+    },
+    "lat": -37.8208,
+    "lng": 175.227
+  },
+  {
+    "names": {
+      "de": "Thames",
+      "en": "Thames",
+      "mi": "Pārāwai",
+      "zh": "泰晤士"
+    },
+    "lat": -37.138333333,
+    "lng": 175.5375
+  },
+  {
+    "names": {
+      "de": "Timaru",
+      "en": "Timaru",
+      "mi": "Te Tihi-o-Maru",
+      "zh": "提馬魯"
+    },
+    "lat": -44.393055555,
+    "lng": 171.250833333
+  },
+  {
+    "names": {
+      "en": "Tinwald"
+    },
+    "lat": -43.92,
+    "lng": 171.721
+  },
+  {
+    "names": {
+      "de": "Tirau",
+      "en": "Tīrau",
+      "mi": "Tīrau"
+    },
+    "lat": -37.978,
+    "lng": 175.757
+  },
+  {
+    "names": {
+      "de": "Tokoroa",
+      "en": "Tokoroa"
+    },
+    "lat": -38.22,
+    "lng": 175.872
+  },
+  {
+    "names": {
+      "en": "Tuakau"
+    },
+    "lat": -37.2667,
+    "lng": 174.95
+  },
+  {
+    "names": {
+      "de": "Turangi",
+      "en": "Tūrangi",
+      "mi": "Tūrangi"
+    },
+    "lat": -38.989,
+    "lng": 175.81
+  },
+  {
+    "names": {
+      "de": "Twizel",
+      "en": "Twizel",
+      "zh": "特威泽尔镇"
+    },
+    "lat": -44.258333333,
+    "lng": 170.1
+  },
+  {
+    "names": {
+      "de": "Upper Hutt",
+      "en": "Upper Hutt",
+      "mi": "Whakatiki",
+      "zh": "烏伯亨特"
+    },
+    "lat": -41.133333333,
+    "lng": 175.05
+  },
+  {
+    "names": {
+      "de": "Waikanae",
+      "en": "Waikanae",
+      "zh": "怀卡奈"
+    },
+    "lat": -40.876,
+    "lng": 175.064
+  },
+  {
+    "names": {
+      "en": "Waikanae Beach"
+    },
+    "lat": -40.866,
+    "lng": 175.026
+  },
+  {
+    "names": {
+      "de": "Waimate",
+      "en": "Waimate",
+      "zh": "威馬特"
+    },
+    "lat": -44.732661,
+    "lng": 171.048106
+  },
+  {
+    "names": {
+      "en": "Waimauku",
+      "mi": "Waimauku"
+    },
+    "lat": -36.768611111,
+    "lng": 174.493333333
+  },
+  {
+    "names": {
+      "en": "Wainuiomata"
+    },
+    "lat": -41.261388888,
+    "lng": 174.950833333
+  },
+  {
+    "names": {
+      "de": "Waiouru",
+      "en": "Waiouru",
+      "mi": "Waiouru"
+    },
+    "lat": -39.469,
+    "lng": 175.676
+  },
+  {
+    "names": {
+      "de": "Waipawa",
+      "en": "Waipawa"
+    },
+    "lat": -39.941666666,
+    "lng": 176.5875
+  },
+  {
+    "names": {
+      "en": "Waipu",
+      "mi": "Waipu"
+    },
+    "lat": -35.9833,
+    "lng": 174.45
+  },
+  {
+    "names": {
+      "de": "Waipukurau",
+      "en": "Waipukurau"
+    },
+    "lat": -39.995,
+    "lng": 176.557
+  },
+  {
+    "names": {
+      "de": "Wairoa",
+      "en": "Wairoa"
+    },
+    "lat": -39.042,
+    "lng": 177.423
+  },
+  {
+    "names": {
+      "de": "Waitakere",
+      "en": "Waitakere City",
+      "zh": "怀塔克雷"
+    },
+    "lat": -36.91754,
+    "lng": 174.65773
+  },
+  {
+    "names": {
+      "de": "Waitara",
+      "en": "Waitara",
+      "zh": "瓦塔拉"
+    },
+    "lat": -38.995833333,
+    "lng": 174.233055555
+  },
+  {
+    "names": {
+      "de": "Wanaka",
+      "en": "Wānaka",
+      "mi": "Wānaka",
+      "zh": "瓦納卡"
+    },
+    "lat": -44.708056,
+    "lng": 169.123889
+  },
+  {
+    "names": {
+      "de": "Warkworth",
+      "en": "Warkworth",
+      "mi": "Mahurangi"
+    },
+    "lat": -36.4,
+    "lng": 174.666666666
+  },
+  {
+    "names": {
+      "en": "West Melton",
+      "mi": "West Melton"
+    },
+    "lat": -43.523983333,
+    "lng": 172.369847222
+  },
+  {
+    "names": {
+      "de": "Westport",
+      "en": "Westport",
+      "mi": "Kawatiri"
+    },
+    "lat": -41.755,
+    "lng": 171.599
+  },
+  {
+    "names": {
+      "de": "Whakatāne",
+      "en": "Whakatāne",
+      "mi": "Whakatāne",
+      "zh": "華卡塔尼"
+    },
+    "lat": -37.964,
+    "lng": 176.984
+  },
+  {
+    "names": {
+      "de": "Whangamatā",
+      "en": "Whangamatā",
+      "mi": "Whangamatā"
+    },
+    "lat": -37.21,
+    "lng": 175.874
+  },
+  {
+    "names": {
+      "de": "Wanganui",
+      "en": "Whanganui",
+      "mi": "Whanganui",
+      "zh": "旺加努伊"
+    },
+    "lat": -39.9325,
+    "lng": 175.051944444
+  },
+  {
+    "names": {
+      "en": "Whangaparāoa",
+      "mi": "Whangaparāoa"
+    },
+    "lat": -36.635,
+    "lng": 174.748
+  },
+  {
+    "names": {
+      "de": "Whangarei",
+      "en": "Whangārei",
+      "mi": "Whangārei-terenga-paraoa",
+      "zh": "旺阿雷"
+    },
+    "lat": -35.725,
+    "lng": 174.323611111
+  },
+  {
+    "names": {
+      "en": "Wharewaka"
+    },
+    "lat": -38.727,
+    "lng": 176.071
+  },
+  {
+    "names": {
+      "en": "Whataroa"
+    },
+    "lat": -43.2617,
+    "lng": 170.359
+  },
+  {
+    "names": {
+      "de": "Whitianga",
+      "en": "Whitianga",
+      "mi": "Whitianga",
+      "zh": "菲蒂昂格"
+    },
+    "lat": -36.833055555,
+    "lng": 175.699722222
+  },
+  {
+    "names": {
+      "de": "Winton",
+      "en": "Winton"
+    },
+    "lat": -46.143,
+    "lng": 168.324
+  },
+  {
+    "names": {
+      "en": "Woodend"
+    },
+    "lat": -43.3167,
+    "lng": 172.667
+  }
+]

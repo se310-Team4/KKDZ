@@ -1,0 +1,8 @@
+{
+  // this is a configuration file for the code coverage tool
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
+}

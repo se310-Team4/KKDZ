@@ -1,0 +1,67 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: 🔢 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: 📶 Install
+        run: |
+          npm install
+        env:
+          CI: true
+
+      - name: 🧪 Test
+        run: |
+          npm run test:ci
+          cat ./coverage/lcov.info
+        env:
+          CI: true
+
+      - name: 🔊 Upload code coverage to GitHub Artifacts (for SonarCloud)
+        uses: actions/upload-artifact@v2
+        with:
+          name: kkdz-lcov-file
+          path: coverage/lcov.info
+
+      - name: 🔧 Build
+        run: |
+          NODE_ENV=production npm run build
+        env:
+          CI: true
+
+      # if tests pass and we're on the mainline branch (and not in a forked repo), then deploy the client to the website
+      - name: 🚀 Deploy
+        if: ${{ github.repository == 'se310-Team4/KKDZ' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          folder: dist
+          branch: gh-pages
+
+      - name: 🔊 Save PR number (for SonarCloud)
+        if: github.event_name == 'pull_request'
+        run: echo ${{ github.event.number }} > PR_NUMBER.txt
+
+      - name: 🔊 Upload PR number to GitHub Artifacts (for SonarCloud)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v3
+        with:
+          name: PR_NUMBER
+          path: PR_NUMBER.txt

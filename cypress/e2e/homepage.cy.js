@@ -33,30 +33,19 @@ describe("the homepage", () => {
     cy.get('div[id="center-info"]').find('img[id="title-img"]').should('be.visible');
   });
 
-  it("should display capidle details when button is hovered", () => {
+  it("should display details when button is hovered", () => {
     cy.get('a[id="capidle-btn"]').realHover('mouse');
     cy.get('div[id="center-info"]').find('div[id="capidle-details"]').should('be.visible');
     cy.wait(1000)
-    cy.get('div[id="capidle-details"]').should("contain.text", "Capidle");
-  });
-
-  it("should display liedle details when button is hovered", () => {
     cy.get('a[id="liedle-btn"]').realHover('mouse');
     cy.get('div[id="center-info"]').find('div[id="liedle-details"]').should('be.visible');
     cy.wait(1000)
-    cy.get('div[id="liedle-details"]').should("contain.text", "Liedle");
-  });
-
-  it("should display 2048 expert details when button is hovered", () => {
     cy.get('a[id="a2048expert-btn"]').realHover('mouse');
     cy.get('div[id="center-info"]').find('div[id="a2048expert-details"]').should('be.visible');
     cy.wait(1000)
-    cy.get('div[id="a2048expert-details"]').should("contain.text", "2048 Expert");
   });
 
-  it("should redisplay logo when button is no longer hovered", () => {
-    cy.get('a[id="capidle-btn"]').realHover('mouse');
-    cy.wait(1000)
+  it("should redisplay logo when button is not hovered", () => {
     cy.get('img[id="title-img"]').realHover('mouse');
     cy.wait(1000)
     cy.get('div[id="center-info"]').find('img[id="title-img"]').should('be.visible');

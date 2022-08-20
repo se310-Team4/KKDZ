@@ -2,10 +2,14 @@
 <html lang="en-NZ">
   <head>
     <title>BrainGain</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" >
+
     <link rel="stylesheet" href="./main.css" />
+    
+    <script type="text/javascript" src="./script.js"></script>
   </head>
   <body>
     <core-navbar custom>
@@ -15,7 +19,7 @@
     </core-navbar>
 
     <div id="center-info">
-      <img id="title-img" src="./images/placeholder.png" alt="example" class="title-img">
+      <img id="title-img" src="./images/logo_final.png" alt="example" class="title-img">
       <div id="capidle-details" class="game-details">
         <p>Capidle</p>
       </div>
@@ -27,9 +31,6 @@
       </div>
     </div>
   
-
-    
-
     <a id="capidle-btn" href="./capidle/index.html" class="games-button" onmouseenter="capidleDetails()" onmouseleave="titleShow()">
       <img src="./images/placeholder.png" alt="example" class="game-button-img">
       <p id="capidle-btn-text">Capidle</p>
@@ -49,28 +50,3 @@
     <!-- TO IMPLEMENT <script type="module" src="./script.js"></script>-->
   </body>
 </html>
-<!-- TO MOVE -->
-<script>
-
-  function capidleDetails() {
-  document.getElementById("title-img").style.opacity = "0%";
-  document.getElementById("capidle-details").style.opacity = "100%";
-  }
-
-  function liedleDetails() {
-  document.getElementById("title-img").style.opacity = "0%";
-  document.getElementById("liedle-details").style.opacity = "100%";
-  }
-
-  function a2048ExpertDetails() {
-  document.getElementById("title-img").style.opacity = "0%";
-  document.getElementById("a2048expert-details").style.opacity = "100%";
-  }
-
-  function titleShow() {
-  document.getElementById("title-img").style.opacity = "100%";
-  document.getElementById("capidle-details").style.opacity = "0%";
-  document.getElementById("liedle-details").style.opacity = "0%";
-  document.getElementById("a2048expert-details").style.opacity = "0%";
-}
-</script>

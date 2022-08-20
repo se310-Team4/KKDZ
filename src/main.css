@@ -74,7 +74,7 @@ core-navbar > div {
   margin-right: auto;
   margin-top:5%;
   transition: 0.6s;
-  width: 30%;
+  width: 35%;
 }
 
 .game-details {
@@ -82,7 +82,7 @@ core-navbar > div {
   left: 10%;
   top: 15%;
   opacity: 0%;
-  transition: 0.6ms;
+  transition: 0.6s;
 }
 
 #capidle-btn {

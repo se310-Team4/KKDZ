@@ -1,6 +1,11 @@
 html,
 body {
   height: 100%;
+  font-family: 'Varela Round', sans-serif;
+}
+
+input, button {
+  font-family: inherit;
 }
 
 /* grid config */

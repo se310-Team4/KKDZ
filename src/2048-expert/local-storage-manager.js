@@ -1,7 +1,7 @@
 function setBestScore(score) {
-    localStorage.setItem("bestScore", score)
+  localStorage.setItem("bestScore", score);
 }
 
-function getBestScore(){
-    return localStorage.getItem("bestScore")
+function getBestScore() {
+  return localStorage.getItem("bestScore");
 }

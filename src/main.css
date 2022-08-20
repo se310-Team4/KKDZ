@@ -1,6 +1,6 @@
 /* definition of theme colours */
 :root {
-  --theme: #009688;
+  --theme: #ea596e;
 }
 
 /* basic CSS reset */
@@ -10,8 +10,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system,
-    BlinkMacSystemFont /** TODO: other fonts go here */, sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 /* the navbar used in all mini games */
@@ -34,6 +33,74 @@ core-navbar a:active {
 }
 core-navbar > div {
   padding: 8px;
+}
+
+/*Colors based on the colors used in the logo*/
+.title-color-brain, .title-color-brain-hover:hover{color:#f4abba} 
+.title-color-brain-outline, .title-color-brain-outline-hover:hover {color:#ea596e}
+.title-color-text-outline, .title-color-text-outline-hover:hover {color:#d82d46}
+
+.games-button { 
+	background-color:#ffffff;
+	border-radius:5px;
+	border:2px solid #707070;
+	display:inline-block;
+	cursor:pointer;
+	color:#595959;
+  justify-content: center;
+  align-items: center;
+	font-size:24px;
+	font-weight:bold;
+	padding:0px 0px;
+  text-align:center;
+	text-decoration:none;
+  z-index:2;
+  width: 20%;
+  height: 30%;
+}
+.games-button:hover{
+	background-color: #ea596e;
+  color:#ffffff;
+  transition:0.3s
+}
+
+.game-button-img {
+  width: 60%;
+}
+
+.title-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:5%;
+  transition: 0.6s;
+  width: 30%;
+}
+
+.game-details {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  opacity: 0%;
+  transition: 0.6ms;
+}
+
+#capidle-btn {
+  position:absolute;
+  left: 10%;
+  bottom: 5%;
+}
+
+#liedle-btn {
+  position:absolute;
+  left: 40%;
+  bottom: 5%;
+}
+
+#a2048expert-btn {
+  position:absolute;
+  left: 70%;
+  bottom: 5%;
 }
 
 /* the modal window used in all mini games */

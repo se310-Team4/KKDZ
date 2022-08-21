@@ -1,4 +1,4 @@
-const word = "stare";
+const WORD = "stare";
 
 describe("colour each letter based on if it matches the secret word", () => {
   beforeEach(() => {
@@ -6,7 +6,7 @@ describe("colour each letter based on if it matches the secret word", () => {
     cy.get("[id=close-btn]").click();
     // override global variables for testing purposes
     cy.window().then((win) => {
-      win.secretWord = word;
+      win.secretWord = WORD;
       win.lieRate = 0.0;
     });
     cy.get("body").type("frame").type("{enter}");
@@ -37,7 +37,7 @@ describe("game has a chance of incorrectly colouring each letter", () => {
     cy.get("[id=close-btn]").click();
     // override global variables for testing purposes
     cy.window().then((win) => {
-      win.secretWord = word;
+      win.secretWord = WORD;
       win.lieRate = 1.0;
     });
     cy.get("body").type("frame").type("{enter}");

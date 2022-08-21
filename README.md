@@ -40,7 +40,7 @@ However, you get a much better development experience by following these steps:
 
 **Initial set up:**
 
-- Use Visual Studio Code as your IDE.
+- Use Visual Studio Code as your IDE. We also recommend Prettier for code formatting.
 - [Install NodeJS](https://nodejs.org/en/download) (Choose either "LTS" or "Current")
 - Clone this repository
 - Open this repository folder in your terminal, and run `npm install`

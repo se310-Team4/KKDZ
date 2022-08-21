@@ -40,16 +40,19 @@ describe("the homepage", () => {
     cy.get('div[id="center-info"]')
       .find('div[id="capidle-details"]')
       .should("be.visible");
+
     cy.wait(1000);
     cy.get('a[id="liedle-btn"]').realHover("mouse");
     cy.get('div[id="center-info"]')
       .find('div[id="liedle-details"]')
       .should("be.visible");
+
     cy.wait(1000);
     cy.get('a[id="a2048expert-btn"]').realHover("mouse");
     cy.get('div[id="center-info"]')
       .find('div[id="a2048expert-details"]')
       .should("be.visible");
+
     cy.wait(1000);
   });
 

@@ -1,9 +1,10 @@
-describe("initialise game board", () => {
+describe("game board initialisation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
   });
 
-  it("test cells show successfully", () => {
+  it("test all cells show successfully", () => {
     cy.get(".game-board").children(".cell").should("have.length", 36);
   });
 

@@ -1,3 +1,4 @@
+/* colour scheme follow the convention of 2048 games */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +8,6 @@ html {
   user-select: none;
 }
 
-/* colour scheme follow the convention of 2048 games */
 body {
   height: 100%;
   width: 100%;
@@ -21,13 +21,12 @@ h1 {
   color: #776e65;
 }
 
-/* Content Wrapper*/
+/* content wrapper */
 .container {
   width: 600px;
   margin: 20px auto;
 }
 
-/* display scores */
 .title {
   display: flex;
   justify-content: space-between;
@@ -75,7 +74,7 @@ h1 {
   background-color: rgb(175, 161, 132);
 }
 
-/* Game board display the grid and tiles */
+/* game board that contains the grid of tiles */
 .game-board {
   margin-top: 30px;
   padding-top: 20px;
@@ -89,7 +88,7 @@ h1 {
   background-color: #bbada0;
 }
 
-/* cells */
+/* cells on the game board */
 .game-board div {
   width: 80px;
   height: 80px;
@@ -102,9 +101,9 @@ h1 {
   color: #afa192;
 }
 
-/* add colour to cells */
+/* font size depends on number of digits in the tile  */
 [data-digits="0"] {
-  color: rgb(175, 161, 132) !important; /* Override the font colour */
+  color: rgb(175, 161, 132) !important; /* needed to override the font colour */
 }
 
 [data-digits="1"] {

@@ -15,7 +15,6 @@ body {
   margin-top: 32px;
 }
 
-/* header */
 .header {
   font-size: 48px;
   text-transform: uppercase;
@@ -106,7 +105,6 @@ body {
 }
 
 /* icons */
-
 .icon-group {
   display: flex;
   justify-content: center;

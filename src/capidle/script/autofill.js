@@ -12,9 +12,7 @@ function closeAutofill() {
   // reset the focus and delete all list items
   focussed = -1;
 
-  document
-    .querySelectorAll(".autofill-popup")
-    .forEach((el) => el.parentNode.removeChild(el));
+  document.querySelectorAll(".autofill-popup").forEach((el) => el.parentNode.removeChild(el));
 }
 
 input.addEventListener("input", (e) => {
@@ -31,9 +29,7 @@ input.addEventListener("input", (e) => {
   const filteredOptions = gameModes[GAME_MODE].db
     .filter((city) =>
       // check if the user input matches the city's name in any language
-      Object.values(city.names).some((name) =>
-        normalizeString(name).includes(userInput)
-      )
+      Object.values(city.names).some((name) => normalizeString(name).includes(userInput))
     )
     .slice(0, 50); // maxmium 50 items will be rendered for performance
 
@@ -54,9 +50,7 @@ input.addEventListener("input", (e) => {
 });
 
 input.addEventListener("keydown", (e) => {
-  const allItems = input.parentElement.querySelectorAll(
-    ".autofill-popup > div"
-  );
+  const allItems = input.parentElement.querySelectorAll(".autofill-popup > div");
 
   if (e.key == "ArrowDown" || e.key == "ArrowUp") {
     const offset = e.key == "ArrowDown" ? +1 : -1;

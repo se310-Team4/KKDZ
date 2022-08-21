@@ -1,4 +1,4 @@
-const word = "stare";
+const WORD = "stare";
 const NUM_ROWS = 8;
 const NUM_COLS = 5;
 
@@ -18,12 +18,12 @@ describe("characters", () => {
   });
 
   it("test five-letter word", () => {
-    cy.get("body").type(word);
+    cy.get("body").type(WORD);
 
-    for (let i = 0; i < word.length; i++) {
+    for (let i = 0; i < WORD.length; i++) {
       cy.get(`[data-col-index="${i}"][data-row-index=0].tile`)
         .first()
-        .should("have.text", word.charAt(i).toUpperCase());
+        .should("have.text", WORD.charAt(i).toUpperCase());
     }
   });
 
@@ -36,7 +36,7 @@ describe("characters", () => {
   });
 
   it("test overflowing word", () => {
-    cy.get("body").type(word + "s");
+    cy.get("body").type(WORD + "s");
 
     cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`)
       .first()
@@ -68,7 +68,7 @@ describe("backspace", () => {
   });
 
   it("test backspace after word", () => {
-    cy.get("body").type(word).type("{backspace}");
+    cy.get("body").type(WORD).type("{backspace}");
 
     cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`)
       .first()
@@ -80,7 +80,7 @@ describe("backspace", () => {
 
   it("test backspace after overflow", () => {
     cy.get("body")
-      .type(word + "s")
+      .type(WORD + "s")
       .type("{backspace}");
 
     cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`)
@@ -100,7 +100,7 @@ describe("backspace", () => {
   });
 
   it("test backspace after enter", () => {
-    cy.get("body").type(word).type("{enter}").type("{backspace}");
+    cy.get("body").type(WORD).type("{enter}").type("{backspace}");
 
     cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`)
       .first()
@@ -118,7 +118,7 @@ describe("enter", () => {
   });
 
   it("test enter valid word and type", () => {
-    cy.get("body").type(word).type("{enter}").type("S");
+    cy.get("body").type(WORD).type("{enter}").type("S");
 
     cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index=0].tile`)
       .first()

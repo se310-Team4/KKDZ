@@ -2,12 +2,12 @@ const gameBoard = document.querySelector(".game-board");
 const currentScoreDisplay = document.getElementById("current-score");
 const bestScoreDisplay = document.getElementById("best-score");
 const WIDTH = 6;
-let cells = [];
 let totalCell = WIDTH * WIDTH;
+let cells = [];
 let currentScore = 0;
 let bestScore = getBestScore() === null ? 0 : getBestScore();
 
-// create the game board
+// create and add cells to the board
 function createBoard() {
   for (let i = 0; i < totalCell; i++) {
     let cell = document.createElement("div");
@@ -20,35 +20,33 @@ function createBoard() {
   }
 }
 
-// generate number 2 or 4 at a random cell
+// generate number (2 or 4) at a random available cell
 function generateNewTile() {
   const rand = Math.floor(Math.random() * cells.length);
   if (cells[rand].innerHTML == 0) {
     cells[rand].innerHTML = randomNumTwoOrFour();
   } else {
-    // if a cell is already have a number then find a new tile
+    // if a cell is already has a number, then find a new tile
     checkLost();
     generateNewTile();
   }
 }
 
-// generate number 2 or 4 randomlly
+// returns 2 or 4
 function randomNumTwoOrFour() {
   let rand = Math.random();
   return rand > 0.5 ? 4 : 2;
 }
 
-// generate two new tile at once
+// this game always generates 2 tiles at once
 function generateTwoNewTile() {
   generateNewTile();
   generateNewTile();
 }
 
-// User actions
-// Move vertical
 function moveDown() {
   // get cells of each row and update their value
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < WIDTH; i++) {
     let rowOneCell = cells[i].innerHTML;
     let rowTwoCell = cells[i + WIDTH].innerHTML;
     let rowThreeCell = cells[i + WIDTH * 2].innerHTML;
@@ -56,7 +54,7 @@ function moveDown() {
     let rowFiveCell = cells[i + WIDTH * 4].innerHTML;
     let rowSixCell = cells[i + WIDTH * 5].innerHTML;
 
-    // Rearrange column making no empty cell sits between cells with numbers
+    // rearrange column, making no empty cell sits between cells with numbers
     let column = [
       parseInt(rowOneCell),
       parseInt(rowTwoCell),
@@ -81,7 +79,7 @@ function moveDown() {
 
 function moveUp() {
   // get cells of each row and update their value
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < WIDTH; i++) {
     let rowOneCell = cells[i].innerHTML;
     let rowTwoCell = cells[i + WIDTH].innerHTML;
     let rowThreeCell = cells[i + WIDTH * 2].innerHTML;
@@ -89,7 +87,7 @@ function moveUp() {
     let rowFiveCell = cells[i + WIDTH * 4].innerHTML;
     let rowSixCell = cells[i + WIDTH * 5].innerHTML;
 
-    // Rearrange column making no empty cell sits between cells with numbers
+    // rearrange column making no empty cell sits between cells with numbers
     let column = [
       parseInt(rowOneCell),
       parseInt(rowTwoCell),
@@ -121,7 +119,7 @@ function moveRight() {
     let columnFiveCell = cells[i + 4].innerHTML;
     let columnSixCell = cells[i + 5].innerHTML;
 
-    // Rearrange row making no empty cell sits between cells with numbers
+    // rearrange row making no empty cell sits between cells with numbers
     let row = [
       parseInt(columnOneCell),
       parseInt(columnTwoCell),
@@ -153,7 +151,7 @@ function moveLeft() {
     let columnFiveCell = cells[i + 4].innerHTML;
     let columnSixCell = cells[i + 5].innerHTML;
 
-    // Rearrange row making no empty cell sits between cells with numbers
+    // rearrange row making no empty cell sits between cells with numbers
     let row = [
       parseInt(columnOneCell),
       parseInt(columnTwoCell),
@@ -176,7 +174,7 @@ function moveLeft() {
   }
 }
 
-// Merge Cells and check Win state when merge are all set
+// merge cells and check win state when merge are all set
 // merge cells when user acts in right or left direction
 function mergeHorizontal() {
   for (let i = 0; i < WIDTH; i++) {
@@ -195,7 +193,7 @@ function mergeHorizontal() {
   checkWin();
 }
 
-// merge cells when user acts in up and down direction
+// merge cells when tiles move in the up or down direction
 function mergeVertical() {
   for (let i = 0; i < WIDTH; i++) {
     for (let j = 0; j < WIDTH - 1; j++) {
@@ -218,7 +216,6 @@ function updateScores(bonus) {
   currentScore += bonus;
   currentScoreDisplay.innerHTML = currentScore;
   if (currentScore > parseInt(bestScore)) {
-    // if current score is greater then update best score
     setBestScore(currentScore);
     bestScoreDisplay.innerHTML = currentScore;
   }
@@ -236,8 +233,6 @@ function control(e) {
     keyUpDown();
   }
 }
-
-document.addEventListener("keyup", control);
 
 function keyUpLeft() {
   moveLeft();
@@ -271,7 +266,7 @@ function keyUpDown() {
   addColours();
 }
 
-// check Win condition when 2048 is generated
+// a win happens when 2048 is generated
 function checkWin() {
   for (let i = 0; i < totalCell; i++) {
     if (cells[i].innerHTML == 2048) {
@@ -281,7 +276,7 @@ function checkWin() {
   }
 }
 
-// check lost if all cells are not empty
+// a loss happens when all cells are full
 function checkLost() {
   let numEmptyCells = 0;
   for (let i = 0; i < totalCell; i++) {
@@ -302,7 +297,7 @@ function newGame() {
   addColours();
 }
 
-// Reset the cells and scores
+// reset the cells and scores
 function resetGame() {
   cells.forEach((cell) => {
     cell.innerHTML = "";
@@ -312,7 +307,7 @@ function resetGame() {
   currentScoreDisplay.innerHTML = 0;
 }
 
-// Add colour
+// apply a colour and font-size based on the tile number
 function addColours() {
   for (let i = 0; i < totalCell; i++) {
     let number = cells[i].innerHTML;
@@ -371,13 +366,16 @@ function addColours() {
   }
 }
 
-// Start game with intialize board and generate 2 tiles at random place
+// set up the screen with a new game
 createBoard();
 generateTwoNewTile();
 addColours();
 bestScoreDisplay.innerHTML = bestScore;
 
-// clear board and start a new game when onclick new game button
+// accept keyboard input from the user
+document.addEventListener("keyup", control);
+
+// allow restarting the game
 const newBtn = document.getElementById("new-btn");
 newBtn.onclick = function () {
   newGame();

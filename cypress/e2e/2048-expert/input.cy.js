@@ -1,14 +1,15 @@
 const WIDTH = 6;
-const totalCell = WIDTH * WIDTH;
+const numCells = WIDTH * WIDTH;
 
-describe("test user actions", () => {
+describe("keyboard arrow keys", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
   });
 
   it("test key down", () => {
     cy.get(".cell")
-      .contains(/[2|4]/g)
+      .contains(/[2|4]/g) // 2 or 4
       .invoke("data", "index")
       .then(($before) => {
         console.log($before);
@@ -32,7 +33,7 @@ describe("test user actions", () => {
         cy.get(".cell")
           .contains(/[2|4]/g)
           .invoke("data", "index")
-          .should("be.lt", totalCell);
+          .should("be.lt", numCells);
       });
   });
 
@@ -47,7 +48,7 @@ describe("test user actions", () => {
         cy.get(".cell")
           .contains(/[2|4]/g)
           .invoke("data", "index")
-          .should("be.lt", totalCell);
+          .should("be.lt", numCells);
       });
   });
 

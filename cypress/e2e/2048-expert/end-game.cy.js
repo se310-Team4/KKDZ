@@ -1,14 +1,19 @@
-describe("test score intially display correctly", () => {
+const TOTAL_CELL = 36;
+
+describe("end game triggers", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
   });
 
   it("test lost", () => {
-    const TOTAL_CELL = 36;
+    // fill up the board with tiles that leave the user with no more moves
     for (let i = 0; i < TOTAL_CELL; i++) {
       if (i % 2) {
         cy.get(".cell").eq(i).invoke("text", 2);
-      } else cy.get(".cell").eq(i).invoke("text", 4);
+      } else {
+        cy.get(".cell").eq(i).invoke("text", 4);
+      }
     }
 
     cy.get("body").trigger("keyup", { keyCode: 37 });

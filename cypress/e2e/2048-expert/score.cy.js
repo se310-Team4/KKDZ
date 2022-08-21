@@ -1,6 +1,7 @@
-describe("test score intially display correctly", () => {
+describe("initial scores", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
   });
 
   it("test current score initially displays correctly", () => {
@@ -18,9 +19,10 @@ describe("test score intially display correctly", () => {
   });
 });
 
-describe("test scores display succesfully when score changed", () => {
+describe("updated score", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
     cy.get("body").trigger("keyup", { keyCode: 40 });
     cy.get("body").trigger("keyup", { keyCode: 39 });
     cy.get("body").trigger("keyup", { keyCode: 38 });

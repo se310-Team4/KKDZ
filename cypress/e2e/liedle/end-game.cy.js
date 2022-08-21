@@ -1,4 +1,4 @@
-const word = "stare";
+const WORD = "stare";
 const NUM_ROWS = 8;
 const NUM_COLS = 5;
 
@@ -8,14 +8,14 @@ describe("end game", () => {
     cy.get("[id=close-btn]").click();
     // override global variables for testing purposes
     cy.window().then((win) => {
-      win.secretWord = word;
+      win.secretWord = WORD;
       win.lieRate = 0.0;
     });
   });
 
   describe("win", () => {
     it("test right word then type", () => {
-      cy.get("body").type(word).type("{enter}").type("S");
+      cy.get("body").type(WORD).type("{enter}").type("S");
 
       cy.get(`[data-col-index=0][data-row-index=1].tile`)
         .first()
@@ -26,7 +26,7 @@ describe("end game", () => {
       for (let i = 0; i < NUM_ROWS - 1; i++) {
         cy.get("body").type("frame").type("{enter}");
       }
-      cy.get("body").type(word).type("{enter}").type("S");
+      cy.get("body").type(WORD).type("{enter}").type("S");
       cy.get("body").type("{backspace}").type("S");
 
       cy.get(
@@ -39,12 +39,12 @@ describe("end game", () => {
     });
 
     it("test win messages", () => {
-      cy.get("body").type(word).type("{enter}").type("S");
+      cy.get("body").type(WORD).type("{enter}").type("S");
 
       cy.get("[id=end-message]").should("have.text", "YOU WIN!");
       cy.get("[id=word-reveal]").should(
         "have.text",
-        "The secret word was " + word.toUpperCase()
+        "The secret word was " + WORD.toUpperCase()
       );
     });
   });
@@ -73,14 +73,14 @@ describe("end game", () => {
       cy.get("[id=end-message]").should("have.text", "YOU LOSE");
       cy.get("[id=word-reveal]").should(
         "have.text",
-        "The secret word was " + word.toUpperCase()
+        "The secret word was " + WORD.toUpperCase()
       );
     });
   });
 
   describe("replay", () => {
     it("test resets game", () => {
-      cy.get("body").type(word).type("{enter}").type("S");
+      cy.get("body").type(WORD).type("{enter}").type("S");
       cy.get("[id=replay]").click();
 
       cy.get("[data-type=empty].tile")
@@ -105,7 +105,7 @@ describe("end game", () => {
     });
 
     it("test play game after reset", () => {
-      cy.get("body").type(word).type("{enter}");
+      cy.get("body").type(WORD).type("{enter}");
       cy.get("[id=replay]").click();
       cy.get("body").type("frame").type("{enter}");
       cy.get("body").type("X");

@@ -172,7 +172,7 @@ function colourLetter(tile) {
 
 function colourLetterFalsely(tile) {
   let type;
-  let index = secretWord.indexOf(tile.innerHTML.toLowerCase());
+  let index = window.secretWord.indexOf(tile.innerHTML.toLowerCase());
   // set the type to one of the incorrect types
   switch (index) {
     case -1:
@@ -189,7 +189,7 @@ function colourLetterFalsely(tile) {
 }
 
 function checkEndGame(word) {
-  if (word === secretWord) {
+  if (word === window.secretWord) {
     handleEndGame(/*isWin =*/ true);
   } else if (rowIndex >= NUM_ROWS - 1) {
     handleEndGame(/*isWin =*/ false);
@@ -211,7 +211,7 @@ function handleEndGame(isWin) {
     endMsg.innerHTML = "YOU LOSE";
     endMsg.dataset.result = "lose";
   }
-  wordReveal.innerHTML = `The secret word was ${secretWord.toUpperCase()}`;
+  wordReveal.innerHTML = `The secret word was ${window.secretWord.toUpperCase()}`;
   endSection.style.visibility = "visible";
   isEndGame = true;
 }

@@ -16,8 +16,8 @@ describe("capidle autofill", () => {
     // there should be 3 suggestions in the autofill popup, inspite of the spelling mistake
     cy.get(".autofill-popup > div").should("have.length", 3);
 
-    // We typed "Otā" and "Christchurch" is one of the suggested values.
-    // This is expected, because its te reo name is Ōtautahi.
+    // we typed "Otā" and "Christchurch" is one of the suggested values
+    // this is expected, because its te reo name is Ōtautahi
     cy.get(".autofill-popup > div").first().should("have.text", "Christchurch");
     cy.get(".autofill-popup > div").eq(1).should("have.text", "Ōtaki");
     cy.get(".autofill-popup > div").last().should("have.text", "Ōtaki Beach");

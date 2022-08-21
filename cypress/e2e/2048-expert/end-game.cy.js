@@ -1,35 +1,36 @@
-describe('test score intially display correctly', () => {
-    beforeEach(() => {
-        cy.visit("http://localhost:1234/2048-expert/index.html");
-    })
+const TOTAL_CELL = 36;
 
-    it('test lost', () => {
-        const TOTAL_CELL = 36
-        for (let i = 0; i < TOTAL_CELL; i++){
-            if (i % 2) {
-               cy.get('.cell').eq(i).invoke('text',2) 
-            } else cy.get('.cell').eq(i).invoke('text',4) 
-            
-        }
+describe("end game triggers", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:1234/2048-expert/index.html");
+    cy.get("[id=close-btn]").click();
+  });
 
-        cy.get('body').trigger('keyup', { keyCode: 37 })
+  it("test lost", () => {
+    // fill up the board with tiles that leave the user with no more moves
+    for (let i = 0; i < TOTAL_CELL; i++) {
+      if (i % 2) {
+        cy.get(".cell").eq(i).invoke("text", 2);
+      } else {
+        cy.get(".cell").eq(i).invoke("text", 4);
+      }
+    }
 
-        cy.on('window:alert', (t) => {
-            expect(t).to.contains('\t\t You Lost\n Your score is ');
-        })
-    })
+    cy.get("body").trigger("keyup", { keyCode: 37 });
 
+    cy.on("window:alert", (t) => {
+      expect(t).to.contains("\t\t You Lost\n Your score is ");
+    });
+  });
 
-    it('test win', () => {
-        cy.get('.cell').eq(0).invoke('text',1024)
-        cy.get('.cell').eq(1).invoke('text',1024)
+  it("test win", () => {
+    cy.get(".cell").eq(0).invoke("text", 1024);
+    cy.get(".cell").eq(1).invoke("text", 1024);
 
-        cy.get('body').trigger('keyup', { keyCode: 37 })
+    cy.get("body").trigger("keyup", { keyCode: 37 });
 
-        cy.on('window:alert', (t) => {
-            expect(t).to.contains('\t\t You win! \n Your score is ');
-        })
-
-    })
-
-})
+    cy.on("window:alert", (t) => {
+      expect(t).to.contains("\t\t You win! \n Your score is ");
+    });
+  });
+});

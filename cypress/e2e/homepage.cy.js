@@ -30,28 +30,20 @@ describe("the homepage", () => {
   });
 
   it("should display the title image", () => {
-    cy.get('div[id="center-info"]')
-      .find('img[id="title-img"]')
-      .should("be.visible");
+    cy.get('div[id="center-info"]').find('img[id="title-img"]').should("be.visible");
   });
 
   it("should display details when button is hovered", () => {
     cy.get('a[id="capidle-btn"]').realHover("mouse");
-    cy.get('div[id="center-info"]')
-      .find('div[id="capidle-details"]')
-      .should("be.visible");
+    cy.get('div[id="center-info"]').find('div[id="capidle-details"]').should("be.visible");
 
     cy.wait(1000);
     cy.get('a[id="liedle-btn"]').realHover("mouse");
-    cy.get('div[id="center-info"]')
-      .find('div[id="liedle-details"]')
-      .should("be.visible");
+    cy.get('div[id="center-info"]').find('div[id="liedle-details"]').should("be.visible");
 
     cy.wait(1000);
     cy.get('a[id="a2048expert-btn"]').realHover("mouse");
-    cy.get('div[id="center-info"]')
-      .find('div[id="a2048expert-details"]')
-      .should("be.visible");
+    cy.get('div[id="center-info"]').find('div[id="a2048expert-details"]').should("be.visible");
 
     cy.wait(1000);
   });
@@ -59,8 +51,6 @@ describe("the homepage", () => {
   it("should redisplay logo when button is not hovered", () => {
     cy.get('img[id="title-img"]').realHover("mouse");
     cy.wait(1000);
-    cy.get('div[id="center-info"]')
-      .find('img[id="title-img"]')
-      .should("be.visible");
+    cy.get('div[id="center-info"]').find('img[id="title-img"]').should("be.visible");
   });
 });

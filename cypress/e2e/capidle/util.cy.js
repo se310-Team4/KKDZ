@@ -1,9 +1,6 @@
 /// <reference types="cypress" />
 
-import {
-  directionBetween,
-  distanceBetween,
-} from "../../../src/capidle/script/util";
+import { directionBetween, distanceBetween } from "../../../src/capidle/script/util";
 
 const buiding405 = [-36.85322, 174.77];
 const oggb = [-36.85314, 174.7713];

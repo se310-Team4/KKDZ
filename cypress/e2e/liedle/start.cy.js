@@ -9,10 +9,7 @@ describe("initialise grid", () => {
   });
 
   it("test initial tile type", () => {
-    cy.get(".tile")
-      .not(`[data-size=small]`)
-      .first()
-      .should("have.attr", "data-type", "empty");
+    cy.get(".tile").not(`[data-size=small]`).first().should("have.attr", "data-type", "empty");
   });
 });
 
@@ -23,9 +20,7 @@ describe("end game components", () => {
   });
 
   it("end game messages hidden", () => {
-    cy.get("[id=end]")
-      .not(`[data-size=small]`)
-      .should("have.css", "visibility", "hidden");
+    cy.get("[id=end]").not(`[data-size=small]`).should("have.css", "visibility", "hidden");
   });
 });
 

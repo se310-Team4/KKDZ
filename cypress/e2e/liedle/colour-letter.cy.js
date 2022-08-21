@@ -13,21 +13,15 @@ describe("colour each letter based on if it matches the secret word", () => {
   });
 
   it("test right letter right place", () => {
-    cy.get(`[data-col-index=2][data-row-index=0].tile`)
-      .first()
-      .should("have.attr", "data-type", "right");
+    cy.get(`[data-col-index=2][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
   });
 
   it("test right letter wrong place", () => {
-    cy.get(`[data-col-index=1][data-row-index=0].tile`)
-      .first()
-      .should("have.attr", "data-type", "right-letter");
+    cy.get(`[data-col-index=1][data-row-index=0].tile`).first().should("have.attr", "data-type", "right-letter");
   });
 
   it("test wrong letter wrong place", () => {
-    cy.get(`[data-col-index=0][data-row-index=0].tile`)
-      .first()
-      .should("have.attr", "data-type", "wrong");
+    cy.get(`[data-col-index=0][data-row-index=0].tile`).first().should("have.attr", "data-type", "wrong");
   });
 });
 
@@ -44,14 +38,8 @@ describe("game has a chance of incorrectly colouring each letter", () => {
   });
 
   it("test lies", () => {
-    cy.get(`[data-col-index=0][data-row-index=0].tile`)
-      .first()
-      .should("not.have.attr", "data-type", "wrong");
-    cy.get(`[data-col-index=1][data-row-index=0].tile`)
-      .first()
-      .should("not.have.attr", "data-type", "right-letter");
-    cy.get(`[data-col-index=2][data-row-index=0].tile`)
-      .first()
-      .should("not.have.attr", "data-type", "right");
+    cy.get(`[data-col-index=0][data-row-index=0].tile`).first().should("not.have.attr", "data-type", "wrong");
+    cy.get(`[data-col-index=1][data-row-index=0].tile`).first().should("not.have.attr", "data-type", "right-letter");
+    cy.get(`[data-col-index=2][data-row-index=0].tile`).first().should("not.have.attr", "data-type", "right");
   });
 });

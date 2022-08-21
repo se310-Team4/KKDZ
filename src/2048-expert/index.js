@@ -181,9 +181,7 @@ function mergeHorizontal() {
     for (let j = 0; j < WIDTH - 1; j++) {
       let index = WIDTH * i + j;
       if (cells[index].innerHTML === cells[index + 1].innerHTML) {
-        let merge =
-          parseInt(cells[index].innerHTML) +
-          parseInt(cells[index + 1].innerHTML);
+        let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + 1].innerHTML);
         cells[index].innerHTML = merge;
         cells[index + 1].innerHTML = 0;
         updateScores(merge);
@@ -199,9 +197,7 @@ function mergeVertical() {
     for (let j = 0; j < WIDTH - 1; j++) {
       let index = j * WIDTH + i;
       if (cells[index].innerHTML === cells[index + WIDTH].innerHTML) {
-        let merge =
-          parseInt(cells[index].innerHTML) +
-          parseInt(cells[index + WIDTH].innerHTML);
+        let merge = parseInt(cells[index].innerHTML) + parseInt(cells[index + WIDTH].innerHTML);
         cells[index].innerHTML = merge;
         cells[index + WIDTH].innerHTML = 0;
         updateScores(merge);

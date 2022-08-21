@@ -51,9 +51,7 @@ function createGrid() {
 function resetGrid() {
   for (let i = 0; i < NUM_ROWS; i++) {
     for (let j = 0; j < NUM_COLS; j++) {
-      const tile = document.querySelector(
-        `[data-row-index="${i}"][data-col-index="${j}"].tile`
-      );
+      const tile = document.querySelector(`[data-row-index="${i}"][data-col-index="${j}"].tile`);
       tile.innerHTML = "";
       tile.dataset.type = "empty";
     }
@@ -75,9 +73,7 @@ function getTile(i, j) {
 // updates a tile on the grid with a letter and styling
 function updateTile(letter, i, j, type) {
   // speech marks are required when using querySelector as i & j are both numbers
-  const tile = document.querySelector(
-    `[data-col-index="${i}"][data-row-index="${j}"].tile`
-  );
+  const tile = document.querySelector(`[data-col-index="${i}"][data-row-index="${j}"].tile`);
   tile.innerHTML = letter;
   tile.dataset.type = type;
 }
@@ -135,9 +131,7 @@ function handleEnter() {
 }
 
 function getWord() {
-  const tiles = document.querySelectorAll(
-    `[data-type="full"][data-row-index="${rowIndex}"].tile`
-  );
+  const tiles = document.querySelectorAll(`[data-type="full"][data-row-index="${rowIndex}"].tile`);
   let word = "";
   for (const tile of tiles) {
     word += tile.innerHTML;
@@ -151,9 +145,7 @@ function isValidWord(word) {
 
 function colourWord(word) {
   for (let i = 0; i < NUM_COLS; i++) {
-    const tile = document.querySelector(
-      `[data-row-index="${rowIndex}"][data-col-index="${i}"].tile`
-    );
+    const tile = document.querySelector(`[data-row-index="${rowIndex}"][data-col-index="${i}"].tile`);
     if (Math.random() <= window.lieRate && word != window.secretWord) {
       colourLetterFalsely(tile);
     } else {

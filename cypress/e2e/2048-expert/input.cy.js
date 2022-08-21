@@ -15,10 +15,7 @@ describe("keyboard arrow keys", () => {
         console.log($before);
         cy.get("body").trigger("keyup", { keyCode: 40 });
 
-        cy.get(".cell")
-          .contains(/[2|4]/g)
-          .invoke("data", "index")
-          .should("be.gt", -1);
+        cy.get(".cell").contains(/[2|4]/g).invoke("data", "index").should("be.gt", -1);
       });
   });
 
@@ -30,10 +27,7 @@ describe("keyboard arrow keys", () => {
         console.log($before);
         cy.get("body").trigger("keyup", { keyCode: 38 });
 
-        cy.get(".cell")
-          .contains(/[2|4]/g)
-          .invoke("data", "index")
-          .should("be.lt", numCells);
+        cy.get(".cell").contains(/[2|4]/g).invoke("data", "index").should("be.lt", numCells);
       });
   });
 
@@ -45,10 +39,7 @@ describe("keyboard arrow keys", () => {
         console.log($before);
         cy.get("body").trigger("keyup", { keyCode: 37 });
 
-        cy.get(".cell")
-          .contains(/[2|4]/g)
-          .invoke("data", "index")
-          .should("be.lt", numCells);
+        cy.get(".cell").contains(/[2|4]/g).invoke("data", "index").should("be.lt", numCells);
       });
   });
 
@@ -60,10 +51,7 @@ describe("keyboard arrow keys", () => {
         console.log($before);
         cy.get("body").trigger("keyup", { keyCode: 39 });
 
-        cy.get(".cell")
-          .contains(/[2|4]/g)
-          .invoke("data", "index")
-          .should("be.gt", -1);
+        cy.get(".cell").contains(/[2|4]/g).invoke("data", "index").should("be.gt", -1);
       });
   });
 });

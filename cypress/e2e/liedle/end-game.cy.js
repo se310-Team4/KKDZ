@@ -17,9 +17,7 @@ describe("end game", () => {
     it("test right word then type", () => {
       cy.get("body").type(WORD).type("{enter}").type("S");
 
-      cy.get(`[data-col-index=0][data-row-index=1].tile`)
-        .first()
-        .should("have.text", "");
+      cy.get(`[data-col-index=0][data-row-index=1].tile`).first().should("have.text", "");
     });
 
     it("test right word last guess then type", () => {
@@ -29,11 +27,7 @@ describe("end game", () => {
       cy.get("body").type(WORD).type("{enter}").type("S");
       cy.get("body").type("{backspace}").type("S");
 
-      cy.get(
-        `[data-col-index="${NUM_COLS - 1}"][data-row-index="${
-          NUM_ROWS - 1
-        }"].tile`
-      )
+      cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index="${NUM_ROWS - 1}"].tile`)
         .first()
         .should("have.text", "E");
     });
@@ -42,10 +36,7 @@ describe("end game", () => {
       cy.get("body").type(WORD).type("{enter}").type("S");
 
       cy.get("[id=end-message]").should("have.text", "YOU WIN!");
-      cy.get("[id=word-reveal]").should(
-        "have.text",
-        "The secret word was " + WORD.toUpperCase()
-      );
+      cy.get("[id=word-reveal]").should("have.text", "The secret word was " + WORD.toUpperCase());
     });
   });
 
@@ -56,11 +47,7 @@ describe("end game", () => {
       }
       cy.get("body").type("{backspace}").type("S");
 
-      cy.get(
-        `[data-col-index="${NUM_COLS - 1}"][data-row-index="${
-          NUM_ROWS - 1
-        }"].tile`
-      )
+      cy.get(`[data-col-index="${NUM_COLS - 1}"][data-row-index="${NUM_ROWS - 1}"].tile`)
         .first()
         .should("have.text", "E");
     });
@@ -71,10 +58,7 @@ describe("end game", () => {
       }
 
       cy.get("[id=end-message]").should("have.text", "YOU LOSE");
-      cy.get("[id=word-reveal]").should(
-        "have.text",
-        "The secret word was " + WORD.toUpperCase()
-      );
+      cy.get("[id=word-reveal]").should("have.text", "The secret word was " + WORD.toUpperCase());
     });
   });
 
@@ -83,24 +67,10 @@ describe("end game", () => {
       cy.get("body").type(WORD).type("{enter}").type("S");
       cy.get("[id=replay]").click();
 
-      cy.get("[data-type=empty].tile")
-        .not(`[data-size=small]`)
-        .should("have.length", 40);
-
-      cy.get("[data-type=empty].tile")
-        .not(`[data-size=small]`)
-        .first()
-        .should("have.text", "")
-        .should("have.attr", "data-type", "empty");
-
-      cy.get("[data-type=empty].tile")
-        .not(`[data-size=small]`)
-        .last()
-        .should("have.text", "")
-        .should("have.attr", "data-type", "empty");
-
+      cy.get("[data-type=empty].tile").not(`[data-size=small]`).should("have.length", 40);
+      cy.get("[data-type=empty].tile").not(`[data-size=small]`).first().should("have.text", "").should("have.attr", "data-type", "empty");
+      cy.get("[data-type=empty].tile").not(`[data-size=small]`).last().should("have.text", "").should("have.attr", "data-type", "empty");
       cy.get("[id=end]").should("have.css", "visibility", "hidden");
-
       cy.get("[id=modal]").should("have.css", "display", "none");
     });
 
@@ -110,12 +80,8 @@ describe("end game", () => {
       cy.get("body").type("frame").type("{enter}");
       cy.get("body").type("X");
 
-      cy.get(`[data-col-index=0][data-row-index=0].tile`)
-        .first()
-        .should("have.text", "F");
-      cy.get(`[data-col-index=0][data-row-index=1].tile`)
-        .first()
-        .should("have.text", "X");
+      cy.get(`[data-col-index=0][data-row-index=0].tile`).first().should("have.text", "F");
+      cy.get(`[data-col-index=0][data-row-index=1].tile`).first().should("have.text", "X");
     });
   });
 });

@@ -51,21 +51,21 @@ core-navbar > div {
 
 .games-button {
   background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 20px;
   border: 2px solid #707070;
   display: inline-block;
   cursor: pointer;
   color: #595959;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   padding: 0px 0px;
   text-align: center;
   text-decoration: none;
   z-index: 2;
   width: 20%;
-  height: 30%;
+  height: 35%;
 }
 
 .games-button:hover {
@@ -93,6 +93,26 @@ core-navbar > div {
   top: 15%;
   opacity: 0%;
   transition: 0.6s;
+}
+
+.game-details-title {
+  width: 40%;
+  color: #595959;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.game-details-text {
+  width: 40%;
+  color: #595959;
+  font-size: 22px;
+}
+
+.game-details-img {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  width: 35%;
 }
 
 #capidle-btn {

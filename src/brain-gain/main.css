@@ -63,9 +63,9 @@ core-navbar > div {
   padding: 0px 0px;
   text-align: center;
   text-decoration: none;
-  z-index: 2;
+  z-index: 2;git 
   width: 20%;
-  height: 30%;
+  height: 35%;
 }
 
 .games-button:hover {
@@ -95,20 +95,20 @@ core-navbar > div {
   transition: 0.6s;
 }
 
-.game-details-title{
+.game-details-title {
   width: 40%;
   color: #595959;
   font-size: 28px;
   font-weight: bold;
 }
 
-.game-details-text{
+.game-details-text {
   width: 40%;
   color: #595959;
   font-size: 22px;
 }
 
-.game-details-img{
+.game-details-img {
   position: absolute;
   left: 50%;
   top: 5%;

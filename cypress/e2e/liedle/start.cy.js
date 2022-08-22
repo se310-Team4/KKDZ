@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe("initialise grid", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/liedle/index.html");

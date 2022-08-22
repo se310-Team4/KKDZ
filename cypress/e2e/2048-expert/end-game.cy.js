@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 const TOTAL_CELL = 36;
 
 describe("end game triggers", () => {

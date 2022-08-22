@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe("game board initialisation", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");

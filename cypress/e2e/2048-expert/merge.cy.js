@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe("merges of the same number create a tile with the right data attribute values", () => {
   beforeEach(() => {
     cy.visit("http://localhost:1234/2048-expert/index.html");

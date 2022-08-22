@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 const WIDTH = 6;
 const numCells = WIDTH * WIDTH;
 

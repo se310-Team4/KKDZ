@@ -47,130 +47,81 @@ function generateTwoNewTile() {
 function moveDown() {
   // get cells of each row and update their value
   for (let i = 0; i < WIDTH; i++) {
-    let rowOneCell = cells[i].innerHTML;
-    let rowTwoCell = cells[i + WIDTH].innerHTML;
-    let rowThreeCell = cells[i + WIDTH * 2].innerHTML;
-    let rowFourCell = cells[i + WIDTH * 3].innerHTML;
-    let rowFiveCell = cells[i + WIDTH * 4].innerHTML;
-    let rowSixCell = cells[i + WIDTH * 5].innerHTML;
-
     // rearrange column, making no empty cell sits between cells with numbers
-    let column = [
-      parseInt(rowOneCell),
-      parseInt(rowTwoCell),
-      parseInt(rowThreeCell),
-      parseInt(rowFourCell),
-      parseInt(rowFiveCell),
-      parseInt(rowSixCell),
-    ];
-    column = column.filter((num) => num);
-    let emptyCellLength = 6 - column.length;
+    let column = [];
+    for (let j = 0; j < WIDTH; j++) {
+      let cell = cells[i + WIDTH * j].innerHTML;
+      column.push(parseInt(cell));
+    }
 
+    column = column.filter((num) => num);
+    let emptyCellLength = WIDTH - column.length;
     let newColumn = Array(emptyCellLength).fill(0).concat(column);
 
-    cells[i].innerHTML = newColumn[0];
-    cells[i + WIDTH].innerHTML = newColumn[1];
-    cells[i + WIDTH * 2].innerHTML = newColumn[2];
-    cells[i + WIDTH * 3].innerHTML = newColumn[3];
-    cells[i + WIDTH * 4].innerHTML = newColumn[4];
-    cells[i + WIDTH * 5].innerHTML = newColumn[5];
+    for (let j = 0; j < WIDTH; j++) {
+      cells[i + WIDTH * j].innerHTML = newColumn[j];
+    }
   }
 }
 
 function moveUp() {
   // get cells of each row and update their value
   for (let i = 0; i < WIDTH; i++) {
-    let rowOneCell = cells[i].innerHTML;
-    let rowTwoCell = cells[i + WIDTH].innerHTML;
-    let rowThreeCell = cells[i + WIDTH * 2].innerHTML;
-    let rowFourCell = cells[i + WIDTH * 3].innerHTML;
-    let rowFiveCell = cells[i + WIDTH * 4].innerHTML;
-    let rowSixCell = cells[i + WIDTH * 5].innerHTML;
+    // rearrange column, making no empty cell sits between cells with numbers
+    let column = [];
+    for (let j = 0; j < WIDTH; j++) {
+      let cell = cells[i + WIDTH * j].innerHTML;
+      column.push(parseInt(cell));
+    }
 
-    // rearrange column making no empty cell sits between cells with numbers
-    let column = [
-      parseInt(rowOneCell),
-      parseInt(rowTwoCell),
-      parseInt(rowThreeCell),
-      parseInt(rowFourCell),
-      parseInt(rowFiveCell),
-      parseInt(rowSixCell),
-    ];
     column = column.filter((num) => num);
-    let emptyCellLength = 6 - column.length;
+    let emptyCellLength = WIDTH - column.length;
 
     let newColumn = column.concat(Array(emptyCellLength).fill(0));
 
-    cells[i].innerHTML = newColumn[0];
-    cells[i + WIDTH].innerHTML = newColumn[1];
-    cells[i + WIDTH * 2].innerHTML = newColumn[2];
-    cells[i + WIDTH * 3].innerHTML = newColumn[3];
-    cells[i + WIDTH * 4].innerHTML = newColumn[4];
-    cells[i + WIDTH * 5].innerHTML = newColumn[5];
+    for (let j = 0; j < WIDTH; j++) {
+      cells[i + WIDTH * j].innerHTML = newColumn[j];
+    }
   }
 }
+
 function moveRight() {
   // get cells of each column and update their value
   for (let i = 0; i < totalCell; i += WIDTH) {
-    let columnOneCell = cells[i].innerHTML;
-    let columnTwoCell = cells[i + 1].innerHTML;
-    let columnThreeCell = cells[i + 2].innerHTML;
-    let columnFourCell = cells[i + 3].innerHTML;
-    let columnFiveCell = cells[i + 4].innerHTML;
-    let columnSixCell = cells[i + 5].innerHTML;
+    // rearrange column, making no empty cell sits between cells with numbers
+    let row = [];
+    for (let j = 0; j < WIDTH; j++) {
+      let cell = cells[i + j].innerHTML;
+      row.push(parseInt(cell));
+    }
 
-    // rearrange row making no empty cell sits between cells with numbers
-    let row = [
-      parseInt(columnOneCell),
-      parseInt(columnTwoCell),
-      parseInt(columnThreeCell),
-      parseInt(columnFourCell),
-      parseInt(columnFiveCell),
-      parseInt(columnSixCell),
-    ];
     row = row.filter((num) => num);
-    let emptyCellLength = 6 - row.length;
-
+    let emptyCellLength = WIDTH - row.length;
     let newRow = Array(emptyCellLength).fill(0).concat(row);
 
-    cells[i].innerHTML = newRow[0];
-    cells[i + 1].innerHTML = newRow[1];
-    cells[i + 2].innerHTML = newRow[2];
-    cells[i + 3].innerHTML = newRow[3];
-    cells[i + 4].innerHTML = newRow[4];
-    cells[i + 5].innerHTML = newRow[5];
+    for (let j = 0; j < WIDTH; j++) {
+      cells[i + j].innerHTML = newRow[j];
+    }
   }
 }
+
 function moveLeft() {
   // get cells of each column and update their value
   for (let i = 0; i < totalCell; i += WIDTH) {
-    let columnOneCell = cells[i].innerHTML;
-    let columnTwoCell = cells[i + 1].innerHTML;
-    let columnThreeCell = cells[i + 2].innerHTML;
-    let columnFourCell = cells[i + 3].innerHTML;
-    let columnFiveCell = cells[i + 4].innerHTML;
-    let columnSixCell = cells[i + 5].innerHTML;
+    // rearrange column, making no empty cell sits between cells with numbers
+    let row = [];
+    for (let j = 0; j < WIDTH; j++) {
+      let cell = cells[i + j].innerHTML;
+      row.push(parseInt(cell));
+    }
 
-    // rearrange row making no empty cell sits between cells with numbers
-    let row = [
-      parseInt(columnOneCell),
-      parseInt(columnTwoCell),
-      parseInt(columnThreeCell),
-      parseInt(columnFourCell),
-      parseInt(columnFiveCell),
-      parseInt(columnSixCell),
-    ];
     row = row.filter((num) => num);
-    let emptyCellLength = 6 - row.length;
-
+    let emptyCellLength = WIDTH - row.length;
     let newRow = row.concat(Array(emptyCellLength).fill(0));
 
-    cells[i].innerHTML = newRow[0];
-    cells[i + 1].innerHTML = newRow[1];
-    cells[i + 2].innerHTML = newRow[2];
-    cells[i + 3].innerHTML = newRow[3];
-    cells[i + 4].innerHTML = newRow[4];
-    cells[i + 5].innerHTML = newRow[5];
+    for (let j = 0; j < WIDTH; j++) {
+      cells[i + j].innerHTML = newRow[j];
+    }
   }
 }
 

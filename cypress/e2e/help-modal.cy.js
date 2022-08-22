@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe("help modal", () => {
   beforeEach(() => {
     // we could use any mini game for this test, this is an arbitrary choice

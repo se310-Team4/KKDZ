@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 const WORD = "stare";
 const NUM_ROWS = 8;
 const NUM_COLS = 5;

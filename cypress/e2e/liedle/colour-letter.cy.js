@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 const WORD = "stare";
 
 describe("colour each letter based on if it matches the secret word", () => {

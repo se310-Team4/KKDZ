@@ -53,13 +53,14 @@ However, you get a much better development experience by following these steps:
 **Running tests:**
 
 - Follow the instructions above to start the app. Keep that terminal window open.
+- Make sure [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) is installed
 - Open this repository folder in your terminal, and run `npm test`
-- The cypress app will open. Click <kbd>E2E Testing</kbd>
+- The Cypress app will open. Click <kbd>E2E Testing</kbd>
 - Chose a browser and click <kbd>Start</kbd>
 
 ## Architecture
 
-- All code lives in the folder called [src](src). Tests are written using [cypress](https://docs.cypress.io), and are located in the folder called [cypress/e2e](cypress/e2e).
+- All code lives in the folder called [src](src). Tests are written using [Cypress](https://docs.cypress.io), and are located in the folder called [cypress/e2e](cypress/e2e).
 
 ## License
 

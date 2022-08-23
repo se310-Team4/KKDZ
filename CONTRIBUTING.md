@@ -53,6 +53,99 @@ A team member will review the pull request as soon as possible.
 
 Please assign yourself to a maximum of 1 issue at a time.
 
+## Adding a new game
+
+<details>
+<summary>To add a new game, you need to follow these steps (<em>click to expand</em>)</summary>
+
+1. Create a new subfolder for your game within the `src` folder. In this example we will call it `chess`
+2. Create an `index.html` file containing this template code:
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <title>Chess</title>
+       <meta name="description" content="add your game description here" />
+
+       <link
+         rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+       />
+       <link rel="stylesheet" href="../brain-gain/main.css" />
+       <link rel="icon" type="image/x-icon" href="../images/logo-favicon.png" />
+     </head>
+
+     <body>
+       <core-navbar>Chess</core-navbar>
+
+       <core-modal>
+         <div class="modal-header">HOW TO PLAY CHESS</div>
+         <p class="modal-text">This is the help modal</p>
+       </core-modal>
+
+       Hello world!
+       <script type="module" src="../components/script/main.js"></script>
+     </body>
+   </html>
+   ```
+
+3. Edit the home page to add a link to your new game, by adding the following code to `src/index.html`:
+   <!-- prettier-ignore -->
+   ```html
+   <a id="chess-btn" href="./chess/index.html" class="games-button" onmouseenter="chessDetails()" onmouseleave="titleShow()">
+      <img alt="Chess logo" class="game-button-img" />
+      <p id="chess-btn-text">Chess</p>
+    </a>
+   ```
+
+4. Edit the home page to add a modal for your new game, by adding the following code to `src/index.html`:
+
+   ```html
+   <div id="chess-details" class="game-details">
+     <p class="game-details-title">Chess</p>
+     <br />
+     <p class="game-details-text">The description of Chess goes here.</p>
+     <img alt="Chess example gameplay" class="game-details-img" />
+   </div>
+   ```
+
+5. Enable the home page modal for your new game, by adding the following code to `src/brain-gain/index.js`:
+   ```js
+   function chessDetails() {
+     document.getElementById("title-img").style.opacity = "0%";
+     document.getElementById("chess-details").style.opacity = "100%";
+   }
+   ```
+6. Make changes to `src/brain-gain/main.css` as required to position the new button
+7. To write your first test case, create a new subfolder within `cypress/e2e` called `chess`.
+8. Create a test file within `cypress/e2e` called `example.cy.js` containing the following code:
+
+   ```js
+   /// <reference types="cypress" />
+
+   describe("e2e tests for chess", () => {
+     beforeEach(() => {
+       cy.visit("http://localhost:1234/chess/index.html");
+       cy.get("[id=close-btn]").click(); // close the help modal
+     });
+
+     it("loads without crashing", () => {
+       // this is a very basic example
+       cy.get("body").should("contain.text", "Hello world");
+     });
+   });
+   ```
+
+9. To test that the link you added in step 3 works, you should consider adding a new test case in `cypress/e2e/homepage.cy.js`. Only [these 3 lines](https://github.com/se310-Team4/KKDZ/blob/66430ef/cypress/e2e/homepage.cy.js#L2-L4) need changing.
+10. Replace `chess` in the template code with the name of your game
+11. Follow the instructions in the [README](README.md) to start the app. Then open http://localhost:1234/chess in your web browser.
+
+> ✨ To see a full example of these steps, [click here](https://github.com/se310-team4/KKDZ/commit/4ace5d).
+
+</details>
+
 ## Pull Request Approval Process
 
 Each pull request requires a review from at least 1 other team member. Once it is approved, you can merge and squash your pull request into the main repository. All team members have permissions to review, approve and merge contributions.

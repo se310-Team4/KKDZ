@@ -29,6 +29,7 @@ class Modal extends HTMLElement {
     function closeModal() {
       modal.style.display = "none";
       document.removeEventListener("keydown", onKeyDownInModal);
+      localStorage["seen-modal-" + location] = true;
     }
 
     function openModal() {
@@ -44,8 +45,6 @@ class Modal extends HTMLElement {
       if (event.target == modal) closeModal();
     };
 
-    // open the window by default
-    openModal();
   }
 }
 

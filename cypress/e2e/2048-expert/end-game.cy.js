@@ -47,4 +47,17 @@ describe("end game triggers", () => {
       expect(t).to.contains("\t\t You win! \n Your score is ");
     });
   });
+
+  it("test 2048 shown", () => {
+    cy.get(".cell").eq(0).invoke("text", 1024);
+    cy.get(".cell").eq(1).invoke("text", 1024);
+
+    cy.get("body").trigger("keyup", { keyCode: 37 });
+
+    cy.on("window:alert", (t) => {
+      expect(t).to.contains("\t\t You win! \n Your score is ");
+    });
+
+    cy.get(".cell").contains("2048").should("have.attr", "data-digits", "4");
+  });
 });

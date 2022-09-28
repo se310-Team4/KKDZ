@@ -45,7 +45,7 @@ class Modal extends HTMLElement {
       if (event.target == modal) closeModal();
     };
 
-    // hide the help modal by defalut
+    // hide the help modal by default
     modal.style.display = "none";
 
     // if user havent seen the modal, show the modal once the window is open

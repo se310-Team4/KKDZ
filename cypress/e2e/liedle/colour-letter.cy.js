@@ -44,3 +44,24 @@ describe("game has a chance of incorrectly colouring each letter", () => {
     cy.get(`[data-col-index=2][data-row-index=0].tile`).first().should("not.have.attr", "data-type", "right");
   });
 });
+
+describe("game will correctly color words with multiple letters of the same type", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:1234/liedle/index.html");
+    cy.get("[id=close-btn]").click();
+    // override global variables for testing purposes
+    cy.window().then((win) => {
+      win.secretWord = "hello";
+      win.lieRate = 0.0;
+    });
+    cy.get("body").type("hello").type("{enter}");
+  });
+
+  it("test right letter right place", () => {
+    cy.get(`[data-col-index=0][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
+    cy.get(`[data-col-index=1][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
+    cy.get(`[data-col-index=2][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
+    cy.get(`[data-col-index=3][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
+    cy.get(`[data-col-index=4][data-row-index=0].tile`).first().should("have.attr", "data-type", "right");
+  });
+});

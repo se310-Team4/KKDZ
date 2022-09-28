@@ -48,7 +48,7 @@ jobs:
 
       # if tests pass and we're on the mainline branch (and not in a forked repo), then deploy the client to the website
       - name: 🚀 Deploy
-        if: ${{ github.repository == 'se310-Team4/KKDZ' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.repository == 'se310-Team4/KKDZ' && github.event_name == 'push' && github.ref == 'refs/heads/release-1.0' }}
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

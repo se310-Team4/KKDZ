@@ -30,11 +30,13 @@ class Modal extends HTMLElement {
       modal.style.display = "none";
       document.removeEventListener("keydown", onKeyDownInModal);
       localStorage["seen-modal-" + location] = true;
+      document.dispatchEvent(new Event("modal-closed"));
     }
 
     function openModal() {
       modal.style.display = "block";
       document.addEventListener("keydown", onKeyDownInModal);
+      document.dispatchEvent(new Event("modal-opened"));
     }
 
     closeBtn.onclick = closeModal;

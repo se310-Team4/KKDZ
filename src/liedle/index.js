@@ -19,7 +19,9 @@ function start() {
   isEndGame = false;
   createGrid();
   resetGame();
-  handleInput();
+
+  document.addEventListener("modal-closed", handleInput);
+  document.addEventListener("modal-opened", disableInput);
 }
 
 function resetGame() {
@@ -84,22 +86,30 @@ function pickSecretWord() {
 }
 
 // handles key presses from the user
-function handleInput() {
-  document.addEventListener("keydown", function onEvent(e) {
-    if (isEndGame) {
-      return;
-    }
+function onKeyDownInGame(e) {
+  if (isEndGame) {
+    return;
+  }
 
-    const key = e.key;
-    // regex matches any lowercase or uppercase english letter
-    if (key.length === 1 && e.key.match(/^[a-z]/i)) {
-      handleLetter(key);
-    } else if (e.key === "Enter") {
-      handleEnter();
-    } else if (e.key === "Backspace") {
-      handleBackspace();
-    }
-  });
+  const key = e.key;
+  // regex matches any lowercase or uppercase english letter
+  if (key.length === 1 && e.key.match(/^[a-z]/i)) {
+    handleLetter(key);
+  } else if (e.key === "Enter") {
+    handleEnter();
+  } else if (e.key === "Backspace") {
+    handleBackspace();
+  }
+}
+
+// enable the handling of key presses
+function handleInput() {
+  document.addEventListener("keydown", onKeyDownInGame);
+}
+
+// disable the handling of key presses
+function disableInput() {
+  document.removeEventListener("keydown", onKeyDownInGame);
 }
 
 // add the letter to the grid if possible

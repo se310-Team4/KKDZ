@@ -84,7 +84,6 @@ function updateTile(letter, i, j, type) {
 // pick a random word from the dictionary
 function pickSecretWord() {
   window.secretWord = dictionary[Math.floor(Math.random() * dictionary.length)];
-  console.log(window.secretWord);
 }
 
 // handles key presses from the user

@@ -58,6 +58,10 @@
 		<!-- Website content starts here -->
 		<div class="content">
 			<div class="header">Liedle</div> 
+			<div class="display-scores">
+				<div class="display-header">Best :</div>
+				<span id="best-score">0</span>
+			</div>
 			<div id="grid" class="grid"></div>
 			<div id="end">
 				<!-- Placeholder text required to reserve the end message's vertical space. -->
@@ -69,7 +73,8 @@
 					</div>
 				</div>
 			</div>
-
+			
+			<script type="text/javascript" src="local-storage.js"></script>
 			<script type="module" src="../components/script/main.js"></script>
 			<script type="module" src="index.js"></script>
 	</body>

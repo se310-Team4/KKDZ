@@ -1,11 +1,13 @@
 import { dictionary } from "./dictionary.js";
 
 const replayBtn = document.getElementById("replay");
+const bestScoreDisplay = document.getElementById("best-score");
 const NUM_ROWS = 8;
 const NUM_COLS = 5;
 let rowIndex;
 let colIndex;
 let isEndGame;
+let bestScore = getBestScore() === null ? 0 : getBestScore();
 
 replayBtn.onclick = function () {
   resetGame();
@@ -19,9 +21,8 @@ function start() {
   isEndGame = false;
   createGrid();
   resetGame();
-
-  document.addEventListener("modal-closed", handleInput);
-  document.addEventListener("modal-opened", disableInput);
+  handleInput();
+  bestScoreDisplay.innerHTML = bestScore;
 }
 
 function resetGame() {
@@ -83,33 +84,26 @@ function updateTile(letter, i, j, type) {
 // pick a random word from the dictionary
 function pickSecretWord() {
   window.secretWord = dictionary[Math.floor(Math.random() * dictionary.length)];
+  console.log(window.secretWord);
 }
 
 // handles key presses from the user
-function onKeyDownInGame(e) {
-  if (isEndGame) {
-    return;
-  }
-
-  const key = e.key;
-  // regex matches any lowercase or uppercase english letter
-  if (key.length === 1 && e.key.match(/^[a-z]/i)) {
-    handleLetter(key);
-  } else if (e.key === "Enter") {
-    handleEnter();
-  } else if (e.key === "Backspace") {
-    handleBackspace();
-  }
-}
-
-// enable the handling of key presses
 function handleInput() {
-  document.addEventListener("keydown", onKeyDownInGame);
-}
+  document.addEventListener("keydown", function onEvent(e) {
+    if (isEndGame) {
+      return;
+    }
 
-// disable the handling of key presses
-function disableInput() {
-  document.removeEventListener("keydown", onKeyDownInGame);
+    const key = e.key;
+    // regex matches any lowercase or uppercase english letter
+    if (key.length === 1 && e.key.match(/^[a-z]/i)) {
+      handleLetter(key);
+    } else if (e.key === "Enter") {
+      handleEnter();
+    } else if (e.key === "Backspace") {
+      handleBackspace();
+    }
+  });
 }
 
 // add the letter to the grid if possible
@@ -201,12 +195,25 @@ function colourLetterFalsely(tile) {
 function checkEndGame(word) {
   if (word === window.secretWord) {
     handleEndGame(/*isWin =*/ true);
+    updateScores(rowIndex+1);
   } else if (rowIndex >= NUM_ROWS - 1) {
     handleEndGame(/*isWin =*/ false);
   } else {
     // reset cursor
     colIndex = 0;
     rowIndex++;
+  }
+}
+
+// update the current and best score
+function updateScores(score) {
+  if(parseInt(bestScore) == 0){
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
+  }
+  else if (score < parseInt(bestScore)) {
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
   }
 }
 

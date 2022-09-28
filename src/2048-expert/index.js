@@ -1,5 +1,3 @@
-const { floor } = require("cypress/types/lodash");
-
 const gameBoard = document.querySelector(".game-board");
 const currentScoreDisplay = document.getElementById("current-score");
 const bestScoreDisplay = document.getElementById("best-score");
@@ -33,7 +31,6 @@ function generateNewTile() {
     if(!checkisFull()){
       generateNewTile();
     }
-    
   }
 }
 
@@ -192,6 +189,7 @@ function keyUpLeft() {
   moveLeft();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpRight() {
@@ -200,6 +198,7 @@ function keyUpRight() {
   moveRight();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpUp() {
@@ -208,6 +207,7 @@ function keyUpUp() {
   moveUp();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpDown() {
@@ -216,6 +216,7 @@ function keyUpDown() {
   moveDown();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 // a win happens when 2048 is generated
@@ -230,7 +231,6 @@ function checkWin() {
 
 // a loss happens when all cells are full and they are not mergeable 
 function checkLost() {
-  
   if (checkisFull()) {
     // check if any tiles are mergeable
     for (let i = 0; i < totalCell-6; i++) {
@@ -243,7 +243,7 @@ function checkLost() {
     for (let i = 0; i < totalCell-1; i++) {
       if((cells[i].innerHTML == cells[i+1].innerHTML) && i%6 != 0){
          // the user did not lose the game
-          return;
+        return;
       }
     }
     alert("\t\t You Lost\n Your score is " + currentScore);
@@ -260,9 +260,7 @@ function checkisFull(){
     }
   }
 
-  if (numEmptyCells == 0){
-    return true;
-  }
+  return numEmptyCells == 0;
 }
 
 // function start new game

@@ -232,8 +232,17 @@ function checkLost() {
     }
   }
   if (numEmptyCells == 0) {
-    alert("\t\t You Lost\n Your score is " + currentScore);
-    newGame();
+    // check if any tiles are mergeable
+      for (let i = 0; i < totalCell; i++) {
+      // check horizontal 
+      if((cells[i].innerHTML != cells[i+1].innerHTML)&& i%6 != 0){
+        // check vertical
+        if((cells[i].innerHTML != cells[i+6].innerHTML)){
+          alert("\t\t You Lost\n Your score is " + currentScore);
+          newGame();
+        }
+      }
+    }
   }
 }
 

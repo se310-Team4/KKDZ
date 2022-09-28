@@ -6,6 +6,7 @@ let totalCell = WIDTH * WIDTH;
 let cells = [];
 let currentScore = 0;
 let bestScore = getBestScore() === null ? 0 : getBestScore();
+let gameEnd = false;
 
 // create and add cells to the board
 function createBoard() {
@@ -22,6 +23,8 @@ function createBoard() {
 
 // generate number (2 or 4) at a random available cell
 function generateNewTile() {
+  if (gameEnd) return;
+
   const rand = Math.floor(Math.random() * cells.length);
   if (cells[rand].innerHTML == 0) {
     cells[rand].innerHTML = randomNumTwoOrFour();
@@ -172,6 +175,8 @@ function updateScores(bonus) {
 
 // bind user action with key
 function control(e) {
+  if (gameEnd) return;
+
   if (e.keyCode === 37) {
     keyUpLeft();
   } else if (e.keyCode === 38) {
@@ -223,8 +228,13 @@ function keyUpDown() {
 function checkWin() {
   for (let i = 0; i < totalCell; i++) {
     if (cells[i].innerHTML == 2048) {
-      alert("\t\t You win! \n Your score is " + currentScore);
-      newGame();
+      gameEnd = true;
+      // HACK: Some browsers update the DOM asynchronously but only after the current call stack has cleared.
+      // by creating a 1ms delay, we allow the browser to asynchronously update the DOM and then display the
+      // alert effectively instantly.
+      // See: https://stackoverflow.com/questions/38960101/why-is-element-not-being-shown-before-alert
+      // Note: issue does not appear on firefox, only on chromium-based browsers
+      setTimeout(() => alert("\t\t You win! \n Your score is " + currentScore), 1);
     }
   }
 }
@@ -246,8 +256,15 @@ function checkLost() {
         return;
       }
     }
-    alert("\t\t You Lost\n Your score is " + currentScore);
-    newGame();
+    if (numEmptyCells == 0) {
+      gameEnd = true;
+        // HACK: Some browsers update the DOM asynchronously but only after the current call stack has cleared.
+        // by creating a 1ms delay, we allow the browser to asynchronously update the DOM and then display the
+        // alert effectively instantly.
+        // See: https://stackoverflow.com/questions/38960101/why-is-element-not-being-shown-before-alert
+        // Note: issue does not appear on firefox, only on chromium-based browsers
+      setTimeout(() => alert("\t\t You Lost\n Your score is " + currentScore), 1);
+    }
   }
 }
 
@@ -351,5 +368,6 @@ document.addEventListener("keyup", control);
 // allow restarting the game
 const newBtn = document.getElementById("new-btn");
 newBtn.onclick = function () {
+  gameEnd = false;
   newGame();
 };

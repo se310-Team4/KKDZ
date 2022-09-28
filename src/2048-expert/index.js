@@ -28,7 +28,9 @@ function generateNewTile() {
   } else {
     // if a cell is already has a number, then find a new tile
     checkLost();
-    generateNewTile();
+    if(!checkisFull()){
+      generateNewTile();
+    }
   }
 }
 
@@ -187,6 +189,7 @@ function keyUpLeft() {
   moveLeft();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpRight() {
@@ -195,6 +198,7 @@ function keyUpRight() {
   moveRight();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpUp() {
@@ -203,6 +207,7 @@ function keyUpUp() {
   moveUp();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 function keyUpDown() {
@@ -211,6 +216,7 @@ function keyUpDown() {
   moveDown();
   generateTwoNewTile();
   addColours();
+  checkLost();
 }
 
 // a win happens when 2048 is generated
@@ -223,18 +229,38 @@ function checkWin() {
   }
 }
 
-// a loss happens when all cells are full
+// a loss happens when all cells are full and they are not mergeable 
 function checkLost() {
+  if (checkisFull()) {
+    // check if any tiles are mergeable
+    for (let i = 0; i < totalCell-6; i++) {
+      // check vertical
+      if((cells[i].innerHTML == cells[i+6].innerHTML)){
+        // the user did not lose the game
+        return;
+      }
+    }
+    for (let i = 0; i < totalCell-1; i++) {
+      if((cells[i].innerHTML == cells[i+1].innerHTML) && i%6 != 0){
+         // the user did not lose the game
+        return;
+      }
+    }
+    alert("\t\t You Lost\n Your score is " + currentScore);
+    newGame();
+  }
+}
+
+// check if the board is full
+function checkisFull(){
   let numEmptyCells = 0;
   for (let i = 0; i < totalCell; i++) {
     if (cells[i].innerHTML == 0) {
       numEmptyCells++;
     }
   }
-  if (numEmptyCells == 0) {
-    alert("\t\t You Lost\n Your score is " + currentScore);
-    newGame();
-  }
+
+  return numEmptyCells == 0;
 }
 
 // function start new game

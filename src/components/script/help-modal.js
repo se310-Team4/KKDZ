@@ -29,6 +29,7 @@ class Modal extends HTMLElement {
     function closeModal() {
       modal.style.display = "none";
       document.removeEventListener("keydown", onKeyDownInModal);
+      localStorage["seen-modal-" + location] = true;
     }
 
     function openModal() {
@@ -44,8 +45,11 @@ class Modal extends HTMLElement {
       if (event.target == modal) closeModal();
     };
 
-    // open the window by default
-    openModal();
+    // hide the help modal by default
+    modal.style.display = "none";
+
+    // if user havent seen the modal, show the modal once the window is open
+    if (!localStorage["seen-modal-" + location]) openModal();
   }
 }
 

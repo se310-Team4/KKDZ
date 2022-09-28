@@ -91,8 +91,6 @@ core-navbar > div {
   text-align: center;
   text-decoration: none;
   z-index: 2;
-  /* width: 20%;
-  height: 35%; */
   width: 380px;
   height: 320px; 
   display: flex;
@@ -111,18 +109,12 @@ core-navbar > div {
 
 .title-img {
   display: block;
-  /* margin-left: auto;
-  margin-right: auto;*/
   margin-top: 4%; 
   transition: 0.6s;
   height: 340px;
 }
 
 .game-details {
-  /* position: absolute; */
-  /* left: 10%; */
-  /* top: 15%; */
-  /* opacity: 0%; */
   transition: 0.6s;
   transition: opacity 0.6s ease-out;
   
@@ -146,41 +138,18 @@ core-navbar > div {
 }
 
 .game-details-title {
-  /* width: 40%; */
   color: #595959;
   font-size: 28px;
   font-weight: bold;
 }
 
 .game-details-text {
-  /* width: 40%; */
   color: #595959;
   font-size: 22px;
 }
 
 .game-details-img {
-  /* position: absolute; */
-  /* left: 60%;
-  top: 5%;*/
   height: 345px;
-}
-
-#capidle-btn {
-  /* position: absolute; */
-  /* left: 10%;
-  bottom: 5%; */
-}
-
-#liedle-btn {
-  /* position: absolute; */
-  /* left: 40%;
-  bottom: 5%; */
-}
-
-#a2048expert-btn {
-  /* position: absolute; */
-  /* left: 70%;
-  bottom: 5%; */
 }
 
 /* the modal window used in all mini games */

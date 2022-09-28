@@ -8,12 +8,10 @@ describe("end game triggers", () => {
   });
 
   it("test lost", () => {
-    // fill up the board with tiles that leave the user with no more moves
+    // fill up the board with tiles and they are not mergeable
     for (let i = 0; i < TOTAL_CELL; i++) {
       if (i % 2) {
-        cy.get(".cell").eq(i).invoke("text", 2);
-      } else {
-        cy.get(".cell").eq(i).invoke("text", 4);
+        cy.get(".cell").eq(i).invoke("text", i);
       }
     }
 
@@ -22,6 +20,19 @@ describe("end game triggers", () => {
     cy.on("window:alert", (t) => {
       expect(t).to.contains("\t\t You Lost\n Your score is ");
     });
+  });
+
+  it("board filled but mergeable", () =>{
+    // fill up the board with tiles but tiles are mergeable
+    for (let i = 0; i < TOTAL_CELL; i++) {
+      if (i % 2) {
+        cy.get(".cell").eq(i).invoke("text", 2);
+      } else {
+        cy.get(".cell").eq(i).invoke("text", 4);
+      }
+    }
+
+    cy.get(".cell").contains("2").invoke("data", "index").should("be.gt", -1);
   });
 
   it("test win", () => {

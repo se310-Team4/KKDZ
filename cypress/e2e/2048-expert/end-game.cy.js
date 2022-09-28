@@ -24,6 +24,7 @@ describe("end game triggers", () => {
 
   it("board filled but mergeable", () =>{
     // fill up the board with tiles but tiles are mergeable
+    let spy = cy.spy(window, 'alert');
     for (let i = 0; i < TOTAL_CELL; i++) {
       if (i % 2) {
         cy.get(".cell").eq(i).invoke("text", 2);
@@ -32,7 +33,8 @@ describe("end game triggers", () => {
       }
     }
 
-    cy.get(".cell").contains("2").invoke("data", "index").should("be.gt", -1);
+    expect(spy).to.haveOwnProperty('callCount');
+    expect(spy).to.not.be.called;
   });
 
   it("test win", () => {

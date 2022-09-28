@@ -16,6 +16,7 @@ export let guesses = [];
 /** @type {import("./puzzle").Answer} the correct answer */
 let answer;
 
+let bestScore = getBestScore() === null ? 0 : getBestScore();
 /**
  * this function re-renders the whole game.
  * It is called when the user changes the game state.
@@ -27,8 +28,15 @@ export function render() {
   // check if the user's most recent guess was correct
   const prevGuess = guesses.slice(-1)[0];
   const prevGuessWasCorrect = answer.names.en === prevGuess?.names.en;
-  if (prevGuessWasCorrect) return renderResultsUi(/* successful */ true);
-
+  if (prevGuessWasCorrect) {
+    if(parseInt(bestScore) == 0){
+      setBestScore(guesses.length);
+    }
+    else if (score < parseInt(bestScore)) {
+      setBestScore(guesses.length);
+    }
+    return renderResultsUi(/* successful */ true);
+  };
   // check if the user has run out of guesses
   const isGameOver = guesses.length === NUMBER_OF_GUESSES;
   if (isGameOver) return renderResultsUi(/* successful */ false);
@@ -38,6 +46,7 @@ export function render() {
 
 function renderGameUi() {
   const gameMode = gameModes[GAME_MODE];
+  $("#best-score").innerHTML = bestScore;
   $("#guess-rows").innerHTML = new Array(NUMBER_OF_GUESSES)
     .fill(null)
     .map((_, i) => {

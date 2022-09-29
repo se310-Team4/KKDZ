@@ -19,3 +19,5 @@ function titleShow() {
   document.getElementById("liedle-details").style.opacity = "0%";
   document.getElementById("a2048expert-details").style.opacity = "0%";
 }
+
+

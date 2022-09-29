@@ -25,6 +25,10 @@ h1 {
 .container {
   width: 600px;
   margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.301);
 }
 
 .title {
@@ -120,4 +124,40 @@ h1 {
 
 [data-digits="4"] {
   font-size: 32px;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+
+  /* game board that contains the grid of tiles */
+  .game-board {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 444px;
+    height: 444px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: red;
+  }
+
+  /* cells on the game board */
+  .game-board div {
+    width: 64px;
+    height: 64px;
+    line-height: 80px;
+    margin: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 48px;
+    background-color: #eee4da;
+    color: #afa192;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

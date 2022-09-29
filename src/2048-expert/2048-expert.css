@@ -153,11 +153,31 @@ h1 {
     margin: 5px;
     border-radius: 3px;
     font-weight: bold;
-    font-size: 48px;
     background-color: #eee4da;
     color: #afa192;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+    /* font size depends on number of digits in the tile  */
+  [data-digits="0"] {
+    color: rgb(175, 161, 132) !important; /* needed to override the font colour */
+  }
+
+  [data-digits="1"] {
+    font-size: 48px;
+  }
+
+  [data-digits="2"] {
+    font-size: 38px;
+  }
+
+  [data-digits="3"] {
+    font-size: 28px;
+  }
+
+  [data-digits="4"] {
+    font-size: 26px;
   }
 }

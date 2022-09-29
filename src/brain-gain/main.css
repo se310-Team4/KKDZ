@@ -20,6 +20,7 @@ core-navbar {
   display: flex;
   justify-content: space-between;
   font-size: x-large;
+  height: 45px;
 }
 core-navbar a {
   color: #fff;
@@ -49,6 +50,32 @@ core-navbar > div {
   color: #d82d46;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 45px);
+  max-height: 200vh;
+}
+
+#center-info {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 52%;
+  position: relative;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 48%;
+}
+
+
 .games-button {
   background-color: #ffffff;
   border-radius: 20px;
@@ -64,8 +91,10 @@ core-navbar > div {
   text-align: center;
   text-decoration: none;
   z-index: 2;
-  width: 20%;
-  height: 35%;
+  width: 380px;
+  height: 320px; 
+  display: flex;
+  flex-direction: column;
 }
 
 .games-button:hover {
@@ -80,57 +109,47 @@ core-navbar > div {
 
 .title-img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
+  margin-top: 4%; 
   transition: 0.6s;
-  width: 35%;
+  height: 340px;
 }
 
 .game-details {
-  position: absolute;
-  left: 10%;
-  top: 15%;
-  opacity: 0%;
   transition: 0.6s;
+  transition: opacity 0.6s ease-out;
+  
+  width: 80%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 10%;
+  margin-top: 2%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0%;
+}
+
+.game-details div {
+  width: 50%;
+  height: 345px;
 }
 
 .game-details-title {
-  width: 40%;
   color: #595959;
   font-size: 28px;
   font-weight: bold;
 }
 
 .game-details-text {
-  width: 40%;
   color: #595959;
   font-size: 22px;
 }
 
 .game-details-img {
-  position: absolute;
-  left: 60%;
-  top: 5%;
-  width: 30%;
-}
-
-#capidle-btn {
-  position: absolute;
-  left: 10%;
-  bottom: 5%;
-}
-
-#liedle-btn {
-  position: absolute;
-  left: 40%;
-  bottom: 5%;
-}
-
-#a2048expert-btn {
-  position: absolute;
-  left: 70%;
-  bottom: 5%;
+  height: 345px;
 }
 
 /* the modal window used in all mini games */
@@ -169,6 +188,71 @@ core-navbar > div {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media only screen and (max-width: 1200px) {
+  .game-details {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .game-details div{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #center-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 60%;
+  }
+
+  #title-img {
+    width: 80%;
+    height: auto;
+  }
+
+  .game-details {
+    font-size: 16px;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    margin-top: 0;
+  }
+
+  .game-details-title {
+    font-size: 24px;
+  }
+  
+  .game-details-text {
+    font-size: 18px;
+  }
+
+  .game-details-img {
+    height: 180px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    width: 100%;
+  }
+
+  .games-button {
+    width: 90%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .game-button-img {
+    width: 64px;
+  }
+}
+
 /* on small screens, the modal can be wider than normal */
 @media only screen and (max-width: 700px) {
   .modal-window {
@@ -203,13 +287,12 @@ core-navbar > div {
   cursor: pointer;
 }
 
+
 .area{
   background: #4e54c8;  
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
   width: 100%;
   height:100%;
-  
- 
 }
 
 .circles{

@@ -2,7 +2,7 @@
 describe("help modal", () => {
   beforeEach(() => {
     // we could use any mini game for this test, this is an arbitrary choice
-    cy.visit("http://localhost:1234/liedle");
+    cy.visit("http://localhost:1234/liedle/index.html");
   });
 
   it("has a help window that shows by default", () => {

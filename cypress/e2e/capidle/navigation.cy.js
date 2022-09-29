@@ -2,7 +2,7 @@
 
 describe("capidle navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:1234/capidle?test");
+    cy.visit("http://localhost:1234/capidle/index.html?test");
     cy.get("[id=close-btn]").click();
   });
 

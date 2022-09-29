@@ -15,10 +15,10 @@ body {
 
 /* title for main page */
 .title {
-  position:relative;
+  position: relative;
   justify-content: center;
   margin-left: 60px;
-  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 /* the navbar used in all mini games */
@@ -28,7 +28,7 @@ core-navbar {
   display: flex;
   justify-content: space-between;
   font-size: x-large;
-  height: 45px;
+  height: 50px;
 }
 core-navbar a,b {
   color: #fff;
@@ -45,7 +45,7 @@ core-navbar b:active {
   transform: scale(1.2);
 }
 core-navbar > div {
-  padding: 8px;
+  padding: 10px;
 }
 
 /* best scores for all games */
@@ -55,11 +55,11 @@ core-modal {
 }
 
 .best-scores {
-  position:relative;
-  justify-content: center;
+  position: relative;
+  top: 0;
   margin-right: 3px;
-  padding: 6px;
   border-radius: 3px;
+  padding: 2px;
   user-select: none;
   background-color: #f4abba;
   color: #f5f5f5;
@@ -353,7 +353,7 @@ core-modal {
 
 .circles{
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 100%;

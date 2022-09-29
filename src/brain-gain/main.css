@@ -33,8 +33,7 @@ core-navbar {
   height: 50px;
 }
 
-core-navbar a,
-b {
+core-navbar a, b {
   color: #fff;
   text-decoration: none;
   transition: 0.2s;

@@ -1,5 +1,5 @@
 import { dictionary } from "./dictionary.js";
-import { validWords } from "./valid-words.js";
+import { commonWords } from "./common-words.js";
 
 const replayBtn = document.getElementById("replay");
 const bestScoreDisplay = document.getElementById("best-score");
@@ -85,7 +85,7 @@ function updateTile(letter, i, j, type) {
 
 // pick a random word from the valid-words
 function pickSecretWord() {
-  window.secretWord = validWords[Math.floor(Math.random() * validWords.length)];
+  window.secretWord = commonWords[Math.floor(Math.random() * commonWords.length)];
 }
 
 // handles key presses from the user

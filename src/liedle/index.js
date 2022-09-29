@@ -1,11 +1,13 @@
 import { dictionary } from "./dictionary.js";
 
 const replayBtn = document.getElementById("replay");
+const bestScoreDisplay = document.getElementById("best-score");
 const NUM_ROWS = 8;
 const NUM_COLS = 5;
 let rowIndex;
 let colIndex;
 let isEndGame;
+let bestScore = getBestScore() === null ? 0 : getBestScore();
 
 replayBtn.onclick = function () {
   resetGame();
@@ -19,9 +21,9 @@ function start() {
   isEndGame = false;
   createGrid();
   resetGame();
-
   document.addEventListener("modal-closed", handleInput);
   document.addEventListener("modal-opened", disableInput);
+  bestScoreDisplay.innerHTML = bestScore;
 }
 
 function resetGame() {
@@ -191,12 +193,25 @@ function colourLetterFalsely(tile) {
 function checkEndGame(word) {
   if (word === window.secretWord) {
     handleEndGame(/*isWin =*/ true);
+    updateScores(rowIndex+1);
   } else if (rowIndex >= NUM_ROWS - 1) {
     handleEndGame(/*isWin =*/ false);
   } else {
     // reset cursor
     colIndex = 0;
     rowIndex++;
+  }
+}
+
+// update the current and best score
+function updateScores(score) {
+  if(parseInt(bestScore) == 0){
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
+  }
+  else if (score < parseInt(bestScore)) {
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
   }
 }
 

@@ -13,6 +13,14 @@ body {
   font-family: "Varela Round", sans-serif;
 }
 
+/* title for main page */
+.title {
+  position: relative;
+  justify-content: center;
+  margin-left: 60px;
+  margin-bottom: 10px;
+}
+
 /* the navbar used in all mini games */
 core-navbar {
   background: var(--theme);
@@ -20,9 +28,9 @@ core-navbar {
   display: flex;
   justify-content: space-between;
   font-size: x-large;
-  height: 45px;
+  height: 50px;
 }
-core-navbar a {
+core-navbar a,b {
   color: #fff;
   text-decoration: none;
   transition: 0.2s;
@@ -32,8 +40,56 @@ core-navbar a:hover,
 core-navbar a:active {
   transform: scale(1.4);
 }
+core-navbar b:hover,
+core-navbar b:active {
+  transform: scale(1.2);
+}
 core-navbar > div {
-  padding: 8px;
+  padding: 10px;
+}
+
+/* best scores for all games */
+core-modal {
+  position:relative;
+  z-index: 3;
+}
+
+.best-scores {
+  position: relative;
+  top: 0;
+  margin-right: 3px;
+  border-radius: 3px;
+  padding: 2px;
+  user-select: none;
+  background-color: #f4abba;
+  color: #f5f5f5;
+}
+
+.best-game-list {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  max-width: 500px;
+  max-height: 200px;
+}
+
+.best-game-scores {
+  display: inline-block;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  max-width: 100px;
+  max-height:100px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: #595959;
+}
+
+.best-game-img {
+  max-width: 80px;
+  max-height: 80px;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 /* colors based on the colors used in the logo*/
@@ -297,7 +353,7 @@ core-navbar > div {
 
 .circles{
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 100%;

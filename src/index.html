@@ -17,12 +17,31 @@
   </head>
 
   <body>
-    <!-- Navbar with no back/help button -->
-    <core-navbar custom style="display: flex; justify-content: center">
-      <div>BrainGain</div>
-    </core-navbar>
-
+  
     <div class="content">
+      <!-- Navbar with no back/help button -->
+      <core-navbar custom>
+        <div class="title">BrainGain</div>
+      </core-navbar>
+
+      <core-modal custom>
+        <div class="modal-header">YOUR CURRENT BEST SCORE</div>
+        <div class="best-game-list">
+          <div class="best-game-scores">
+            <img src="./images/capidle-logo.png" alt="Capidle logo" class="best-game-img"/>
+            <span id="best-game-score-capidle">0</span>
+          </div>
+          <div class="best-game-scores">
+            <img src="./images/liedle-logo.png" alt="Liedle logo" class="best-game-img"/>
+            <span id="best-game-score-liedle">0</span>
+          </div>
+          <div class="best-game-scores">
+            <img src="./images/a2048expert-logo.png" alt="2048 Expert logo" class="best-game-img"/>
+            <span id="best-game-score-2048">0</span>
+          </div>
+        </div>
+      </core-modal>
+
       <div id="center-info">
         <img id="title-img" src="./images/logo.png" alt="example" class="title-img" />
         <div id="capidle-details" class="game-details">
@@ -49,6 +68,7 @@
           </div>
           <img src="./images/a2048expert-example.png" alt="2048 Expert example gameplay" class="game-details-img" />
         </div>
+
       </div>
 
       <!-- Buttons to the mini-games -->

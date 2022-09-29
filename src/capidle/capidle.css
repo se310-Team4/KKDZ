@@ -76,6 +76,26 @@ form input[type="text"] {
   margin-right: 2px;
 }
 
+.display-scores {
+  display: flex;
+  justify-content: center;
+  float: right;
+  margin-top: 20px;
+  width: 50px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: #ea596e;
+  text-align: center;
+  padding: 13px 17px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #f5f5f5;
+}
+
+.display-header {
+  padding-right: 3px;
+}
+
 /* the autofill popup */
 .autofill-wrapper {
   position: relative;
@@ -125,3 +145,4 @@ form input[type="text"] {
   font-size: 24px;
   padding: 8px;
 }
+

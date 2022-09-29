@@ -57,8 +57,13 @@
         </div>
         <input type="submit" value="Guess" disabled />
       </form>
+      <div class="display-scores">
+				<div class="display-header">Best:</div>
+				<span id="best-score">0</span>
+			</div>
     </main>
 
+    <script type="text/javascript" src="./script/local-storage.js"></script>
     <script type="module" src="../components/script/main.js"></script>
     <script type="module" src="./script/index.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin></script>

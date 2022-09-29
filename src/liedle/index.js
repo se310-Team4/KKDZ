@@ -1,4 +1,5 @@
 import { dictionary } from "./dictionary.js";
+import { validWords } from "./valid-words.js";
 
 const replayBtn = document.getElementById("replay");
 const bestScoreDisplay = document.getElementById("best-score");
@@ -82,9 +83,9 @@ function updateTile(letter, i, j, type) {
   tile.dataset.type = type;
 }
 
-// pick a random word from the dictionary
+// pick a random word from the valid-words
 function pickSecretWord() {
-  window.secretWord = dictionary[Math.floor(Math.random() * dictionary.length)];
+  window.secretWord = validWords[Math.floor(Math.random() * validWords.length)];
 }
 
 // handles key presses from the user

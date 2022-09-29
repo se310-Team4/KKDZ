@@ -28,7 +28,6 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 0, 0, 0.301);
 }
 
 .title {
@@ -60,6 +59,7 @@ h1 {
 .intro {
   font-size: 20px;
   line-height: 1.5;
+  width: 100%;
 }
 
 #new-btn {
@@ -131,6 +131,21 @@ h1 {
     width: 100%;
   }
 
+  .intro {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  .title {
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
   /* game board that contains the grid of tiles */
   .game-board {
     margin-top: 30px;
@@ -142,7 +157,6 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: red;
   }
 
   /* cells on the game board */

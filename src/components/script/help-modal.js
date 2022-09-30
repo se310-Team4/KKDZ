@@ -56,11 +56,11 @@ class Modal extends HTMLElement {
     // hide the help modal by default
     modal.style.display = "none";
 
-    console.log(location);
     // if user havent seen the modal, show the modal once the window is open
     // homepage uses custom modal, and it does not require modal to appear for first time user
     if (this.getAttribute("custom") === null) {
-      if ((!localStorage["seen-modal-" + location])) openModal();
+      if ((!localStorage["seen-modal-" + location])) {openModal();}
+      else{closeModal();}
     }
   }
 }

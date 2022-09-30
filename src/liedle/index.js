@@ -22,7 +22,6 @@ function start() {
   isEndGame = false;
   createGrid();
   resetGame();
-  handleInput();
   document.addEventListener("modal-closed", handleInput);
   document.addEventListener("modal-opened", disableInput);
   bestScoreDisplay.innerHTML = bestScore;

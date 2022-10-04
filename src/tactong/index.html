@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tactong</title>
+    <meta name="description" content="A memory and pattern game!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" >
+
+		<link rel="stylesheet" href="../brain-gain/main.css">
+		<link rel="stylesheet" href="index.css">
+
+		<link rel="icon" type="image/x-icon" href="../images/logo-favicon.png">
+	</head>
+
+	<body>
+
+		<!-- Navigation bar with back and help links -->
+		<core-navbar>Tactong</core-navbar>
+
+		<!-- Modal window with instructions on how to play -->
+		<!-- <core-modal>
+			<div class="modal-header">HOW TO PLAY Tactong</div>
+			<p class="modal-text">Click start
+				<br> Listen and repeat the pattern
+				<br> Get the pattern wrong 3 times, and you lose!
+			</p>
+		</core-modal> -->
+
+		<!-- Website content starts here -->
+		<div class="content">
+			<div class="container">
+				<div class="title">
+					<h1>Tactong</h1>
+					<!--Display of current score and best score-->
+					<div class="display-banner">
+					<div class="display-scores">
+						<div class="display-header">Score</div>
+						<span id="current-score">0</span>
+					</div>
+					<div class="display-scores">
+						<div class="display-header">Best</div>
+						<span id="best-score">0</span>
+					</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="gameCircle">
+				<!-- an svg of a circle with four quadrants, red, green, blue, and yellow -->
+				<svg viewBox="0 0 200 200", id="circle">
+					<g transform="translate(100,100)" stroke="#000" stroke-width="2">
+						<path d="M0 0-70 70A99 99 0 0 1-70-70Z" id="redUnder" fill="#FFF"/>
+						<path d="M0 0-70-70A99 99 0 0 1 70-70Z" id="greenUnder" fill="#FFF"/>
+						<path d="M0 0 70-70A99 99 0 0 1 70 70Z" id="yellowUnder" fill="#FFF"/>
+						<path d="M0 0 70 70A99 99 0 0 1-70 70Z" id="blueUnder" fill="#FFF"/>
+					  	<path d="M0 0-70 70A99 99 0 0 1-70-70Z" fill="#f00" id="red"/>
+					  	<path d="M0 0-70-70A99 99 0 0 1 70-70Z" fill="#080" id="green"/>
+					  	<path d="M0 0 70-70A99 99 0 0 1 70 70Z" fill="#dd0" id="yellow"/>
+					  	<path d="M0 0 70 70A99 99 0 0 1-70 70Z" fill="#04e" id="blue"/>
+					</g>
+				</svg>
+			</div>
+
+			<script type="module" src="../components/script/main.js"></script>
+			<script type="module" src="index.js"></script>
+	</body>
+
+</html>

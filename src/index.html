@@ -68,7 +68,14 @@
           </div>
           <img src="./images/a2048expert-example.png" alt="2048 Expert example gameplay" class="game-details-img" />
         </div>
-
+        <div id="tactong-details" class="game-details">
+          <div>
+            <p class="game-details-title">Tactong</p>
+            <br>
+            <p class="game-details-text">Tactong is a memorisation game. You will be given a pattern of colours and sounds in a specific order, you must return the pattern in the provided order to continue to the next level! Patterns will get progressively more complex as the game progresses.</p>
+          </div>
+          <img src="./images/tactong-example.png" alt="tactong example gameplay" class="game-details-img">
+        </div>
       </div>
 
       <!-- Buttons to the mini-games -->
@@ -84,6 +91,10 @@
         <a id="a2048expert-btn"  href="./2048-expert/index.html" onclick="transitionToPage('./2048-expert/index.html');return false" class="games-button" onmouseenter="a2048ExpertDetails()" onmouseleave="titleShow()"><!--  -->
           <img src="./images/a2048expert-logo.png" alt="2048 Expert logo" class="game-button-img" />
           <p id="a2048expert-btn-text">2048 Expert</p>
+        </a>
+        <a id="tactong-btn" href="./tactong/index.html" onclick="transitionToPage('./tactong/index.html');return false" class="games-button" onmouseenter="tactongDetails()" onmouseleave="titleShow()"><!--  -->
+          <img src="./images/tactong-logo.png" alt="Tactong logo" class="game-button-img" />
+          <p id="tactong-btn-text">Tactong</p>
         </a>
       </div>
     </div>
@@ -102,7 +113,6 @@
         <li></li>
       </ul>
     </div>
-
     <script type="module" src="./components/script/main.js"></script>
   </body>
 </html>

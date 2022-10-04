@@ -213,7 +213,34 @@ core-modal {
 }
 
 .game-details-img {
-  height: 345px;
+  position: absolute;
+  left: 60%;
+  top: 5%;
+  width: 30%;
+}
+
+#capidle-btn {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+
+#liedle-btn {
+  position: absolute;
+  left: 28.25%;
+  bottom: 5%;
+}
+
+#a2048expert-btn {
+  position: absolute;
+  left: 51.75%;
+  bottom: 5%;
+}
+
+#tactong-btn {
+  position: absolute;
+  left: 75%;
+  bottom: 5%;
 }
 
 /* the modal window used in all mini games */

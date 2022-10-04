@@ -22,13 +22,13 @@
 		<core-navbar>Tactong</core-navbar>
 
 		<!-- Modal window with instructions on how to play -->
-		<!-- <core-modal>
+		<core-modal>
 			<div class="modal-header">HOW TO PLAY Tactong</div>
 			<p class="modal-text">Click start
 				<br> Listen and repeat the pattern
-				<br> Get the pattern wrong 3 times, and you lose!
+				<br> Get the pattern wrong, and you lose!
 			</p>
-		</core-modal> -->
+		</core-modal>
 
 		<!-- Website content starts here -->
 		<div class="content">
@@ -49,11 +49,9 @@
 				</div>
 			</div>
 
-
-
 			<div class="gameCircle">
 				<!-- an svg of a circle with four quadrants, red, green, blue, and yellow -->
-				<svg viewBox="0 0 200 200", id="circle">
+				<svg viewBox="0 0 200 200" id="circle" class="disableCircle">
 					<g transform="translate(100,100)" stroke="#000" stroke-width="2">
 						<path d="M0 0-70 70A99 99 0 0 1-70-70Z" id="redUnder" fill="#FFF"/>
 						<path d="M0 0-70-70A99 99 0 0 1 70-70Z" id="greenUnder" fill="#FFF"/>
@@ -65,6 +63,10 @@
 					  	<path d="M0 0 70 70A99 99 0 0 1-70 70Z" fill="#04e" id="blue"/>
 					</g>
 				</svg>
+			</div>
+
+			<div id="clickToPlay">
+				<p>Click Anywhere To Start</p>
 			</div>
 
 			<script type="module" src="../components/script/main.js"></script>

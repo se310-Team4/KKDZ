@@ -6,6 +6,7 @@ const betweenPatternDelay = 100;
 ///// DOCUMENT ELEMENTS /////
 const bestScoreElm = document.getElementById('best-score');
 const currentScoreElm = document.getElementById('current-score');
+const clickPlay = document.getElementById('clickToPlay');
 const circle = document.getElementById('circle');
 const quadrants = {
     red: document.getElementById('red'),
@@ -32,7 +33,7 @@ let listeners = {};
 let pattern = [];
 let guess = [];
 let gameCount = 0;
-let bestScore = getBestScore();
+let bestScore = getBestScore() === null ? 0 : getBestScore();
 
 function getRandomColor() {
     const colors = Object.keys(quadrants);
@@ -85,11 +86,11 @@ function playPattern() {
     });
 }
 
-function playSound(color, playTime) {
+function playSound(frequency, playTime) {
     const context = new AudioContext();
     const oscillator = context.createOscillator();
     oscillator.type = "sine";
-    oscillator.frequency.value = soundFrequency[color];
+    oscillator.frequency.value = soundFrequency[frequency];
     oscillator.connect(context.destination);
     oscillator.start();
     setTimeout(() => {
@@ -118,17 +119,19 @@ function endGame() {
     pattern = [];
     guess = [];
     showBoard();
+    circle.classList.add('disableCircle');
+    clickPlay.style.display = 'block';
     stopHoverListeners();
-    if (gameCount > bestScore) {
-        setBestScore(gameCount);
-        bestScore = gameCount;
-    }
-    updateDisplays();
+    updateScore();
     playSound('gameEnd', 300);
     setTimeout(() => document.addEventListener('mouseup', docClickListener), 200);
 }
 
-function updateDisplays() {
+function updateScore() {
+    if (gameCount > bestScore) {
+        setBestScore(gameCount);
+        bestScore = gameCount;
+    }
     bestScoreElm.innerText = bestScore;
     currentScoreElm.innerText = gameCount;
 }
@@ -136,9 +139,11 @@ function updateDisplays() {
 function startNextGame() {
     stopHoverListeners();
     gameCount++;
-    updateDisplays();
+    updateScore();
     guess = [];
     pattern = generateRandomPattern(gameCount+baseDifficulty);
+    circle.classList.remove('disableCircle');
+    clickPlay.style.display = 'none';
     playPattern().then(() => {
         startHoverListeners();
     })
@@ -146,7 +151,7 @@ function startNextGame() {
 
 function restartGame() {
     gameCount = 0;
-    updateDisplays();
+    updateScore();
     startNextGame();
 }
 
@@ -203,14 +208,12 @@ function stopHoverListeners() {
 
 function setBestScore(score) {
     localStorage.setItem("bestScoreTactong", score);
-  }
+}
 
-  function getBestScore() {
+function getBestScore() {
     return localStorage.getItem("bestScoreTactong");
-  }
+}
 
-
-showBoard();
 function docClickListener() {
     if (gameCount === 0) {
         startNextGame();
@@ -218,3 +221,4 @@ function docClickListener() {
     }
 }
 document.addEventListener('mouseup', docClickListener);
+updateScore();

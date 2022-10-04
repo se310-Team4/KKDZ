@@ -6,6 +6,11 @@
   margin: auto;
 }
 
+/* disable the gamecircle, this should decrease saturation */
+.disableCircle {
+    filter: grayscale(60%);
+}
+
 /* colour scheme follow the convention of 2048 games */
 * {
     margin: 0;
@@ -19,19 +24,19 @@ html {
 body {
     height: 100%;
     width: 100%;
-    background-color: #faf8f0;
+    background-color: #f0f1fa;
     font-size: 16px;
     font-family: "Varela Round", sans-serif;
 }
 
 h1 {
     font-size: 64px;
-    color: #776e65;
+    color: #686e8f;
 }
 
 /* content wrapper */
 .container {
-    width: 600px;
+    width: 50vw;
     margin: 20px auto;
 }
 
@@ -53,7 +58,7 @@ h1 {
     border-radius: 3px;
     position: relative;
     display: block;
-    background-color: #bbada0;
+    background-color: #a0bbba;
     padding: 20px 20px;
     margin-left: 20px;
     font-size: 16px;
@@ -64,4 +69,26 @@ h1 {
 .intro {
     font-size: 20px;
     line-height: 1.5;
+}
+
+core-navbar {
+    background-color: #a0bbba;
+}
+
+#clickToPlay {
+    /* position in middle of screen overtop all other elements */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* make the text white */
+    color: white;
+    /* make the text bigger */
+    font-size: 60px;
+    /* make the text bold */
+    font-weight: bold;
+    text-align: center;
+    width: max(800px, 50vw);
+    background-color: #a0bbba;
+    padding: 50px;
 }

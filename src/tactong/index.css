@@ -1,9 +1,10 @@
 /* Circle components /*
 /* size gameCircle to be centered, half the screen wide and half the screen tall */
 .gameCircle {
-  width: 50vw;
-  height: 50vh;
+  width: 30vw;
+  height: 30vh;
   margin: auto;
+  margin-top: 50px;
 }
 
 /* disable the gamecircle, this should decrease saturation */
@@ -36,7 +37,7 @@ h1 {
 
 /* content wrapper */
 .container {
-    width: 50vw;
+    width: 45vw;
     margin: 20px auto;
 }
 

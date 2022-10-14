@@ -1,11 +1,14 @@
 import { dictionary } from "./dictionary.js";
+import { commonWords } from "./common-words.js";
 
 const replayBtn = document.getElementById("replay");
+const bestScoreDisplay = document.getElementById("best-score");
 const NUM_ROWS = 8;
 const NUM_COLS = 5;
 let rowIndex;
 let colIndex;
 let isEndGame;
+let bestScore = getBestScore() === null ? 0 : getBestScore();
 
 replayBtn.onclick = function () {
   resetGame();
@@ -19,7 +22,9 @@ function start() {
   isEndGame = false;
   createGrid();
   resetGame();
-  handleInput();
+  document.addEventListener("modal-closed", handleInput);
+  document.addEventListener("modal-opened", disableInput);
+  bestScoreDisplay.innerHTML = bestScore;
 }
 
 function resetGame() {
@@ -78,28 +83,36 @@ function updateTile(letter, i, j, type) {
   tile.dataset.type = type;
 }
 
-// pick a random word from the dictionary
+// pick a random word from the valid-words
 function pickSecretWord() {
-  window.secretWord = dictionary[Math.floor(Math.random() * dictionary.length)];
+  window.secretWord = commonWords[Math.floor(Math.random() * commonWords.length)];
 }
 
 // handles key presses from the user
-function handleInput() {
-  document.addEventListener("keydown", function onEvent(e) {
-    if (isEndGame) {
-      return;
-    }
+function onKeyDownInGame(e) {
+  if (isEndGame) {
+    return;
+  }
 
-    const key = e.key;
-    // regex matches any lowercase or uppercase english letter
-    if (key.length === 1 && e.key.match(/^[a-z]/i)) {
-      handleLetter(key);
-    } else if (e.key === "Enter") {
-      handleEnter();
-    } else if (e.key === "Backspace") {
-      handleBackspace();
-    }
-  });
+  const key = e.key;
+  // regex matches any lowercase or uppercase english letter
+  if (key.length === 1 && e.key.match(/^[a-z]/i)) {
+    handleLetter(key);
+  } else if (e.key === "Enter") {
+    handleEnter();
+  } else if (e.key === "Backspace") {
+    handleBackspace();
+  }
+}
+
+// enable the handling of key presses
+function handleInput() {
+  document.addEventListener("keydown", onKeyDownInGame);
+}
+
+// disable the handling of key presses
+function disableInput() {
+  document.removeEventListener("keydown", onKeyDownInGame);
 }
 
 // add the letter to the grid if possible
@@ -156,47 +169,50 @@ function colourWord(word) {
 }
 
 function colourLetter(tile) {
-  let index = window.secretWord.indexOf(tile.innerHTML.toLowerCase());
-  switch (index) {
-    case -1:
-      tile.dataset.type = "wrong";
-      break;
-    case parseInt(tile.dataset.colIndex):
-      tile.dataset.type = "right";
-      break;
-    default:
-      tile.dataset.type = "right-letter";
-      break;
+  let testChar = tile.innerHTML.toLowerCase();
+  if (secretWord.charAt(tile.dataset.colIndex) === testChar) {
+    tile.dataset.type = "right";
+  } else if (secretWord.includes(testChar)) {
+    tile.dataset.type = "right-letter";
+  } else {
+    tile.dataset.type = "wrong";
   }
 }
 
 function colourLetterFalsely(tile) {
-  let type;
-  let index = window.secretWord.indexOf(tile.innerHTML.toLowerCase());
-  // set the type to one of the incorrect types
-  switch (index) {
-    case -1:
-      type = Math.random() < 0.5 ? "right" : "right-letter";
-      break;
-    case parseInt(tile.dataset.colIndex):
-      type = Math.random() < 0.5 ? "wrong" : "right-letter";
-      break;
-    default:
-      type = Math.random() < 0.5 ? "right" : "wrong";
-      break;
+  let testChar = tile.innerHTML.toLowerCase();
+  if (secretWord.charAt(tile.dataset.colIndex) === testChar) {
+    tile.dataset.type =  Math.random() < 0.5 ? "wrong" : "right-letter";
+  } else if (secretWord.includes(testChar)) {
+    tile.dataset.type = Math.random() < 0.5 ? "right" : "wrong";;
+  } else {
+    tile.dataset.type = Math.random() < 0.5 ? "right" : "right-letter";
   }
-  tile.dataset.type = type;
 }
+
 
 function checkEndGame(word) {
   if (word === window.secretWord) {
     handleEndGame(/*isWin =*/ true);
+    updateScores(rowIndex+1);
   } else if (rowIndex >= NUM_ROWS - 1) {
     handleEndGame(/*isWin =*/ false);
   } else {
     // reset cursor
     colIndex = 0;
     rowIndex++;
+  }
+}
+
+// update the current and best score
+function updateScores(score) {
+  if(parseInt(bestScore) == 0){
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
+  }
+  else if (score < parseInt(bestScore)) {
+    setBestScore(score);
+    bestScoreDisplay.innerHTML = score;
   }
 }
 

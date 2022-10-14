@@ -19,3 +19,4 @@ dist
 # not used by this project
 cypress/fixtures
 cypress/videos
+cypress/screenshots/*

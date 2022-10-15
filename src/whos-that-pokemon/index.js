@@ -189,6 +189,7 @@ const startNextRound = () => {
             const pokeImgDivElm = document.createElement('div');
             pokeImgDivElm.id = `poke-img-${randomId}`;
             pokeImgDivElm.classList.add('poke-img');
+            
             pokeImgDivElm.style.outline = '1px solid black';
             pokeImgDivElm.draggable = true;
             pokeImgDivElm.ondragstart = handleOnDragStart;

@@ -12,7 +12,7 @@ let gameEnd = false;
 function createBoard() {
   for (let i = 0; i < totalCell; i++) {
     let cell = document.createElement("div");
-    // cell.classList.add("cell");
+    cell.classList.add("cell");
     cell.setAttribute("data-index", i);
     cell.setAttribute("data-digits", 0);
     cells.innerHTML = 0;

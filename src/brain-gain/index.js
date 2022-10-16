@@ -18,12 +18,18 @@ function tactongDetails() {
   document.getElementById("tactong-details").style.opacity = "100%";
 }
 
+function poketilesDetails() {
+  document.getElementById("title-img").style.opacity = "0%";
+  document.getElementById("poketiles-details").style.opacity = "100%";
+}
+
 function titleShow() {
   document.getElementById("title-img").style.opacity = "100%";
   document.getElementById("capidle-details").style.opacity = "0%";
   document.getElementById("liedle-details").style.opacity = "0%";
   document.getElementById("a2048expert-details").style.opacity = "0%";
   document.getElementById("tactong-details").style.opacity = "0%";
+  document.getElementById("poketiles-details").style.opacity = "0%";
 }
 
 window.transitionToPage = function (href) {

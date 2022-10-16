@@ -3,7 +3,9 @@ const POKEMON_SPECIES_URL = `https://pokeapi.co/api/v2/pokemon-species?limit=100
 let pokemonData = null;
 
 const BETWEEN_ROUND_DELAY_MS = 700;
-const TIME_PER_ROUND_S = 10;
+const MAX_TIME_PER_ROUND_S = 10;
+const MIN_TIME_PER_ROUND_S = 4;
+
 const NUM_TILES = 4;
 let numTilesFilled = 0;
 
@@ -221,7 +223,7 @@ const startTimer = () => {
         if(currentRoundCount === roundCount && numTilesFilled < NUM_TILES) {
             setPreGameState();
         }
-    }, TIME_PER_ROUND_S*1000);
+    }, getTimeForCurrentRound()*1000);
     startTimerAnimation();
 }
 
@@ -230,7 +232,7 @@ const startTimerAnimation = () => {
     const fillElm = document.createElement('div');
 
     fillElm.classList.add('fill');
-    fillElm.style.animation = `decrease-fill ${TIME_PER_ROUND_S}s linear`;
+    fillElm.style.animation = `decrease-fill ${getTimeForCurrentRound()}s linear`;
 
     timeTrackerElm.innerHTML = "";
     timeTrackerElm.appendChild(fillElm);
@@ -286,6 +288,13 @@ const setInGameState = () => {
     updateScore()
     unblurGameBoard();
     removeClickToPlay();
+}
+
+// calculates and returns the provided time for the current round
+const getTimeForCurrentRound = () => {
+    const expectedTime = MAX_TIME_PER_ROUND_S - 1.5*(roundCount-1);
+    const actualTime = expectedTime < MIN_TIME_PER_ROUND_S ? MIN_TIME_PER_ROUND_S : expectedTime;
+    return actualTime;
 }
 
 setPreGameState();

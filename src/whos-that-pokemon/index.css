@@ -228,6 +228,7 @@ h1 {
 .shake {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
+  background-color: rgb(255, 98, 98);
 }
 
 @keyframes shake {

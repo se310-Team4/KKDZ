@@ -164,14 +164,14 @@ const startNextRound = () => {
 
         numTilesFilled = 0;
         roundCount++;
-        const pokemonIdArr = generatePokemonIdArr(data.count);
+        const pokemonIdArr = generatePokemonIdArr(pokemonData.length);
 
         // start countdown for time tracker
         startTimer();
 
         // setup targets and tiles for current pokemon
         setupTargetGrid(pokemonIdArr);
-        cachePokemonCryAudio(pokemonIdArr);
+        cachePokemonAudio(pokemonIdArr);
         shuffleArr(pokemonIdArr);
         setupTileContainer(pokemonIdArr)
     });
@@ -337,7 +337,7 @@ const playPokemonCryAudio = (pokemonId,isMuted) => {
     audio.play();
 }
 
-const cachePokemonCryAudio = (pokemonIdArr) => {
+const cachePokemonAudio = (pokemonIdArr) => {
     pokemonIdArr.forEach(pokemonId => {
         playPokemonCryAudio(pokemonId,true);
     });
@@ -357,6 +357,6 @@ const cachePokemonSprites = (numTotalPokemon) => {
     }
 }
 
+cachePokemonSprites(1000);
 setPreGameState();
 updateScore();
-cachePokemonSprites(1000);

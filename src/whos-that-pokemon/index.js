@@ -77,6 +77,7 @@ const handleOnDrop = (ev) => {
         pokeImgDivElm.draggable = false;
 
         pokeTitleDivElm.appendChild(pokeImgDivElm);
+        playPokemonNotificationAudio(false);
         numTilesFilled++;
 
         if (roundComplete()) {
@@ -129,6 +130,9 @@ const tileMatch = (titleDivElm,imgDivElm) => {
 }
 
 const handleWrongTileMatch = (imgDivElm) => {
+    const pokemonId = imgDivElm.id.split("-")[2];
+    playPokemonCryAudio(pokemonId, false);
+
     imgDivElm.classList.add('shake');
     imgDivElm.draggable = false;
     setTimeout(() => {
@@ -152,6 +156,14 @@ const removeTileOutlines = () => {
 const startNextRound = () => {
     clearCurrentRound();
     fetchPokemonSpeciesDataAsync().then(data => {
+        // set up pokemon data
+        pokemonData = data.results.map((pokemon,index) => {
+            return {
+                name: pokemon.name,
+                id: index+1
+            };
+        });
+
         numTilesFilled = 0;
         roundCount++;
         const currentPokeIds = [];
@@ -177,6 +189,7 @@ const startNextRound = () => {
             tableElm.appendChild(tableRowElm);
         }
 
+        cachePokemonCryAudio(currentPokeIds);
         shuffleArr(currentPokeIds);
 
         let pokeImgDivArr = [];
@@ -297,6 +310,30 @@ const getTimeForCurrentRound = () => {
     return actualTime;
 }
 
+const playPokemonCryAudio = (pokemonId,isMuted) => {
+    const pokemonName = pokemonData[pokemonId-1].name;
+    try {
+        const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
+        audio.muted = isMuted;
+        audio.play();
+    }
+    catch (e) {
+        // playPokemonNotificationAudio();
+    }
+}
+
+const cachePokemonCryAudio = (pokemonIdArr) => {
+    pokemonIdArr.forEach(pokemonId => {
+        playPokemonCryAudio(pokemonId,true);
+    });
+    playPokemonNotificationAudio(true);
+}
+
+const playPokemonNotificationAudio = (isMuted) => {
+    var audio = new Audio(`https://play.pokemonshowdown.com/audio/notification.wav`);
+    audio.muted = isMuted;
+    audio.play();
+}
+
 setPreGameState();
 updateScore();
-

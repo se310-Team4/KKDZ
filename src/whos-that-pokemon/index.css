@@ -21,47 +21,65 @@ h1 {
     color: #686e8f;
 }
 
+.content {
+  height: calc(100vh - 50px);
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 /* content wrapper */
-.container {
-    width: 45vw;
-    margin: 20px auto;
+.content .container {
+    width: 1000px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+}
+
+.content .container .title {
+    width: 86%;
+    height: 100px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 10px;
+    margin: 30px 0 0 0;
+}
+
+.content .container .title .display-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    height: 100%;
+}
+
+.content .container .title .display-banner .display-scores {
+    text-align: center;
+    width: 100px;
+    height: 100%;
+
+    border-radius: 3px;
+    background-color: #ea596e;
+
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #f5f5f5;
 
     display: flex;
     flex-direction: column;
-    row-gap: 50px;
-    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
 }
 
-.title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.display-banner {
-    display: flex;
-    float: right;
-}
-
-.display-scores {
-    text-align: center;
-    width: 50px;
-    height: 40px;
-    border-radius: 3px;
-    position: relative;
-    display: block;
-    background-color: #ea596e;
-    padding: 20px 20px;
-    margin-left: 20px;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #f5f5f5;
-}
-
-.game {
+.content .container .game {
   outline: 1px solid black;
   background-color: #686e8f;
-  width: 800px;
+  width: 80%;
   height: 700px;
 
   display: flex;
@@ -72,7 +90,7 @@ h1 {
   padding: 20px;
 }
 
-.game .poke-tile-set {
+.content .container .game .poke-tile-set {
   width: 600px;
   height: 100%;
   
@@ -82,19 +100,19 @@ h1 {
   align-items: center;
 }
 
-.game .poke-tile-set table {
+.content .container .game .poke-tile-set table {
   width: 600px;
   height: 600px;
 }
 
-.game .poke-tile-set .time-tracker {
+.content .container .game .poke-tile-set .time-tracker {
   width: 100%;
   height: 20px;
   border-radius: 5px;
   background-color: rgb(218, 218, 218);
 }
 
-.game .poke-tile-set .time-tracker .fill {
+.content .container .game .poke-tile-set .time-tracker .fill {
   background-color: rgb(81, 168, 255);
   height: 100%;
   width: 0%;
@@ -109,7 +127,7 @@ h1 {
   }
 }
 
-.game .poke-tile-set table tr td {
+.content .container .game .poke-tile-set table tr td {
   text-align: center;
   background-color: rgb(255, 187, 187);
   width: 50%;
@@ -120,7 +138,7 @@ h1 {
   animation: font-grow 0.5s ease;
 }
 
-.game .poke-img-set {
+.content .container .game .poke-img-set {
   background-color: rgb(255, 187, 187);
 
   display: flex;

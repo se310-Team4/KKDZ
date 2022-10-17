@@ -1,21 +1,23 @@
 // GLOBAL VARIABLES
 const POKEMON_SPECIES_URL = `https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0`;
-let pokemonData = null;
 
 const BETWEEN_ROUND_DELAY_MS = 700;
 const MAX_TIME_PER_ROUND_S = 10;
 const MIN_TIME_PER_ROUND_S = 4;
-
 const NUM_TILES = 4;
-let numTilesFilled = 0;
 
+let pokemonData = null;
+let numTilesFilled = 0;
 let roundCount= 0;
 let currentTileElmArr = [];
 
 // UI Elements
 const currentScoreElm = document.getElementById('current-score');
 const bestScoreElm = document.getElementById('best-score');
-
+const targetGridElm = document.getElementById('poke-tile-table');
+const tileContainerElm = document.getElementById('poke-img-set');
+const timeTrackerElm = document.getElementById('time-tracker');
+const gameElm = document.getElementById('game');
 
 // fetches pokemon data from pokeapi
 const fetchPokemonSpeciesDataAsync = async () => {
@@ -162,8 +164,7 @@ const roundComplete = () => {
 }
 
 const removeTileOutlines = () => {
-    const tileTableElm = document.getElementById('poke-tile-table');
-    tileTableElm.style.backgroundColor = 'rgb(120, 200, 120)';
+    targetGridElm.style.backgroundColor = 'rgb(120, 200, 120)';
     currentTileElmArr.forEach(div => {
         div.style.outline = 'none';
     });
@@ -194,7 +195,6 @@ const generatePokemonIdArr = (numTotalPokemon) => {
 }
 
 const setupTargetGrid = (pokemonIdArr) => {
-    const targetGridElm = document.getElementById('poke-tile-table');
     for (let row=0; row<2; row++) {
         const targetRowElm = document.createElement('tr');
         for (let col=0; col<2; col++) {
@@ -215,7 +215,6 @@ const setupTargetGrid = (pokemonIdArr) => {
 
 const setupTileContainer = (pokemonIdArr) => {
     let tileElmArr = [];
-    const tileContainerElm = document.getElementById('poke-img-set');
     for (let i=0; i<4; i++) {
         const randomId = pokemonIdArr[i];
 
@@ -242,13 +241,9 @@ const setupTileContainer = (pokemonIdArr) => {
 }
 
 const clearTargetGridAndTileContainer = () => {
-    const tileTableElm = document.getElementById('poke-tile-table');
-    tileTableElm.style.backgroundColor = 'white';
-
-    const tileSet = document.getElementById('poke-tile-table');
-    const imgSet = document.getElementById('poke-img-set');
-    tileSet.innerHTML = "";
-    imgSet.innerHTML = "";
+    targetGridElm.style.backgroundColor = 'white';
+    targetGridElm.innerHTML = "";
+    tileContainerElm.innerHTML = "";
 }
 
 const startTimer = () => {
@@ -262,7 +257,6 @@ const startTimer = () => {
 }
 
 const startTimerAnimation = () => {
-    const timeTrackerElm = document.getElementById('time-tracker');
     const fillElm = document.createElement('div');
 
     fillElm.classList.add('fill');
@@ -273,15 +267,13 @@ const startTimerAnimation = () => {
 }
 
 const blurGameBoard = () => {
-    const game = document.getElementById('game');
-    game.style.filter = 'blur(4px)';
-    game.style.pointerEvents = 'none';
+    gameElm.style.filter = 'blur(4px)';
+    gameElm.style.pointerEvents = 'none';
 }
 
 const unblurGameBoard = () => {
-    const game = document.getElementById('game');
-    game.style.filter = 'blur(0)';
-    game.style.pointerEvents = 'all';
+    gameElm.style.filter = 'blur(0)';
+    gameElm.style.pointerEvents = 'all';
 }
 
 const docClickListener = () => {
@@ -297,16 +289,17 @@ const showClickToPlay = () => {
     preGameModalElm.id = 'pre-game-modal'
     preGameModalElm.classList.add(preGameModalElm.id);
 
-    const contentElm = document.createElement('div');
-    contentElm.classList.add('content');
-    contentElm.innerText = "Click Anywhere To Start";
+    const modalContentElm = document.createElement('div');
+    modalContentElm.classList.add('content');
+    modalContentElm.innerText = "Click Anywhere To Start";
 
-    preGameModalElm.appendChild(contentElm);
+    preGameModalElm.appendChild(modalContentElm);
     document.body.appendChild(preGameModalElm);
 }
 
 const removeClickToPlay = () => {
-    document.getElementById('pre-game-modal').remove();
+    const preGameModalElm = document.getElementById('pre-game-modal');
+    preGameModalElm.remove();
 }
 
 const setPreGameState = () => {

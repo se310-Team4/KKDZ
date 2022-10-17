@@ -18,9 +18,21 @@ const bestScoreElm = document.getElementById('best-score');
 
 
 // fetches pokemon data from pokeapi
-const fetchPokemonSpeciesDataAsync = () => {
-    const fetchPromise = fetch(POKEMON_SPECIES_URL);
-    return fetchPromise.then(res => res.json());
+const fetchPokemonSpeciesDataAsync = async () => {
+    const res = await fetch(POKEMON_SPECIES_URL);
+    const data = await res.json();
+    return data;
+}
+
+const initPokemonData = async () => {
+    // fetch data from pokeapi
+    const data = await fetchPokemonSpeciesDataAsync();
+    pokemonData = data.results.map((pokemon,index) => {
+        return {
+            name: pokemon.name,
+            id: index+1
+        };
+    });
 }
 
 const generateIndexArr = (length) => {
@@ -173,18 +185,6 @@ const startNextRound = () => {
 
     // start countdown for time tracker
     startTimer();
-}
-
-const initPokemonData = () => {
-    // fetch data from pokeapi
-    fetchPokemonSpeciesDataAsync().then(data => {
-        pokemonData = data.results.map((pokemon,index) => {
-            return {
-                name: pokemon.name,
-                id: index+1
-            };
-        });
-    });
 }
 
 const generatePokemonIdArr = (numTotalPokemon) => {

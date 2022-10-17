@@ -160,7 +160,8 @@ const startNextRound = () => {
 
         numTilesFilled = 0;
         roundCount++;
-        const currentPokeIds = [];
+        const indexArr = generateIndexArr(data.count);
+        const currentPokeIds = shuffleArr(indexArr).slice(0,NUM_TILES);
 
         startTimer();
 
@@ -170,8 +171,7 @@ const startNextRound = () => {
             for (let col=0; col<2; col++) {
                 const targetCellElm = document.createElement('td');
             
-                const randomId = Math.floor(Math.random() * data.count) + 1;
-                currentPokeIds.push(randomId);
+                const randomId = currentPokeIds[row*2 + col];
 
                 targetCellElm.id = `poke-title-${randomId}`;
                 targetCellElm.innerText = data.results[randomId-1].name.toUpperCase();

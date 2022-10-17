@@ -164,8 +164,7 @@ const startNextRound = () => {
 
         numTilesFilled = 0;
         roundCount++;
-        const indexArr = generateIndexArr(data.count);
-        const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
+        const pokemonIdArr = generatePokemonIdArr(data.count);
 
         // start countdown for time tracker
         startTimer();
@@ -185,6 +184,12 @@ const initPokemonData = (data) => {
             id: index+1
         };
     });
+}
+
+const generatePokemonIdArr = (numTotalPokemon) => {
+    const indexArr = generateIndexArr(numTotalPokemon);
+    const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
+    return pokemonIdArr;
 }
 
 const setupTargetGrid = (pokemonIdArr) => {

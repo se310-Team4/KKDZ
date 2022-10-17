@@ -154,35 +154,32 @@ const removeTileOutlines = () => {
 }
 
 const startNextRound = () => {
-    //
-    clearCurrentRound();
+    // clearns the target grid and tile container of current round
+    clearTargetGridAndTileContainer();
 
-    // fetch data from pokeapi
-    fetchPokemonSpeciesDataAsync().then(data => {
-        // initialize globally-accessible pokemon data
-        initPokemonData(data);
+    numTilesFilled = 0;
+    roundCount++;
 
-        numTilesFilled = 0;
-        roundCount++;
-        const pokemonIdArr = generatePokemonIdArr(pokemonData.length);
+    // setup targets and tiles for current pokemon
+    const pokemonIdArr = generatePokemonIdArr(pokemonData.length);
+    setupTargetGrid(pokemonIdArr);
+    cachePokemonAudio(pokemonIdArr);
+    shuffleArr(pokemonIdArr);
+    setupTileContainer(pokemonIdArr);
 
-        // start countdown for time tracker
-        startTimer();
-
-        // setup targets and tiles for current pokemon
-        setupTargetGrid(pokemonIdArr);
-        cachePokemonAudio(pokemonIdArr);
-        shuffleArr(pokemonIdArr);
-        setupTileContainer(pokemonIdArr)
-    });
+    // start countdown for time tracker
+    startTimer();
 }
 
-const initPokemonData = (data) => {
-    pokemonData = data.results.map((pokemon,index) => {
-        return {
-            name: pokemon.name,
-            id: index+1
-        };
+const initPokemonData = () => {
+    // fetch data from pokeapi
+    fetchPokemonSpeciesDataAsync().then(data => {
+        pokemonData = data.results.map((pokemon,index) => {
+            return {
+                name: pokemon.name,
+                id: index+1
+            };
+        });
     });
 }
 
@@ -240,7 +237,7 @@ const setupTileContainer = (pokemonIdArr) => {
     currentTileElmArr = tileElmArr;
 }
 
-const clearCurrentRound = () => {
+const clearTargetGridAndTileContainer = () => {
     const tileTableElm = document.getElementById('poke-tile-table');
     tileTableElm.style.backgroundColor = 'white';
 
@@ -284,7 +281,7 @@ const unblurGameBoard = () => {
 }
 
 const docClickListener = () => {
-    if (roundCount === 0) {
+    if (roundCount === 0 && pokemonData !== null) {
         document.removeEventListener('mouseup', docClickListener);
         setInGameState();
         startNextRound();
@@ -358,5 +355,7 @@ const cachePokemonSprites = (numTotalPokemon) => {
 }
 
 cachePokemonSprites(1000);
+initPokemonData();
+
 setPreGameState();
 updateScore();

@@ -156,13 +156,7 @@ const removeTileOutlines = () => {
 const startNextRound = () => {
     clearCurrentRound();
     fetchPokemonSpeciesDataAsync().then(data => {
-        // set up pokemon data
-        pokemonData = data.results.map((pokemon,index) => {
-            return {
-                name: pokemon.name,
-                id: index+1
-            };
-        });
+        initPokemonData(data);
 
         numTilesFilled = 0;
         roundCount++;
@@ -217,6 +211,15 @@ const startNextRound = () => {
             pokeImgDivArr.push(pokeImgDivElm);
         }
         currentPokeImgDivArr = pokeImgDivArr;
+    });
+}
+
+const initPokemonData = (data) => {
+    pokemonData = data.results.map((pokemon,index) => {
+        return {
+            name: pokemon.name,
+            id: index+1
+        };
     });
 }
 

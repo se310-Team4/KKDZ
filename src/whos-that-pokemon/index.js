@@ -154,8 +154,12 @@ const removeTileOutlines = () => {
 }
 
 const startNextRound = () => {
+    //
     clearCurrentRound();
+
+    // fetch data from pokeapi
     fetchPokemonSpeciesDataAsync().then(data => {
+        // initialize globally-accessible pokemon data
         initPokemonData(data);
 
         numTilesFilled = 0;
@@ -163,38 +167,14 @@ const startNextRound = () => {
         const indexArr = generateIndexArr(data.count);
         const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
 
+        // start countdown for time tracker
         startTimer();
 
+        // setup targets and tiles for current pokemon
         setupTargetGrid(pokemonIdArr);
-
         cachePokemonCryAudio(pokemonIdArr);
         shuffleArr(pokemonIdArr);
-
-        let tileElmArr = [];
-        const tileContainerElm = document.getElementById('poke-img-set');
-        for (let i=0; i<4; i++) {
-            const randomId = pokemonIdArr[i];
-
-            const tileImgElm = document.createElement('img');
-            tileImgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomId}.png`;
-            tileImgElm.draggable = false;
-
-            const tileElm = document.createElement('div');
-            tileElm.id = `poke-img-${randomId}`;
-            tileElm.classList.add('poke-img');
-            
-            tileElm.style.outline = '1px solid black';
-            tileElm.draggable = true;
-            tileElm.ondragstart = handleOnDragStart;
-
-            tileElm.appendChild(tileImgElm);
-            hidePokeImg(tileElm);
-
-            tileContainerElm.appendChild(tileElm);
-            
-            tileElmArr.push(tileElm);
-        }
-        currentTileElmArr = tileElmArr;
+        setupTileContainer(pokemonIdArr)
     });
 }
 
@@ -225,6 +205,34 @@ const setupTargetGrid = (pokemonIdArr) => {
         }
         targetGridElm.appendChild(targetRowElm);
     }
+}
+
+const setupTileContainer = (pokemonIdArr) => {
+    let tileElmArr = [];
+    const tileContainerElm = document.getElementById('poke-img-set');
+    for (let i=0; i<4; i++) {
+        const randomId = pokemonIdArr[i];
+
+        const tileImgElm = document.createElement('img');
+        tileImgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomId}.png`;
+        tileImgElm.draggable = false;
+
+        const tileElm = document.createElement('div');
+        tileElm.id = `poke-img-${randomId}`;
+        tileElm.classList.add('poke-img');
+        
+        tileElm.style.outline = '1px solid black';
+        tileElm.draggable = true;
+        tileElm.ondragstart = handleOnDragStart;
+
+        tileElm.appendChild(tileImgElm);
+        hidePokeImg(tileElm);
+
+        tileContainerElm.appendChild(tileElm);
+        
+        tileElmArr.push(tileElm);
+    }
+    currentTileElmArr = tileElmArr;
 }
 
 const clearCurrentRound = () => {

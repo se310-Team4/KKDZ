@@ -312,14 +312,9 @@ const getTimeForCurrentRound = () => {
 
 const playPokemonCryAudio = (pokemonId,isMuted) => {
     const pokemonName = pokemonData[pokemonId-1].name;
-    try {
-        const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
-        audio.muted = isMuted;
-        audio.play();
-    }
-    catch (e) {
-        // playPokemonNotificationAudio();
-    }
+    const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
+    audio.muted = isMuted;
+    audio.play();
 }
 
 const cachePokemonCryAudio = (pokemonIdArr) => {
@@ -330,7 +325,7 @@ const cachePokemonCryAudio = (pokemonIdArr) => {
 }
 
 const playPokemonNotificationAudio = (isMuted) => {
-    var audio = new Audio(`https://play.pokemonshowdown.com/audio/notification.wav`);
+    const audio = new Audio(`https://play.pokemonshowdown.com/audio/notification.wav`);
     audio.muted = isMuted;
     audio.play();
 }

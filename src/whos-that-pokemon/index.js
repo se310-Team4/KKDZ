@@ -103,14 +103,14 @@ const getPersistentBestScore = () => {
     return localStorage.getItem('bestScorePokezzle');
 }
 
-const showPokeImg = (pokeImgDivElm) => {
-    pokeImgDivElm.classList.remove('hidden');
-    pokeImgDivElm.classList.add('shown');
+const removeSilhouette = (tileElm) => {
+    tileElm.classList.remove('hidden');
+    tileElm.classList.add('shown');
 }
 
-const hidePokeImg = (pokeImgDivElm) => {
-    pokeImgDivElm.classList.remove('shown');
-    pokeImgDivElm.classList.add('hidden');
+const addSilhouette = (tileElm) => {
+    tileElm.classList.remove('shown');
+    tileElm.classList.add('hidden');
 }
 
 const targetAndTileMatch = (targetElm,tileElm) => {
@@ -136,7 +136,7 @@ const handleIncorrectMatch = (tileElm) => {
 }
 
 const handleCorrectMatch = (targetElm,tileElm) => {
-    showPokeImg(tileElm);
+    removeSilhouette(tileElm);
     targetElm.innerHTML = "";
     tileElm.draggable = false;
 
@@ -232,7 +232,7 @@ const setupTileContainer = (pokemonIdArr) => {
         tileElm.ondragstart = handleOnDragStart;
 
         tileElm.appendChild(tileImgElm);
-        hidePokeImg(tileElm);
+        addSilhouette(tileElm);
 
         tileContainerElm.appendChild(tileElm);
         

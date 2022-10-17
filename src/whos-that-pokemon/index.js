@@ -45,7 +45,6 @@ const shuffleArr = (arr) => {
       [arr[currentIndex], arr[randomIndex]] = [
         arr[randomIndex], arr[currentIndex]];
     }
-
     return arr;
   }
 
@@ -68,17 +67,12 @@ const handleOnDrop = (ev) => {
         const tileElm = document.getElementById(tileElmId);
 
         if (!targetAndTileMatch(targetElm,tileElm)) {
-            handleWrongMatch(tileElm);
+            handleIncorrectMatch(tileElm);
             return;
         }
-
-        showPokeImg(tileElm);
-        targetElm.innerHTML = "";
-        tileElm.draggable = false;
-
-        targetElm.appendChild(tileElm);
-        playPokemonNotificationAudio(false);
-        numTilesFilled++;
+        else {
+            handleCorrectMatch(targetElm,tileElm);
+        }
 
         if (roundComplete()) {
             updateScore();
@@ -129,7 +123,7 @@ const targetAndTileMatch = (targetElm,tileElm) => {
     return targetPokemonId === tilePokemonId;
 }
 
-const handleWrongMatch = (tileElm) => {
+const handleIncorrectMatch = (tileElm) => {
     const pokemonId = tileElm.id.split("-")[2];
     playPokemonCryAudio(pokemonId, false);
 
@@ -141,8 +135,14 @@ const handleWrongMatch = (tileElm) => {
     },500);
 }
 
-const handleRightMatch = () => {
+const handleCorrectMatch = (targetElm,tileElm) => {
+    showPokeImg(tileElm);
+    targetElm.innerHTML = "";
+    tileElm.draggable = false;
 
+    targetElm.appendChild(tileElm);
+    playPokemonNotificationAudio(false);
+    numTilesFilled++;
 }
 
 const roundComplete = () => {

@@ -62,21 +62,21 @@ const handleOnDragOver = (ev) => {
 // event handler
 const handleOnDrop = (ev) => {
     if (ev.dataTransfer !== null) {
-        const pokeTitleDivElm = ev.target;
+        const targetElm = ev.target;
 
-        const pokeImgDivElmId = ev.dataTransfer.getData("text/plain");
-        const pokeImgDivElm = document.getElementById(pokeImgDivElmId);
+        const tileElmId = ev.dataTransfer.getData("text/plain");
+        const tileElm = document.getElementById(tileElmId);
 
-        if (!tileMatch(pokeTitleDivElm,pokeImgDivElm)) {
-            handleWrongTileMatch(pokeImgDivElm);
+        if (!targetAndTileMatch(targetElm,tileElm)) {
+            handleWrongMatch(tileElm);
             return;
         }
 
-        showPokeImg(pokeImgDivElm);
-        pokeTitleDivElm.innerHTML = "";
-        pokeImgDivElm.draggable = false;
+        showPokeImg(tileElm);
+        targetElm.innerHTML = "";
+        tileElm.draggable = false;
 
-        pokeTitleDivElm.appendChild(pokeImgDivElm);
+        targetElm.appendChild(tileElm);
         playPokemonNotificationAudio(false);
         numTilesFilled++;
 
@@ -119,26 +119,30 @@ const hidePokeImg = (pokeImgDivElm) => {
     pokeImgDivElm.classList.add('hidden');
 }
 
-const tileMatch = (titleDivElm,imgDivElm) => {
-    const targetId = titleDivElm.id;
-    const sourceId = imgDivElm.id;
+const targetAndTileMatch = (targetElm,tileElm) => {
+    const targetId = targetElm.id;
+    const tileId = tileElm.id;
 
-    const targetPokeId = targetId.split("-")[2];
-    const sourcePokeId = sourceId.split("-")[2];
+    const targetPokemonId = targetId.split("-")[2];
+    const tilePokemonId = tileId.split("-")[2];
 
-    return targetPokeId === sourcePokeId;
+    return targetPokemonId === tilePokemonId;
 }
 
-const handleWrongTileMatch = (imgDivElm) => {
-    const pokemonId = imgDivElm.id.split("-")[2];
+const handleWrongMatch = (tileElm) => {
+    const pokemonId = tileElm.id.split("-")[2];
     playPokemonCryAudio(pokemonId, false);
 
-    imgDivElm.classList.add('shake');
-    imgDivElm.draggable = false;
+    tileElm.classList.add('shake');
+    tileElm.draggable = false;
     setTimeout(() => {
-        imgDivElm.classList.remove('shake');
-        imgDivElm.draggable = true;
+        tileElm.classList.remove('shake');
+        tileElm.draggable = true;
     },500);
+}
+
+const handleRightMatch = () => {
+
 }
 
 const roundComplete = () => {

@@ -19,15 +19,15 @@ const tileContainerElm = document.getElementById('poke-img-set');
 const timeTrackerElm = document.getElementById('time-tracker');
 const gameElm = document.getElementById('game');
 
-// fetches pokemon data from pokeapi
+// fetches data from pokeapi
 const fetchPokemonSpeciesDataAsync = async () => {
     const res = await fetch(POKEMON_SPECIES_URL);
     const data = await res.json();
     return data;
 }
 
+// initializes in-game pokemon data
 const initPokemonData = async () => {
-    // fetch data from pokeapi
     const data = await fetchPokemonSpeciesDataAsync();
     pokemonData = data.results.map((pokemon,index) => {
         return {
@@ -37,6 +37,7 @@ const initPokemonData = async () => {
     });
 }
 
+// creates an array containing values from 1 to length
 const generateIndexArr = (length) => {
     const indexArr = [];
     for (let i=1; i<=length; i++) {
@@ -45,6 +46,7 @@ const generateIndexArr = (length) => {
     return indexArr;
 }
 
+// shuffles the positions of elements in the given array
 const shuffleArr = (arr) => {
     let currentIndex = arr.length,  randomIndex;
   
@@ -62,17 +64,17 @@ const shuffleArr = (arr) => {
     return arr;
   }
 
-// event handler
+// event handler for when dragging tiles
 const handleOnDragStart = (ev) => {
     ev.dataTransfer.setData("text/plain", ev.target.id);
 };
 
-// event handler
+// event handler for when a tile is placed over a target
 const handleOnDragOver = (ev) => {
     ev.preventDefault();
 };
 
-// event handler
+// event handler for when a tile is released on top of a target
 const handleOnDrop = (ev) => {
     if (ev.dataTransfer !== null) {
         const targetElm = ev.target;
@@ -97,6 +99,7 @@ const handleOnDrop = (ev) => {
     }    
 }
 
+// updates the current score and best score
 const updateScore = () => {
     const currentScore = roundCount;
     let bestScore = getPersistentBestScore();
@@ -109,24 +112,29 @@ const updateScore = () => {
     bestScoreElm.innerText = bestScore;
 }
 
+// persists the best score to local storage
 const persistBestScore = (score) => {
     localStorage.setItem('bestScorePokezzle', score);
 }
 
+// retrieves the best score from local storage
 const getPersistentBestScore = () => {
     return localStorage.getItem('bestScorePokezzle');
 }
 
+// displays the actual pokemon on the tile
 const removeSilhouette = (tileElm) => {
     tileElm.classList.remove('hidden');
     tileElm.classList.add('shown');
 }
 
+// displays the sillhoutte of the pokemon on the tile
 const addSilhouette = (tileElm) => {
     tileElm.classList.remove('shown');
     tileElm.classList.add('hidden');
 }
 
+// determines whether the provided target and tile are for the same pokemon
 const targetAndTileMatch = (targetElm,tileElm) => {
     const targetId = targetElm.id;
     const tileId = tileElm.id;
@@ -137,6 +145,7 @@ const targetAndTileMatch = (targetElm,tileElm) => {
     return targetPokemonId === tilePokemonId;
 }
 
+// performs all necessary work for an incorrect tile match
 const handleIncorrectMatch = (tileElm) => {
     const pokemonId = tileElm.id.split("-")[2];
     playPokemonCryAudio(pokemonId, false);
@@ -149,6 +158,7 @@ const handleIncorrectMatch = (tileElm) => {
     },500);
 }
 
+// performs all necessary work for a correct tile match
 const handleCorrectMatch = (targetElm,tileElm) => {
     removeSilhouette(tileElm);
     targetElm.innerHTML = "";
@@ -159,10 +169,12 @@ const handleCorrectMatch = (targetElm,tileElm) => {
     numTilesFilled++;
 }
 
+// determines whether the current round is complete
 const roundComplete = () => {
     return numTilesFilled === NUM_TILES;
 }
 
+// removes the outlines from all the tile elements
 const removeTileOutlines = () => {
     targetGridElm.style.backgroundColor = 'rgb(120, 200, 120)';
     currentTileElmArr.forEach(div => {
@@ -170,8 +182,9 @@ const removeTileOutlines = () => {
     });
 }
 
+// starts the next round of the game
 const startNextRound = () => {
-    // clearns the target grid and tile container of current round
+    // clears the target grid and tile container of current round
     clearTargetGridAndTileContainer();
 
     numTilesFilled = 0;
@@ -188,12 +201,14 @@ const startNextRound = () => {
     startTimer();
 }
 
+// creates an array of ids for the pokemon of the current round
 const generatePokemonIdArr = (numTotalPokemon) => {
     const indexArr = generateIndexArr(numTotalPokemon);
     const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
     return pokemonIdArr;
 }
 
+// populates the target grid with new target pokemon names
 const setupTargetGrid = (pokemonIdArr) => {
     for (let row=0; row<2; row++) {
         const targetRowElm = document.createElement('tr');
@@ -213,6 +228,7 @@ const setupTargetGrid = (pokemonIdArr) => {
     }
 }
 
+// populates the tile container with new pokemon tiles
 const setupTileContainer = (pokemonIdArr) => {
     let tileElmArr = [];
     for (let i=0; i<4; i++) {
@@ -240,12 +256,14 @@ const setupTileContainer = (pokemonIdArr) => {
     currentTileElmArr = tileElmArr;
 }
 
+// clears the contents of the target grid and tile container
 const clearTargetGridAndTileContainer = () => {
     targetGridElm.style.backgroundColor = 'white';
     targetGridElm.innerHTML = "";
     tileContainerElm.innerHTML = "";
 }
 
+// starts the timer and its corresponding animation
 const startTimer = () => {
     let currentRoundCount = roundCount;
     setTimeout(() => {
@@ -256,6 +274,7 @@ const startTimer = () => {
     startTimerAnimation();
 }
 
+// creates and starts the timer animation
 const startTimerAnimation = () => {
     const fillElm = document.createElement('div');
 
@@ -266,16 +285,19 @@ const startTimerAnimation = () => {
     timeTrackerElm.appendChild(fillElm);
 }
 
+// adds blur to the game board
 const blurGameBoard = () => {
     gameElm.style.filter = 'blur(4px)';
     gameElm.style.pointerEvents = 'none';
 }
 
+// removes blur from the game board
 const unblurGameBoard = () => {
     gameElm.style.filter = 'blur(0)';
     gameElm.style.pointerEvents = 'all';
 }
 
+// adds a click event listener to the page
 const docClickListener = () => {
     if (roundCount === 0 && pokemonData !== null) {
         document.removeEventListener('mouseup', docClickListener);
@@ -284,6 +306,7 @@ const docClickListener = () => {
     }
 }
 
+// displays the "click to play" modal
 const showClickToPlay = () => {
     const preGameModalElm = document.createElement('div');
     preGameModalElm.id = 'pre-game-modal'
@@ -297,11 +320,13 @@ const showClickToPlay = () => {
     document.body.appendChild(preGameModalElm);
 }
 
+// removes the "click to play" modal
 const removeClickToPlay = () => {
     const preGameModalElm = document.getElementById('pre-game-modal');
     preGameModalElm.remove();
 }
 
+// sets the page up to be ready to start a new game
 const setPreGameState = () => {
     roundCount = 0;
     numTilesFilled = 0;
@@ -311,6 +336,7 @@ const setPreGameState = () => {
     showClickToPlay();
 }
 
+// sets the page up to be in the start of a new game
 const setInGameState = () => {
     updateScore()
     unblurGameBoard();
@@ -324,6 +350,7 @@ const getTimeForCurrentRound = () => {
     return actualTime;
 }
 
+// plays the cry audio of the pokemon of the specified id
 const playPokemonCryAudio = (pokemonId,isMuted) => {
     const pokemonName = pokemonData[pokemonId-1].name;
     const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
@@ -331,6 +358,7 @@ const playPokemonCryAudio = (pokemonId,isMuted) => {
     audio.play();
 }
 
+// caches all the pokemon audio used for the current round
 const cachePokemonAudio = (pokemonIdArr) => {
     pokemonIdArr.forEach(pokemonId => {
         playPokemonCryAudio(pokemonId,true);
@@ -338,12 +366,14 @@ const cachePokemonAudio = (pokemonIdArr) => {
     playPokemonNotificationAudio(true);
 }
 
+// plays the pokemon notification audio
 const playPokemonNotificationAudio = (isMuted) => {
     const audio = new Audio(`https://play.pokemonshowdown.com/audio/notification.wav`);
     audio.muted = isMuted;
     audio.play();
 }
 
+// caches all pokemon images with ids 1 to {numTotalPokemon}
 const cachePokemonSprites = (numTotalPokemon) => {
     for (let i=1; i<=numTotalPokemon; i++) {
         const imgElm = document.createElement('img');

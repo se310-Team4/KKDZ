@@ -350,5 +350,13 @@ const playPokemonNotificationAudio = (isMuted) => {
     audio.play();
 }
 
+const cachePokemonSprites = (numTotalPokemon) => {
+    for (let i=1; i<=numTotalPokemon; i++) {
+        const imgElm = document.createElement('img');
+        imgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+    }
+}
+
 setPreGameState();
 updateScore();
+cachePokemonSprites(1000);

@@ -10,7 +10,7 @@ const NUM_TILES = 4;
 let numTilesFilled = 0;
 
 let roundCount= 0;
-let currentPokeImgDivArr = [];
+let currentTileElmArr = [];
 
 // UI Elements
 const currentScoreElm = document.getElementById('current-score');
@@ -148,7 +148,7 @@ const roundComplete = () => {
 const removeTileOutlines = () => {
     const tileTableElm = document.getElementById('poke-tile-table');
     tileTableElm.style.backgroundColor = 'rgb(120, 200, 120)';
-    currentPokeImgDivArr.forEach(div => {
+    currentTileElmArr.forEach(div => {
         div.style.outline = 'none';
     });
 }
@@ -164,53 +164,53 @@ const startNextRound = () => {
 
         startTimer();
 
-        const tableElm = document.getElementById('poke-tile-table');
+        const targetGridElm = document.getElementById('poke-tile-table');
         for (let row=0; row<2; row++) {
-            const tableRowElm = document.createElement('tr');
+            const targetRowElm = document.createElement('tr');
             for (let col=0; col<2; col++) {
-                const tableDataElm = document.createElement('td');
+                const targetCellElm = document.createElement('td');
             
                 const randomId = Math.floor(Math.random() * data.count) + 1;
                 currentPokeIds.push(randomId);
 
-                tableDataElm.id = `poke-title-${randomId}`;
-                tableDataElm.innerText = data.results[randomId-1].name.toUpperCase();
-                tableDataElm.ondragover = handleOnDragOver;
-                tableDataElm.ondrop = handleOnDrop;
+                targetCellElm.id = `poke-title-${randomId}`;
+                targetCellElm.innerText = data.results[randomId-1].name.toUpperCase();
+                targetCellElm.ondragover = handleOnDragOver;
+                targetCellElm.ondrop = handleOnDrop;
 
-                tableRowElm.appendChild(tableDataElm);
+                targetRowElm.appendChild(targetCellElm);
             }
-            tableElm.appendChild(tableRowElm);
+            targetGridElm.appendChild(targetRowElm);
         }
 
         cachePokemonCryAudio(currentPokeIds);
         shuffleArr(currentPokeIds);
 
-        let pokeImgDivArr = [];
-        const pokeImgDivSetElm = document.getElementById('poke-img-set');
+        let tileElmArr = [];
+        const tileContainerElm = document.getElementById('poke-img-set');
         for (let i=0; i<4; i++) {
             const randomId = currentPokeIds[i];
 
-            const pokeImgElm = document.createElement('img');
-            pokeImgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomId}.png`;
-            pokeImgElm.draggable = false;
+            const tileImgElm = document.createElement('img');
+            tileImgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomId}.png`;
+            tileImgElm.draggable = false;
 
-            const pokeImgDivElm = document.createElement('div');
-            pokeImgDivElm.id = `poke-img-${randomId}`;
-            pokeImgDivElm.classList.add('poke-img');
+            const tileElm = document.createElement('div');
+            tileElm.id = `poke-img-${randomId}`;
+            tileElm.classList.add('poke-img');
             
-            pokeImgDivElm.style.outline = '1px solid black';
-            pokeImgDivElm.draggable = true;
-            pokeImgDivElm.ondragstart = handleOnDragStart;
+            tileElm.style.outline = '1px solid black';
+            tileElm.draggable = true;
+            tileElm.ondragstart = handleOnDragStart;
 
-            pokeImgDivElm.appendChild(pokeImgElm);
-            hidePokeImg(pokeImgDivElm);
+            tileElm.appendChild(tileImgElm);
+            hidePokeImg(tileElm);
 
-            pokeImgDivSetElm.appendChild(pokeImgDivElm);
+            tileContainerElm.appendChild(tileElm);
             
-            pokeImgDivArr.push(pokeImgDivElm);
+            tileElmArr.push(tileElm);
         }
-        currentPokeImgDivArr = pokeImgDivArr;
+        currentTileElmArr = tileElmArr;
     });
 }
 
@@ -221,6 +221,10 @@ const initPokemonData = (data) => {
             id: index+1
         };
     });
+}
+
+const setupTargetGrid = (data) => {
+
 }
 
 const clearCurrentRound = () => {

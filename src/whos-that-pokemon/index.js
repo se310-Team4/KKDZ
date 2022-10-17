@@ -161,35 +161,19 @@ const startNextRound = () => {
         numTilesFilled = 0;
         roundCount++;
         const indexArr = generateIndexArr(data.count);
-        const currentPokeIds = shuffleArr(indexArr).slice(0,NUM_TILES);
+        const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
 
         startTimer();
 
-        const targetGridElm = document.getElementById('poke-tile-table');
-        for (let row=0; row<2; row++) {
-            const targetRowElm = document.createElement('tr');
-            for (let col=0; col<2; col++) {
-                const targetCellElm = document.createElement('td');
-            
-                const randomId = currentPokeIds[row*2 + col];
+        setupTargetGrid(pokemonIdArr);
 
-                targetCellElm.id = `poke-title-${randomId}`;
-                targetCellElm.innerText = data.results[randomId-1].name.toUpperCase();
-                targetCellElm.ondragover = handleOnDragOver;
-                targetCellElm.ondrop = handleOnDrop;
-
-                targetRowElm.appendChild(targetCellElm);
-            }
-            targetGridElm.appendChild(targetRowElm);
-        }
-
-        cachePokemonCryAudio(currentPokeIds);
-        shuffleArr(currentPokeIds);
+        cachePokemonCryAudio(pokemonIdArr);
+        shuffleArr(pokemonIdArr);
 
         let tileElmArr = [];
         const tileContainerElm = document.getElementById('poke-img-set');
         for (let i=0; i<4; i++) {
-            const randomId = currentPokeIds[i];
+            const randomId = pokemonIdArr[i];
 
             const tileImgElm = document.createElement('img');
             tileImgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomId}.png`;
@@ -223,8 +207,24 @@ const initPokemonData = (data) => {
     });
 }
 
-const setupTargetGrid = (data) => {
+const setupTargetGrid = (pokemonIdArr) => {
+    const targetGridElm = document.getElementById('poke-tile-table');
+    for (let row=0; row<2; row++) {
+        const targetRowElm = document.createElement('tr');
+        for (let col=0; col<2; col++) {
+            const targetCellElm = document.createElement('td');
+        
+            const randomId = pokemonIdArr[row*2 + col];
 
+            targetCellElm.id = `poke-title-${randomId}`;
+            targetCellElm.innerText = pokemonData[randomId-1].name.toUpperCase();
+            targetCellElm.ondragover = handleOnDragOver;
+            targetCellElm.ondrop = handleOnDrop;
+
+            targetRowElm.appendChild(targetCellElm);
+        }
+        targetGridElm.appendChild(targetRowElm);
+    }
 }
 
 const clearCurrentRound = () => {

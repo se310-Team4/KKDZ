@@ -7,7 +7,7 @@ const MIN_TIME_PER_ROUND_S = 4;
 const NUM_TILES = 4;
 
 let pokemonDataArr = null;
-let pokemonIndexShuffledArr = null;
+let indexArrShuffled = null;
 let numTilesFilled = 0;
 let roundCount= 0;
 let currentTileElmArr = [];
@@ -30,12 +30,16 @@ const fetchPokemonSpeciesDataAsync = async () => {
 // initializes in-game pokemon data
 const initPokemonDataArrAsync = async () => {
     const data = await fetchPokemonSpeciesDataAsync();
-    pokemonDataArr = data.results.map((pokemon,index) => {
+    const tempLength = data.results.length;
+    pokemonDataArr = data.results.slice(0,tempLength).map((pokemon,index) => {
         return {
             name: pokemon.name,
             id: index+1
         };
     });
+    const indexArr = generateIndexArr(tempLength);
+    indexArrShuffled = shuffleArr(indexArr);
+    cachePokemonSprites();
 }
 
 // starts the next round of the game
@@ -45,9 +49,12 @@ const startNextRound = () => {
 
     numTilesFilled = 0;
     roundCount++;
+    cachePokemonSprites();
 
-    // setup targets and tiles for current pokemon
-    const pokemonIdArr = generatePokemonIdArr(pokemonDataArr.length);
+    [offsetStart,offsetEnd] = calculateOffset();
+
+    // setup targets and tiles for pokemon of current round
+    const pokemonIdArr = indexArrShuffled.slice(offsetStart,offsetEnd);
     setupTargetGrid(pokemonIdArr);
     cachePokemonAudio(pokemonIdArr);
     shuffleArr(pokemonIdArr);
@@ -57,7 +64,26 @@ const startNextRound = () => {
     startTimer();
 }
 
-// creates an array of ids for the pokemon of the current round
+const calculateOffset = () => {
+    let offsetStart = (roundCount - 1) * NUM_TILES;
+    let offsetEnd = offsetStart + NUM_TILES;
+    if (offsetEnd > pokemonDataArr.length) {
+        offsetStart = 0;
+        offsetEnd = offsetStart + NUM_TILES;
+    }
+    return [offsetStart,offsetEnd];
+}
+
+// caches the images for the pokemon of the next round
+const cachePokemonSprites = () => {
+    [offsetStart,offsetEnd] = calculateOffset();
+    for (let i=1; i<=NUM_TILES; i++) {
+        const imgElm = document.createElement('img');
+        imgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${indexArrShuffled[i+offsetEnd]}.png`;
+    }
+}
+
+// creates an array of ids for the (4) pokemon of the current round
 const generatePokemonIdArr = (numTotalPokemon) => {
     const indexArr = generateIndexArr(numTotalPokemon);
     const pokemonIdArr = shuffleArr(indexArr).slice(0,NUM_TILES);
@@ -261,14 +287,6 @@ const playPokemonNotificationAudio = (isMuted) => {
     audio.play();
 }
 
-// caches all pokemon images with ids 1 to {numTotalPokemon}
-const cachePokemonSprites = (numTotalPokemon) => {
-    for (let i=1; i<=numTotalPokemon; i++) {
-        const imgElm = document.createElement('img');
-        imgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
-    }
-}
-
 // event handler for when dragging tiles
 const handleOnDragStart = (ev) => {
     ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -382,7 +400,6 @@ const getPersistentBestScore = () => {
     return localStorage.getItem('bestScorePokezzle');
 }
 
-// cachePokemonSprites(1000);
 initPokemonDataArrAsync();
 
 setPreGameState();

@@ -7,10 +7,10 @@ class Navbar extends HTMLElement {
     if (this.getAttribute("custom") !== null) {
       this.innerHTML = `
         <div><a></a></div>
-        <div>${this.innerHTML}</div>
+        <div class = "nav-title" >${this.innerHTML}</div>
         <div id="help-btn">
           <b href="#">
-          <div class="best-scores">Best</div>
+          <div class="nav-button">Best</div>
           </b>
         </div>
       `;

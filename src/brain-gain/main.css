@@ -60,7 +60,7 @@ core-modal {
   z-index: 3;
 }
 
-.best-scores {
+.nav-button {
   position: relative;
   top: 0;
   margin-right: 3px;
@@ -97,6 +97,29 @@ core-modal {
   aspect-ratio: auto;
   object-fit: contain;
 }
+
+.share-btn {
+  position: relative;
+  text-align: center;
+  top: 0;
+  margin-right: 3px;
+  border-radius: 3px;
+  padding: 2px;
+  user-select: none;
+  background-color: #f4abba;
+  color: #f5f5f5;
+}
+
+.share-btn:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.share-btn:active{
+  transform: scale(1.05);
+  background-color: #ea596e;
+}
+
+
 
 /* colors based on the colors used in the logo*/
 .title-color-brain,

@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="./brain-gain/main.css" />
 
     <link rel="icon" type="image/x-icon" href="./images/logo-favicon.png">
@@ -25,6 +27,7 @@
       </core-navbar>
 
       <core-modal custom>
+        <div class="best-score">
         <div class="modal-header">YOUR CURRENT BEST SCORE</div>
         <div class="best-game-list">
           <div class="best-game-scores">
@@ -39,8 +42,16 @@
             <img src="./images/a2048expert-logo.png" alt="2048 Expert logo" class="best-game-img"/>
             <span id="best-game-score-2048">0</span>
           </div>
-        </div>
+        </div></div>
+        
+        
+        <div class="share-btn" id="share-btn">Share</div>
+        
+        
       </core-modal>
+
+      
+
 
       <div id="center-info">
         <img id="title-img" src="./images/logo.png" alt="example" class="title-img" />

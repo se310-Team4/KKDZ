@@ -26,6 +26,7 @@ class Modal extends HTMLElement {
   registerEventListeners() {
     const modal = document.getElementById("modal");
     const helpBtn = document.getElementById("help-btn");
+    const shareBtn = document.getElementById("share-btn");
     const closeBtn = document.getElementById("close-btn");
 
     function onKeyDownInModal(e) {
@@ -45,8 +46,14 @@ class Modal extends HTMLElement {
       document.dispatchEvent(new Event("modal-opened"));
     }
 
+    function openSharePop(){
+      console.log("hi")
+    }
+    
+
     closeBtn.onclick = closeModal;
     helpBtn.onclick = openModal;
+    shareBtn.onclick = openSharePop;
 
     // close window if they user clicks outside of the window
     window.onclick = function (event) {

@@ -78,7 +78,9 @@ function renderGameUi() {
     })
     .join("");
 
-  if (!map) map = L.map("map", { zoomDelta: 0.5 }).setView([51.505, -0.09], 13);
+  if (!map) map = L.map("map", { 
+    zoomControl: true
+   }).setView([51.505, -0.09], 13);
 
   /** @type {L.TileLayer | null} the current aerial imagery */
   let layer = null;

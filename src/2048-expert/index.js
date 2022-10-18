@@ -30,7 +30,19 @@ function newGame() {
 setupInput()
 
 function setupInput() {
-  window.addEventListener("keydown", handleInput, { once: true })
+  document.addEventListener("modal-closed", enableInput);
+  document.addEventListener("modal-opened", disableInput);
+}
+
+// accept keyboard input from the user
+// enable the handling of key presses
+function enableInput() {
+  document.addEventListener("keyup", handleInput);
+}
+
+// disable the handling of key presses
+function disableInput() {
+  document.removeEventListener("keyup", handleInput);
 }
 
 async function handleInput(e) {

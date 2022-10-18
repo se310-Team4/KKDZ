@@ -130,12 +130,13 @@ function endGame() {
 }
 
 function updateScore() {
-    if (gameCount > bestScore) {
-        setBestScore(gameCount);
-        bestScore = gameCount;
+    const currentScore = gameCount === 0 ? 0 : gameCount - 1;   // prevents showing -1 value for current score
+    if (currentScore > bestScore) {
+        setBestScore(currentScore);
+        bestScore = currentScore;
     }
     bestScoreElm.innerText = bestScore;
-    currentScoreElm.innerText = gameCount;
+    currentScoreElm.innerText = currentScore;
 }
 
 function startNextGame() {

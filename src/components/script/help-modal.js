@@ -13,6 +13,7 @@ class Modal extends HTMLElement {
 			<div>
 				<div id="modal">
 					<div class="modal-window">
+          <span class="close-btn" id="close-btn">&times;</span>
 						<div>${this.innerHTML}</div>
 					</div>
 				</div>
@@ -27,7 +28,7 @@ class Modal extends HTMLElement {
     const helpBtn = document.getElementById("help-btn");
     const shareBtn = document.getElementById("share-btn");
     const shareModal = document.getElementById("share-modal");
-    const closeBtnScore = document.getElementById("close-btn-score");
+    const closeBtn = document.getElementById("close-btn");
     const closeBtnShare = document.getElementById("close-btn-share");
 
     function onKeyDownInModal(e) {
@@ -39,10 +40,13 @@ class Modal extends HTMLElement {
       document.removeEventListener("keydown", onKeyDownInModal);
       localStorage["seen-modal-" + location] = true;
       document.dispatchEvent(new Event("modal-closed"));
+      closeShareModal();
     }
 
     function closeShareModal(){
-      shareModal.style.display = "none";
+      if(shareModal !=null){
+        shareModal.style.display = "none";
+      }
       document.removeEventListener("keydown", onKeyDownInModal);
       localStorage["seen-modal-" + location] = true;
       document.dispatchEvent(new Event("modal-closed"));
@@ -56,27 +60,31 @@ class Modal extends HTMLElement {
     }
 
     function openSharePop(){
-      shareModal.style.display = "block";
+      if(shareModal != null){
+        shareModal.style.display = "block";
+      }
       document.addEventListener("keydown", onKeyDownInModal);
       document.dispatchEvent(new Event("modal-opened"));
     }
     
 
-    closeBtnScore.onclick = closeModal;
-    closeBtnShare.onclick = closeShareModal;
+    closeBtn.onclick = closeModal;
     helpBtn.onclick = openModal;
-    shareBtn.onclick = openSharePop;
+    if (shareBtn != null){
+      shareBtn.onclick = openSharePop;
+    }
 
     // close window if they user clicks outside of the window
     window.onclick = function (event) {
-      console.log(event.target);
       if (event.target == modal) closeModal();
-      if (event.target == document.getElementsByClassName("modal-window")) closeShareModal();
     };
 
     // hide the modals by default
     modal.style.display = "none";
-    shareModal.style.display = "none";
+    if(shareModal != null){
+      shareModal.style.display = "none";
+    }
+
 
     // if user havent seen the modal, show the modal once the window is open
     // homepage uses custom modal, and it does not require modal to appear for first time user

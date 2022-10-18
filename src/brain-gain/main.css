@@ -60,6 +60,7 @@ core-modal {
   z-index: 3;
 }
 
+
 .nav-button {
   position: relative;
   top: 0;
@@ -96,6 +97,11 @@ core-modal {
   max-height: 80px;
   aspect-ratio: auto;
   object-fit: contain;
+}
+
+#share-modal {
+  position: relative;
+  z-index: 4;
 }
 
 .share-btn {

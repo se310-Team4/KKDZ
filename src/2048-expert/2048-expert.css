@@ -78,31 +78,38 @@ h1 {
   background-color: rgb(175, 161, 132);
 }
 
-/* game board that contains the grid of tiles */
-.game-board {
-  margin-top: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  width: 600px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  font-size: calc(var(--cell-size) / 8 * 3);
   background-color: #bbada0;
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+  position: relative;
+  margin-top: 30px;
 }
 
-/* cells on the game board */
-.game-board div {
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  margin: 6px;
-  border-radius: 3px;
+.cell {
+  background-color: #afa184;
+  border-radius: 1vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   font-weight: bold;
-  text-align: center;
-  background-color: #eee4da;
   color: #afa192;
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 /* font size depends on number of digits in the tile  */
@@ -126,72 +133,9 @@ h1 {
   font-size: 32px;
 }
 
-@media only screen and (max-width: 700px) {
-  .container {
-    width: 100%;
-  }
-
-  .intro {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 10px;
-  }
-
-  .title {
-    width: 95%;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 10px;
-  }
-
-  /* game board that contains the grid of tiles */
-  .game-board {
-    margin-top: 30px;
-    padding: 15px;
-    border-radius: 10px;
-    width: 444px;
-    height: 444px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  /* cells on the game board */
-  .game-board div {
-    width: 64px;
-    height: 64px;
-    line-height: 80px;
-    margin: 5px;
-    border-radius: 3px;
-    font-weight: bold;
-    background-color: #eee4da;
-    color: #afa192;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-    /* font size depends on number of digits in the tile  */
-  [data-digits="0"] {
-    color: rgb(175, 161, 132) !important; /* needed to override the font colour */
-  }
-
-  [data-digits="1"] {
-    font-size: 48px;
-  }
-
-  [data-digits="2"] {
-    font-size: 38px;
-  }
-
-  [data-digits="3"] {
-    font-size: 28px;
-  }
-
-  [data-digits="4"] {
-    font-size: 26px;
+@keyframes show {
+  0% {
+    opacity: .5;
+    transform: scale(0);
   }
 }

@@ -37,8 +37,8 @@ const initPokemonDataArrAsync = async () => {
             id: index+1
         };
     });
-    const indexArr = generateIndexArr(tempLength);
-    indexArrShuffled = shuffleArr(indexArr);
+    indexArrShuffled = generateIndexArr(tempLength);
+    shuffleArr(indexArrShuffled);
     cachePokemonSprites();
 }
 
@@ -64,6 +64,7 @@ const startNextRound = () => {
     startTimer();
 }
 
+// calculates the offset for the pokemon index array
 const calculateOffset = () => {
     let offsetStart = (roundCount - 1) * NUM_TILES;
     let offsetEnd = offsetStart + NUM_TILES;
@@ -72,15 +73,6 @@ const calculateOffset = () => {
         offsetEnd = offsetStart + NUM_TILES;
     }
     return [offsetStart,offsetEnd];
-}
-
-// caches the images for the pokemon of the next round
-const cachePokemonSprites = () => {
-    [offsetStart,offsetEnd] = calculateOffset();
-    for (let i=1; i<=NUM_TILES; i++) {
-        const imgElm = document.createElement('img');
-        imgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${indexArrShuffled[i+offsetEnd]}.png`;
-    }
 }
 
 // creates an array of ids for the (4) pokemon of the current round
@@ -177,6 +169,8 @@ const startTimer = () => {
     let currentRoundCount = roundCount;
     setTimeout(() => {
         if(currentRoundCount === roundCount && numTilesFilled < NUM_TILES) {
+            shuffleArr(indexArrShuffled);
+            cachePokemonSprites();
             setPreGameState();
         }
     }, getTimeForCurrentRound()*1000);
@@ -264,12 +258,13 @@ const getTimeForCurrentRound = () => {
     return actualTime;
 }
 
-// plays the cry audio of the pokemon of the specified id
-const playPokemonCryAudio = (pokemonId,isMuted) => {
-    const pokemonName = pokemonDataArr[pokemonId-1].name;
-    const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
-    audio.muted = isMuted;
-    audio.play();
+// caches the images for the pokemon of the next round
+const cachePokemonSprites = () => {
+    [offsetStart,offsetEnd] = calculateOffset();
+    for (let i=1; i<=NUM_TILES; i++) {
+        const imgElm = document.createElement('img');
+        imgElm.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${indexArrShuffled[i+offsetEnd]}.png`;
+    }
 }
 
 // caches all the pokemon audio used for the current round
@@ -278,6 +273,14 @@ const cachePokemonAudio = (pokemonIdArr) => {
         playPokemonCryAudio(pokemonId,true);
     });
     playPokemonNotificationAudio(true);
+}
+
+// plays the cry audio of the pokemon of the specified id
+const playPokemonCryAudio = (pokemonId,isMuted) => {
+    const pokemonName = pokemonDataArr[pokemonId-1].name;
+    const audio = new Audio(`https://play.pokemonshowdown.com/audio/cries/${pokemonName}.mp3`);
+    audio.muted = isMuted;
+    audio.play();
 }
 
 // plays the pokemon notification audio

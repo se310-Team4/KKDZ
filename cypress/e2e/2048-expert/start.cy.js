@@ -5,11 +5,7 @@ describe("game board initialisation", () => {
     cy.get("[id=close-btn]").click();
   });
 
-  it("test all cells show successfully", () => {
-    cy.get(".game-board").children(".cell").should("have.length", 36);
-  });
-
   it("test number generated correctly", () => {
-    cy.get(".game-board").children(".cell").contains(/[2|4]/g);
+    cy.get("#game-board").children(".tile").contains(/[2|4]/g);
   });
 });

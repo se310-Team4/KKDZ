@@ -67,6 +67,14 @@
               />
               <span id="best-game-score-tactong">0</span>
             </div>
+            <div class="best-game-scores">
+              <img
+                src="https://images-na.ssl-images-amazon.com/images/I/71WkWKFRSWL.png"
+                alt="Poketiles Logo"
+                class="best-game-img"
+              />
+              <span id="best-game-score-poketiles">0</span>
+            </div>
           </div>
         </div>
         <div class="share-btn" id="share-btn">Share</div>
@@ -112,6 +120,9 @@
               "\n" +
               "Tactong: " +
               localStorage.getItem("bestScoreTactong") +
+              "\n" +
+              "Poketiles: " +
+              localStorage.getItem("bestScorePokezzle") +
               "\n" +
               "Check out this repo! \n"
           );
@@ -210,10 +221,20 @@
         <div id="poketiles-details" class="game-details">
           <div>
             <p class="game-details-title">Poketiles</p>
-            <br>
-            <p class="game-details-text">Poketiles takes inspiration from the popular "Who's that pokemon?" gimmick of the Pokemon franchise. Players must match the silhouette of the Pokemon with their corresponding names all before the timer runs out. Play a game of Poketiles and see if you can be the very best like no one ever was!</p>
+            <br />
+            <p class="game-details-text">
+              Poketiles takes inspiration from the popular "Who's that pokemon?"
+              gimmick of the Pokemon franchise. Players must match the
+              silhouette of the Pokemon with their corresponding names all
+              before the timer runs out. Play a game of Poketiles and see if you
+              can be the very best like no one ever was!
+            </p>
           </div>
-          <img src="./images/poketiles-example.png" alt="poketiles example gameplay" class="game-details-img">
+          <img
+            src="./images/poketiles-example.png"
+            alt="poketiles example gameplay"
+            class="game-details-img"
+          />
         </div>
       </div>
 
@@ -279,8 +300,19 @@
           />
           <p id="tactong-btn-text">Tactong</p>
         </a>
-        <a id="tactong-btn" href="./poketiles/index.html" onclick="transitionToPage('./poketiles/index.html');return false" class="games-button" onmouseenter="poketilesDetails()" onmouseleave="titleShow()"><!--  -->
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71WkWKFRSWL.png" alt="Poketiles logo" class="game-button-img" />
+        <a
+          id="tactong-btn"
+          href="./poketiles/index.html"
+          onclick="transitionToPage('./poketiles/index.html');return false"
+          class="games-button"
+          onmouseenter="poketilesDetails()"
+          onmouseleave="titleShow()"
+          ><!--  -->
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/71WkWKFRSWL.png"
+            alt="Poketiles logo"
+            class="game-button-img"
+          />
           <p id="tactong-btn-text">Poketiles</p>
         </a>
       </div>

@@ -8,6 +8,7 @@ class Modal extends HTMLElement {
       document.getElementById("best-game-score-liedle").innerHTML = localStorage.getItem("bestScoreLiedle");
       document.getElementById("best-game-score-2048").innerHTML = localStorage.getItem("bestScore2048");
       document.getElementById("best-game-score-tactong").innerHTML = localStorage.getItem("bestScoreTactong");
+      document.getElementById("best-game-score-poketiles").innerHTML = localStorage.getItem("bestScorePokezzle");
     }
 
     this.innerHTML = `
@@ -30,7 +31,6 @@ class Modal extends HTMLElement {
     const shareBtn = document.getElementById("share-btn");
     const shareModal = document.getElementById("share-modal");
     const closeBtn = document.getElementById("close-btn");
-    const closeBtnShare = document.getElementById("close-btn-share");
 
     function onKeyDownInModal(e) {
       if (e.key === "Escape") closeModal();

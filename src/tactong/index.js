@@ -1,5 +1,5 @@
 ///// CONFIG VARIABLES /////
-const baseDifficulty = 0;
+const baseDifficulty = 1;
 const patternDelay = 500;
 const betweenPatternDelay = 100;
 
@@ -34,6 +34,7 @@ let pattern = [];
 let guess = [];
 let gameCount = 0;
 let bestScore = getBestScore() === null ? 0 : getBestScore();
+let isNewGame = true;
 
 function getRandomColor() {
     const colors = Object.keys(quadrants);
@@ -115,6 +116,7 @@ function checkEnd() {
 }
 
 function endGame() {
+    isNewGame = true;
     gameCount = 0;
     pattern = [];
     guess = [];
@@ -128,17 +130,18 @@ function endGame() {
 }
 
 function updateScore() {
-    if (gameCount > bestScore) {
-        setBestScore(gameCount);
-        bestScore = gameCount;
+    const currentScore = gameCount === 0 ? 0 : gameCount - 1;   // prevents showing -1 value for current score
+    if (currentScore > bestScore) {
+        setBestScore(currentScore);
+        bestScore = currentScore;
     }
     bestScoreElm.innerText = bestScore;
-    currentScoreElm.innerText = gameCount;
+    currentScoreElm.innerText = currentScore;
 }
 
 function startNextGame() {
     stopHoverListeners();
-    gameCount++;
+    isNewGame ? isNewGame = false : gameCount++;
     updateScore();
     guess = [];
     pattern = generateRandomPattern(gameCount+baseDifficulty);

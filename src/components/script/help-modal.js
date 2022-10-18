@@ -7,6 +7,7 @@ class Modal extends HTMLElement {
       document.getElementById("best-game-score-capidle").innerHTML = localStorage.getItem("bestScoreCapidle");
       document.getElementById("best-game-score-liedle").innerHTML = localStorage.getItem("bestScoreLiedle");
       document.getElementById("best-game-score-2048").innerHTML = localStorage.getItem("bestScore2048");
+      document.getElementById("best-game-score-tactong").innerHTML = localStorage.getItem("bestScoreTactong");
     }
 
     this.innerHTML = `

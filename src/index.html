@@ -90,18 +90,20 @@
 
         <script>
           const link = "https://github.com/se310-Team4/KKDZ";
-          const score = encodeURIComponent(
-            localStorage.getItem("bestScore2048")
-          );
 
           const msg = encodeURIComponent(
-            "This is my best score in 2048 Expert: " +
-              score +
+            "This is my best score\n" +
+              "Capdile: " +
+              localStorage.getItem("bestScoreCapidle") +
+              "\n" +
+              "Liedle: " +
+              localStorage.getItem("bestScoreLiedle") +
+              "\n" +
+              "2048 Expert: " +
+              localStorage.getItem("bestScore2048") +
               "\n" +
               "Check out this repo! \n"
           );
-
-          console.log(link, msg, localStorage.getItem("bestScore2048"));
 
           const fb = document.querySelector(".facebook");
           fb.href = `https://www.facebook.com/share.php?u=${link}&message=${msg}`;

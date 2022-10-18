@@ -4,11 +4,33 @@ class Modal extends HTMLElement {
     super();
 
     if (this.getAttribute("custom") !== null) {
-      document.getElementById("best-game-score-capidle").innerHTML = localStorage.getItem("bestScoreCapidle");
-      document.getElementById("best-game-score-liedle").innerHTML = localStorage.getItem("bestScoreLiedle");
-      document.getElementById("best-game-score-2048").innerHTML = localStorage.getItem("bestScore2048");
-      document.getElementById("best-game-score-tactong").innerHTML = localStorage.getItem("bestScoreTactong");
-      document.getElementById("best-game-score-poketiles").innerHTML = localStorage.getItem("bestScorePokezzle");
+
+      /**Inisialize scores */
+      document.getElementById("best-game-score-capidle").innerHTML = "0";
+      document.getElementById("best-game-score-liedle").innerHTML = "0";
+      document.getElementById("best-game-score-2048").innerHTML = "0";
+      document.getElementById("best-game-score-tactong").innerHTML = "0";
+      document.getElementById("best-game-score-poketiles").innerHTML = "0";
+
+      if(localStorage.getItem("bestScoreCapidle") != null){
+        document.getElementById("best-game-score-capidle").innerHTML = localStorage.getItem("bestScoreCapidle");
+      }
+
+      if(localStorage.getItem("bestScoreLiedle") != null){
+        document.getElementById("best-game-score-liedle").innerHTML = localStorage.getItem("bestScoreLiedle");
+      }
+
+      if(localStorage.getItem("bestScore2048") != null){
+        document.getElementById("best-game-score-2048").innerHTML = localStorage.getItem("bestScore2048");
+      }
+
+      if(localStorage.getItem("bestScoreTactong") != null){
+        document.getElementById("best-game-score-tactong").innerHTML = localStorage.getItem("bestScoreTactong");
+      }
+
+      if(localStorage.getItem("bestScorePokezzle") != null){
+        document.getElementById("best-game-score-poketiles").innerHTML = localStorage.getItem("bestScorePokezzle");
+      }
     }
 
     this.innerHTML = `

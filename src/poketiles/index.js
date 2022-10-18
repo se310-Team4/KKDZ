@@ -51,6 +51,7 @@ const startNextRound = () => {
     roundCount++;
     cachePokemonSprites();
 
+    let offsetStart, offsetEnd;
     [offsetStart,offsetEnd] = calculateOffset();
 
     // setup targets and tiles for pokemon of current round
@@ -259,6 +260,7 @@ const getTimeForCurrentRound = () => {
 
 // caches the images for the pokemon of the next round
 const cachePokemonSprites = () => {
+    let offsetStart, offsetEnd;
     [offsetStart,offsetEnd] = calculateOffset();
     for (let i=1; i<=NUM_TILES; i++) {
         const imgElm = document.createElement('img');

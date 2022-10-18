@@ -19,6 +19,8 @@ function createBoard() {
     gameBoard.appendChild(cell);
     cells.push(cell);
   }
+  document.addEventListener("modal-closed", handleInput);
+  document.addEventListener("modal-opened", disableInput);
 }
 
 // generate number (2 or 4) at a random available cell
@@ -363,7 +365,15 @@ addColours();
 bestScoreDisplay.innerHTML = bestScore;
 
 // accept keyboard input from the user
-document.addEventListener("keyup", control);
+// enable the handling of key presses
+function handleInput() {
+  document.addEventListener("keyup", control);
+}
+
+// disable the handling of key presses
+function disableInput() {
+  document.removeEventListener("keyup", control);
+}
 
 // allow restarting the game
 const newBtn = document.getElementById("new-btn");

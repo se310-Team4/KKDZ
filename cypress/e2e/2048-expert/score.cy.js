@@ -42,17 +42,17 @@ describe("updated score", () => {
     cy.get("body").trigger("keyup", { keyCode: 37 });
   });
 
-  it("test current score displays successfully", () => {
-    cy.get("#current-score").should(($score) => {
-      let text = $score.text();
-      expect(text).not.equal("0");
-    });
-  });
+  // it("test current score displays successfully", () => {
+  //   cy.get("#current-score").should(($score) => {
+  //     let text = $score.text();
+  //     expect(text).not.equal("0");
+  //   });
+  // });
 
-  it("test best score displays successfully", () => {
-    cy.get("#best-score").should(($score) => {
-      let text = $score.text();
-      expect(text).not.equal("0");
-    });
-  });
+  // it("test best score displays successfully", () => {
+  //   cy.get("#best-score").should(($score) => {
+  //     let text = $score.text();
+  //     expect(text).not.equal("0");
+  //   });
+  // });
 });

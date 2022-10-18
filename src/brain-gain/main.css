@@ -100,8 +100,19 @@ core-modal {
 }
 
 #share-modal {
-  position: relative;
+  width: 300px;
+  height: auto;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
   z-index: 4;
+  overflow: inherit;
+  position: fixed;
+}
+
+.fab fa-facebook{
+  size: 20px;
 }
 
 .share-btn {
@@ -308,6 +319,8 @@ core-modal {
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
+
+
 
 @media only screen and (max-width: 1200px) {
   .game-details {

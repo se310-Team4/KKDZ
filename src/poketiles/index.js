@@ -143,7 +143,6 @@ const setupTileContainer = (pokemonIdArr) => {
         tileElm.id = `poke-img-${randomId}`;
         tileElm.classList.add('poke-img');
         
-        tileElm.style.outline = '1px solid black';
         tileElm.draggable = true;
         tileElm.ondragstart = handleOnDragStart;
 
@@ -374,10 +373,18 @@ const addSilhouette = (tileElm) => {
 
 // removes the outlines from all the tile elements
 const removeTileOutlines = () => {
-    targetGridElm.style.backgroundColor = 'rgb(120, 200, 120)';
-    currentTileElmArr.forEach(div => {
-        div.style.outline = 'none';
+    // tile elements
+    currentTileElmArr.forEach(tileElm => {
+        tileElm.style.outline = '1px solid rgb(120, 200, 120)';
     });
+
+    // target grid element
+    targetGridElm.style.backgroundColor = 'rgb(120, 200, 120)';
+    targetGridElm.classList.add('shimmer');
+    setTimeout(() => {
+        targetGridElm.style.backgroundColor = 'white';
+        targetGridElm.classList.remove('shimmer');
+    },BETWEEN_ROUND_DELAY_MS);
 }
 
 // updates the current score and best score

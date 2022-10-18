@@ -13,7 +13,6 @@ class Modal extends HTMLElement {
 			<div>
 				<div id="modal">
 					<div class="modal-window">
-						<span id="close-btn">&times;</span>
 						<div>${this.innerHTML}</div>
 					</div>
 				</div>
@@ -27,7 +26,9 @@ class Modal extends HTMLElement {
     const modal = document.getElementById("modal");
     const helpBtn = document.getElementById("help-btn");
     const shareBtn = document.getElementById("share-btn");
-    const closeBtn = document.getElementById("close-btn");
+    const shareModal = document.getElementById("share-modal");
+    const closeBtnScore = document.getElementById("close-btn-score");
+    const closeBtnShare = document.getElementById("close-btn-share");
 
     function onKeyDownInModal(e) {
       if (e.key === "Escape") closeModal();
@@ -40,6 +41,14 @@ class Modal extends HTMLElement {
       document.dispatchEvent(new Event("modal-closed"));
     }
 
+    function closeShareModal(){
+      shareModal.style.display = "none";
+      document.removeEventListener("keydown", onKeyDownInModal);
+      localStorage["seen-modal-" + location] = true;
+      document.dispatchEvent(new Event("modal-closed"));
+    }
+
+
     function openModal() {
       modal.style.display = "block";
       document.addEventListener("keydown", onKeyDownInModal);
@@ -47,21 +56,27 @@ class Modal extends HTMLElement {
     }
 
     function openSharePop(){
-      console.log("hi")
+      shareModal.style.display = "block";
+      document.addEventListener("keydown", onKeyDownInModal);
+      document.dispatchEvent(new Event("modal-opened"));
     }
     
 
-    closeBtn.onclick = closeModal;
+    closeBtnScore.onclick = closeModal;
+    closeBtnShare.onclick = closeShareModal;
     helpBtn.onclick = openModal;
     shareBtn.onclick = openSharePop;
 
     // close window if they user clicks outside of the window
     window.onclick = function (event) {
+      console.log(event.target);
       if (event.target == modal) closeModal();
+      if (event.target == document.getElementsByClassName("modal-window")) closeShareModal();
     };
 
-    // hide the help modal by default
+    // hide the modals by default
     modal.style.display = "none";
+    shareModal.style.display = "none";
 
     // if user havent seen the modal, show the modal once the window is open
     // homepage uses custom modal, and it does not require modal to appear for first time user

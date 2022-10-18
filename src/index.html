@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 
     <link rel="stylesheet" href="./brain-gain/main.css" />
 
@@ -27,6 +27,7 @@
       </core-navbar>
 
       <core-modal custom>
+        <span class="close-btn" id="close-btn-score">&times;</span>
         <div class="best-score">
         <div class="modal-header">YOUR CURRENT BEST SCORE</div>
         <div class="best-game-list">
@@ -43,12 +44,46 @@
             <span id="best-game-score-2048">0</span>
           </div>
         </div></div>
-        
-        
         <div class="share-btn" id="share-btn">Share</div>
-        
-        
       </core-modal>
+
+      <core-modal id="share-modal">
+      <div id="share-buttons">
+        <span class="close-btn" id="close-btn-share">&times;</span>
+        <a class="facebook" target="_blank"><em class="fab fa-facebook"></em></a>
+
+        <a class="twitter" target="_blank"><em class="fab fa-twitter"></em></a>
+
+        <a class="reddit" target="_blank"><em class="fab fa-reddit"></em></a>
+      </div>
+
+        <script>
+        const link = "https://github.com/se310-Team4/KKDZ";
+        const msg = encodeURIComponent("this is my best score:");
+        const score =  encodeURIComponent(document.getElementById("best-game-score-2048").textContent);
+        console.log(link,msg,score);
+        
+
+        const fb = document.querySelector('.facebook');
+
+        fb.href = `https://www.facebook.com/share.php?u=${link}`;
+        
+        const tw = document.querySelector('.twitter');
+
+        tw.href = `http://twitter.com/share?text=${msg}&url=${link}`;
+
+        const rd = document.querySelector('.reddit');
+
+        rd.href = `http://reddit.com/submit?url=${link}&title=${msg}`;
+
+
+       
+
+
+        </script>
+      </core-modal>
+
+      
 
       
 

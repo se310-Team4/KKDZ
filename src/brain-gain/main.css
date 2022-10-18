@@ -389,15 +389,15 @@ core-modal {
   line-height: 20px;
 }
 
-#close-btn {
+.close-btn {
   color: #787c7e;
   float: right;
   margin-top: -16px;
   font-size: 32px;
 }
 
-#close-btn:hover,
-#close-btn:focus {
+.close-btn:hover,
+.close-btn:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

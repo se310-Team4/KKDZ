@@ -219,7 +219,7 @@ core-modal {
   width: 30%;
 }
 
-#capidle-btn {
+/* #capidle-btn {
   position: absolute;
   left: 5%;
   bottom: 5%;
@@ -241,7 +241,7 @@ core-modal {
   position: absolute;
   left: 75%;
   bottom: 5%;
-}
+} */
 
 /* the modal window used in all mini games */
 #modal {

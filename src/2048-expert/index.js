@@ -7,7 +7,6 @@ const currentScoreDisplay = document.getElementById("current-score");
 // allow restarting the game
 const newBtn = document.getElementById("new-btn");
 newBtn.onclick = function () {
-  gameEnd = false;
   gameBoard.textContent = '';
   window.currentScore = 0;
   currentScoreDisplay.innerHTML = 0;

@@ -60,7 +60,8 @@ core-modal {
   z-index: 3;
 }
 
-.best-scores {
+
+.nav-button {
   position: relative;
   top: 0;
   margin-right: 3px;
@@ -97,6 +98,45 @@ core-modal {
   aspect-ratio: auto;
   object-fit: contain;
 }
+
+#share-modal {
+  width: 300px;
+  height: auto;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 4;
+  overflow: inherit;
+  position: fixed;
+}
+
+.fab fa-facebook{
+  size: 20px;
+}
+
+.share-btn {
+  position: relative;
+  text-align: center;
+  top: 0;
+  margin-right: 3px;
+  border-radius: 3px;
+  padding: 2px;
+  user-select: none;
+  background-color: #f4abba;
+  color: #f5f5f5;
+}
+
+.share-btn:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.share-btn:active{
+  transform: scale(1.05);
+  background-color: #ea596e;
+}
+
+
 
 /* colors based on the colors used in the logo*/
 .title-color-brain,
@@ -280,6 +320,8 @@ core-modal {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 
+
+
 @media only screen and (max-width: 1200px) {
   .game-details {
     flex-direction: column;
@@ -366,15 +408,15 @@ core-modal {
   line-height: 20px;
 }
 
-#close-btn {
+.close-btn {
   color: #787c7e;
   float: right;
   margin-top: -16px;
   font-size: 32px;
 }
 
-#close-btn:hover,
-#close-btn:focus {
+.close-btn:hover,
+.close-btn:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

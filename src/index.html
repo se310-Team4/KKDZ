@@ -8,16 +8,23 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
 
     <link rel="stylesheet" href="./brain-gain/main.css" />
 
-    <link rel="icon" type="image/x-icon" href="./images/logo-favicon.png">
+    <link rel="icon" type="image/x-icon" href="./images/logo-favicon.png" />
     <script src="./brain-gain/index.js"></script>
   </head>
 
   <body>
-  
     <div class="content">
       <!-- Navbar with no back/help button -->
       <core-navbar custom>
@@ -25,60 +32,180 @@
       </core-navbar>
 
       <core-modal custom>
-        <div class="modal-header">YOUR CURRENT BEST SCORE</div>
-        <div class="best-game-list">
-          <div class="best-game-scores">
-            <img src="./images/capidle-logo.png" alt="Capidle logo" class="best-game-img"/>
-            <span id="best-game-score-capidle">0</span>
-          </div>
-          <div class="best-game-scores">
-            <img src="./images/liedle-logo.png" alt="Liedle logo" class="best-game-img"/>
-            <span id="best-game-score-liedle">0</span>
-          </div>
-          <div class="best-game-scores">
-            <img src="./images/a2048expert-logo.png" alt="2048 Expert logo" class="best-game-img"/>
-            <span id="best-game-score-2048">0</span>
-          </div>
-          <div class="best-game-scores">
-            <img src="./images/tactong-logo.png" alt="Tactong Logo" class="best-game-img"/>
-            <span id="best-game-score-tactong">0</span>
+        <div class="best-score">
+          <div class="modal-header">YOUR CURRENT BEST SCORE</div>
+          <div class="best-game-list">
+            <div class="best-game-scores">
+              <img
+                src="./images/capidle-logo.png"
+                alt="Capidle logo"
+                class="best-game-img"
+              />
+              <span id="best-game-score-capidle">0</span>
+            </div>
+            <div class="best-game-scores">
+              <img
+                src="./images/liedle-logo.png"
+                alt="Liedle logo"
+                class="best-game-img"
+              />
+              <span id="best-game-score-liedle">0</span>
+            </div>
+            <div class="best-game-scores">
+              <img
+                src="./images/a2048expert-logo.png"
+                alt="2048 Expert logo"
+                class="best-game-img"
+              />
+              <span id="best-game-score-2048">0</span>
+            </div>
+            <div class="best-game-scores">
+              <img
+                src="./images/tactong-logo.png"
+                alt="Tactong Logo"
+                class="best-game-img"
+              />
+              <span id="best-game-score-tactong">0</span>
+            </div>
           </div>
         </div>
+        <div class="share-btn" id="share-btn">Share</div>
       </core-modal>
 
+      <modal class="modal-window" id="share-modal">
+        <div id="share-buttons" style="text-align: center">
+          <a class="facebook" target="_blank"
+            ><em
+              class="fab fa-facebook fa-5x"
+              style="color: #ea596e; padding: 5px"
+            ></em
+          ></a>
+
+          <a class="twitter" target="_blank"
+            ><em
+              class="fab fa-twitter fa-5x"
+              style="color: #ea596e; padding: 5px"
+            ></em
+          ></a>
+
+          <a class="reddit" target="_blank">
+            <em
+              class="fab fa-reddit fa-5x"
+              style="color: #ea596e; padding: 5px"
+            ></em>
+          </a>
+        </div>
+
+        <script>
+          const link = "https://github.com/se310-Team4/KKDZ";
+
+          const msg = encodeURIComponent(
+            "This is my best score\n" +
+              "Capdile: " +
+              localStorage.getItem("bestScoreCapidle") +
+              "\n" +
+              "Liedle: " +
+              localStorage.getItem("bestScoreLiedle") +
+              "\n" +
+              "2048 Expert: " +
+              localStorage.getItem("bestScore2048") +
+              "\n" +
+              "Tactong: " +
+              localStorage.getItem("bestScoreTactong") +
+              "\n" +
+              "Check out this repo! \n"
+          );
+
+          const fb = document.querySelector(".facebook");
+          fb.href = `https://www.facebook.com/share.php?u=${link}&message=${msg}`;
+
+          const tw = document.querySelector(".twitter");
+          tw.href = `http://twitter.com/share?text=${msg}&url=${link}`;
+
+          const rd = document.querySelector(".reddit");
+          rd.href = `http://reddit.com/submit?url=${link}&title=${msg}`;
+        </script>
+      </modal>
+
       <div id="center-info">
-        <img id="title-img" src="./images/logo.png" alt="example" class="title-img" />
+        <img
+          id="title-img"
+          src="./images/logo.png"
+          alt="example"
+          class="title-img"
+        />
         <div id="capidle-details" class="game-details">
           <div>
             <p class="game-details-title">Capidle</p>
-            <br>
-            <p class="game-details-text">This game is a blend between Wordle, flagle.io, and Geoguessr. An interactive map showing satellite imagery of a city will appear on your screen. Try to guess the city! But be careful, the map will not have any labels to help you out! How many tries will it take for you to figure out where exactly it is?</p>
+            <br />
+            <p class="game-details-text">
+              This game is a blend between Wordle, flagle.io, and Geoguessr. An
+              interactive map showing satellite imagery of a city will appear on
+              your screen. Try to guess the city! But be careful, the map will
+              not have any labels to help you out! How many tries will it take
+              for you to figure out where exactly it is?
+            </p>
           </div>
-          <img src="./images/capidle-example.png" alt="Capidle example gameplay" class="game-details-img" />
+          <img
+            src="./images/capidle-example.png"
+            alt="Capidle example gameplay"
+            class="game-details-img"
+          />
         </div>
         <div id="liedle-details" class="game-details">
           <div>
             <p class="game-details-title">Liedle</p>
-            <br>
-            <p class="game-details-text">Liedle is a unique and more challenging variation of the popular word game, Wordle. The goal of the game is to guess the secret 5-letter word. After each guess, the color of the tiles will tell you more information about how close your guess was. But don't rely on the hints too much! The game will sometimes lie about the tile colour...</p>
+            <br />
+            <p class="game-details-text">
+              Liedle is a unique and more challenging variation of the popular
+              word game, Wordle. The goal of the game is to guess the secret
+              5-letter word. After each guess, the color of the tiles will tell
+              you more information about how close your guess was. But don't
+              rely on the hints too much! The game will sometimes lie about the
+              tile colour...
+            </p>
           </div>
-          <img src="./images/liedle-example.png" alt="Liedle example gameplay" class="game-details-img" />
+          <img
+            src="./images/liedle-example.png"
+            alt="Liedle example gameplay"
+            class="game-details-img"
+          />
         </div>
         <div id="a2048expert-details" class="game-details">
           <div>
             <p class="game-details-title">2048 Expert</p>
-            <br>
-            <p class="game-details-text">2048 Expert is a variation of 2048. But as the name implies, 2048 Expert is more of a challenge. Instead of 1 empty tile being added after every move, you will receive 2! How will another tile affect your merging skills? Have fun in a much larger 6 x 6 grid and try to make your way up to 2048.</p>
+            <br />
+            <p class="game-details-text">
+              2048 Expert is a variation of 2048. But as the name implies, 2048
+              Expert is more of a challenge. Instead of 1 empty tile being added
+              after every move, you will receive 2! How will another tile affect
+              your merging skills? Have fun in a much larger 6 x 6 grid and try
+              to make your way up to 2048.
+            </p>
           </div>
-          <img src="./images/a2048expert-example.png" alt="2048 Expert example gameplay" class="game-details-img" />
+          <img
+            src="./images/a2048expert-example.png"
+            alt="2048 Expert example gameplay"
+            class="game-details-img"
+          />
         </div>
         <div id="tactong-details" class="game-details">
           <div>
             <p class="game-details-title">Tactong</p>
-            <br>
-            <p class="game-details-text">Tactong is a memorisation game. You will be given a pattern of colours and sounds in a specific order, you must return the pattern in the provided order to continue to the next level! Patterns will get progressively more complex as the game progresses.</p>
+            <br />
+            <p class="game-details-text">
+              Tactong is a memorisation game. You will be given a pattern of
+              colours and sounds in a specific order, you must return the
+              pattern in the provided order to continue to the next level!
+              Patterns will get progressively more complex as the game
+              progresses.
+            </p>
           </div>
-          <img src="./images/tactong-example.png" alt="tactong example gameplay" class="game-details-img">
+          <img
+            src="./images/tactong-example.png"
+            alt="tactong example gameplay"
+            class="game-details-img"
+          />
         </div>
         <div id="poketiles-details" class="game-details">
           <div>
@@ -92,20 +219,64 @@
 
       <!-- Buttons to the mini-games -->
       <div class="btn-container">
-        <a id="capidle-btn" href="./capidle/index.html" onclick="transitionToPage('./capidle/index.html');return false" class="games-button" onmouseenter="capidleDetails()" onmouseleave="titleShow()">
-          <img src="./images/capidle-logo.png" alt="Capidle logo" class="game-button-img" />
+        <a
+          id="capidle-btn"
+          href="./capidle/index.html"
+          onclick="transitionToPage('./capidle/index.html');return false"
+          class="games-button"
+          onmouseenter="capidleDetails()"
+          onmouseleave="titleShow()"
+        >
+          <img
+            src="./images/capidle-logo.png"
+            alt="Capidle logo"
+            class="game-button-img"
+          />
           <p id="capidle-btn-text">Capidle</p>
         </a>
-        <a id="liedle-btn" href="./liedle/index.html" onclick="transitionToPage('./liedle/index.html');return false" class="games-button" onmouseenter="liedleDetails()" onmouseleave="titleShow()">
-          <img src="./images/liedle-logo.png" alt="Liedle logo" class="game-button-img" />
+        <a
+          id="liedle-btn"
+          href="./liedle/index.html"
+          onclick="transitionToPage('./liedle/index.html');return false"
+          class="games-button"
+          onmouseenter="liedleDetails()"
+          onmouseleave="titleShow()"
+        >
+          <img
+            src="./images/liedle-logo.png"
+            alt="Liedle logo"
+            class="game-button-img"
+          />
           <p id="liedle-btn-text">Liedle</p>
         </a>
-        <a id="a2048expert-btn"  href="./2048-expert/index.html" onclick="transitionToPage('./2048-expert/index.html');return false" class="games-button" onmouseenter="a2048ExpertDetails()" onmouseleave="titleShow()">
-          <img src="./images/a2048expert-logo.png" alt="2048 Expert logo" class="game-button-img" />
+        <a
+          id="a2048expert-btn"
+          href="./2048-expert/index.html"
+          onclick="transitionToPage('./2048-expert/index.html');return false"
+          class="games-button"
+          onmouseenter="a2048ExpertDetails()"
+          onmouseleave="titleShow()"
+        >
+          <img
+            src="./images/a2048expert-logo.png"
+            alt="2048 Expert logo"
+            class="game-button-img"
+          />
           <p id="a2048expert-btn-text">2048 Expert</p>
         </a>
-        <a id="tactong-btn" href="./tactong/index.html" onclick="transitionToPage('./tactong/index.html');return false" class="games-button" onmouseenter="tactongDetails()" onmouseleave="titleShow()">
-          <img src="./images/tactong-logo.png" alt="Tactong logo" class="game-button-img" />
+        <a
+          id="tactong-btn"
+          href="./tactong/index.html"
+          onclick="transitionToPage('./tactong/index.html');return false"
+          class="games-button"
+          onmouseenter="tactongDetails()"
+          onmouseleave="titleShow()"
+        >
+          <img
+            src="./images/tactong-logo.png"
+            alt="Tactong logo"
+            class="game-button-img"
+          />
           <p id="tactong-btn-text">Tactong</p>
         </a>
         <a id="tactong-btn" href="./poketiles/index.html" onclick="transitionToPage('./poketiles/index.html');return false" class="games-button" onmouseenter="poketilesDetails()" onmouseleave="titleShow()"><!--  -->

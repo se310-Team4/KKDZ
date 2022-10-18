@@ -16,8 +16,8 @@ newBtn.onclick = function () {
 };
 
 var grid = new Grid(gameBoard)
-grid.randomEmptyCell().tile = new Tile(gameBoard, 1024)
-grid.randomEmptyCell().tile = new Tile(gameBoard, 1024)
+grid.randomEmptyCell().tile = new Tile(gameBoard)
+grid.randomEmptyCell().tile = new Tile(gameBoard)
 
 function newGame() {
 
@@ -36,6 +36,7 @@ function setupInput() {
 async function handleInput(e) {
   switch (e.key) {
     case "ArrowUp":
+    case "w":
       if (!canMoveUp()) {
         setupInput()
         return
@@ -43,6 +44,7 @@ async function handleInput(e) {
       await moveUp()
       break
     case "ArrowDown":
+      case "s":
       if (!canMoveDown()) {
         setupInput()
         return
@@ -50,6 +52,7 @@ async function handleInput(e) {
       await moveDown()
       break
     case "ArrowLeft":
+    case "a":
       if (!canMoveLeft()) {
         setupInput()
         return
@@ -57,6 +60,7 @@ async function handleInput(e) {
       await moveLeft()
       break
     case "ArrowRight":
+    case "d":
       if (!canMoveRight()) {
         setupInput()
         return
